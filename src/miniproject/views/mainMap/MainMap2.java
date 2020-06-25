@@ -14,10 +14,10 @@ import miniproject.views.somang.Park;
 
 
 
-public class MainMap extends JPanel {	
+public class MainMap2 extends JPanel {	
 	private int donum;
 	MainFrame mf;
-	MainMap panel = this;
+	MainMap2 panel = this;
 	private Door[] doors = {new Door(), new Door(), new Door(), new Door(), new Door(), new Door()};
 	
 	
@@ -32,7 +32,7 @@ public class MainMap extends JPanel {
 		setOpaque(false); //그림을 표시하게 설정,투명하게 조절
 		super.paintComponent(g);
 	}
-	public MainMap (MainFrame mf) {
+	public MainMap2 (MainFrame mf) {
 		
 		this.mf = mf;
 		

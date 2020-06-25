@@ -1,4 +1,4 @@
-package miniproject.views.somang;
+package miniProject4.com.kh.views;
 
 import java.awt.Font;
 import java.awt.Graphics;
@@ -43,8 +43,8 @@ public class Ssing extends JPanel {
 			g.drawImage(charac01.getImage(), 50, 200, 398, 398, this);
 		}
 
-		g.setFont(new Font("Neo�뫁洹쇰え", Font.BOLD, 40));
-		g.drawString("�삤�뒛�룄 �끂�옒 �뿰�뒿�쓣 �빐蹂댁옄!", 70, 750);
+		g.setFont(new Font("Neo둥근모", Font.BOLD, 40));
+		g.drawString("오늘도 노래 연습을 해보자!", 70, 750);
 
 		setOpaque(false);
 		super.paintComponent(g);
@@ -73,6 +73,7 @@ public class Ssing extends JPanel {
 			Timer2 timer = new Timer2(mf,gp);
 			Thread t1 = timer;
 			t1.start();
+	
 			
 			
 			

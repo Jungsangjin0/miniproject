@@ -1,4 +1,4 @@
-package miniproject.views.somang;
+package miniProject4.com.kh.views;
 
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
@@ -37,19 +37,20 @@ public class Timer2 extends Thread{
 			try {
 				System.out.println(i);
 				this.sleep(1000);
-				label.setText("�젣�븳�떆媛� : " + i);
+				label.setText("제한시간 : " + i);
 			}catch(InterruptedException e) {
 				//e.printStackTrace();
 				
 			}
 			i--;
+			
 //			if(Thread.interrupted()) {
 //				//ssingNext_lose();
 //				break;
 //			}
 		}
 		
-		System.out.println("삭제");
+		System.out.println("종료");
 
 		
 	}//--run 

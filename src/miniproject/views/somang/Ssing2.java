@@ -1,4 +1,4 @@
-package miniproject.views.somang;
+package miniProject4.com.kh.views;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -39,9 +39,9 @@ public class Ssing2 extends JPanel {
 		// sTest = new ImageIcon("image/images/sTest_1.png");
 		// Stext();
 
-		// �뀓�뒪�듃�엯�젰
-		JLabel label = new JLabel("鍮덉뭏�뿉 �뱾�뼱媛� 留먯�? : ");
-		label.setFont(new Font("Neo�뫁洹쇰え", Font.PLAIN, 25));
+		// 텍스트입력
+		JLabel label = new JLabel("빈칸에 들어갈 말은? : ");
+		label.setFont(new Font("Neo둥근모", Font.PLAIN, 25));
 		label.setBounds(70, 740, 250, 50);
 		panel.add(label);
 
@@ -50,15 +50,15 @@ public class Ssing2 extends JPanel {
 		input3 = new JTextField();
 
 		// input.addActionListener(action);
-		input.setFont(new Font("Neo�뫁洹쇰え", Font.BOLD, 30));
+		input.setFont(new Font("Neo둥근모", Font.BOLD, 30));
 		input.setBounds(300, 740, 100, 50);
 
 		// input2.addActionListener(action);
-		input2.setFont(new Font("Neo�뫁洹쇰え", Font.BOLD, 30));
+		input2.setFont(new Font("Neo둥근모", Font.BOLD, 30));
 		input2.setBounds(410, 740, 100, 50);
 
 		// input3.addActionListener(action);
-		input3.setFont(new Font("Neo�뫁洹쇰え", Font.BOLD, 30));
+		input3.setFont(new Font("Neo둥근모", Font.BOLD, 30));
 		input3.setBounds(520, 740, 100, 50);
 
 		panel.add(input);
@@ -88,7 +88,7 @@ public class Ssing2 extends JPanel {
 //			}
 //
 //		});
-		//3踰덉㎏�뿉�꽌留� �뿏�꽣 �씠踰ㅽ듃 諛쒖깮  -> �쟾泥� �엯�젰�떆 �븳踰덉뿉 寃��넗�썑 �꽆�뼱媛�湲�
+		//3번째에서만 엔터 이벤트 발생  -> 전체 입력시 한번에 검토후 넘어가기
 		input3.addActionListener(new ActionListener() {
 
 			@Override
@@ -132,27 +132,27 @@ public class Ssing2 extends JPanel {
 		// JTextField sText = new JTextField();
 		// sText.setBounds(50,500,180,40);
 
-		// 諛곌꼍�씠誘몄�
+		// 배경이미지
 		g.drawImage(icon.getImage(), 0, 0, null);
-		// ���솕李쎌씠誘몄�
+		// 대화창이미지
 		g.drawImage(talk.getImage(), 5, 620, 1390, 250, null);
-		// 罹먮┃�꽣 �씠誘몄�
+		// 캐릭터 이미지
 		if (charac01 != null) {
 			g.drawImage(charac01.getImage(), 50, 200, 398, 398, this);
 		}
-		// �뀒�뒪�듃 �씠誘몄�
+		// 테스트 이미지
 
-		sTest = test; // �씠誘몄� 1
-		g.drawImage(sTest.getImage(), 500, 180, 772, 408, null); 
+		sTest = test; // 이미지 1
+		g.drawImage(sTest.getImage(), 500, 180, 772, 408, null); // 이미지1
 
-		g.setFont(new Font("Neo 둥근모" , Font.BOLD, 36));
-		g.drawString("鍮덉뭏�뿉 �븣留욎� �끂�옒媛��궗瑜� �쟻�옄! �뿏�꽣瑜� �늻瑜댁� �븡�쑝硫� 臾댄슚! \n", 70, 720);
+		g.setFont(new Font("Neo둥근모", Font.BOLD, 36));
+		g.drawString("빈칸에 알맞은 노래가사를 적자! 엔터를 누르지 않으면 무효! \n", 70, 720);
 
 //	if(ncnt==0) {
-//		sTest = test; // �씠誘몄� 1
+//		sTest = test; // 이미지 1
 //		g.drawImage(sTest.getImage(), 500, 180, 772, 408, null); 
 //	}else if(ncnt ==1){
-//		sTest = test; // �씠誘몄� 1
+//		sTest = test; // 이미지 1
 //		g.drawImage(sTest.getImage(), 500, 180, 772, 408, null); 
 //	}
 		

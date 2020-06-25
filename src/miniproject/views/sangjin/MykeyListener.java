@@ -1,4 +1,4 @@
-package dongyub;
+package miniproject.views.sangjin;
 
 import java.awt.Image;
 import java.awt.event.KeyAdapter;
@@ -11,6 +11,8 @@ class MyKeyListener extends KeyAdapter {
 
 	// 케릭터 속도 조절 기본 : 10
 	private static final int FLYING_UNIT = 10;		
+//	int valX = 10;
+//	int valY = 10;
 	JLabel la;
 
 	
@@ -27,6 +29,7 @@ class MyKeyListener extends KeyAdapter {
 		case KeyEvent.VK_UP:
 
 			la.setLocation(la.getX(), la.getY() - FLYING_UNIT);
+			
 
 			break;
 
@@ -47,6 +50,9 @@ class MyKeyListener extends KeyAdapter {
 			la.setLocation(la.getX() + FLYING_UNIT, la.getY());
 
 			break;
+			
+		case KeyEvent.VK_SPACE:
+			System.out.println("location is : " +la.getX() +"," + la.getY());
 
 		}
 	}

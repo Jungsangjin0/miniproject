@@ -1,16 +1,22 @@
 package miniproject.views.somang;
 
-import java.awt.*;
+import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 
-import miniProject4.com.kh.views.Park.clickPanel;
+import miniproject.views.ChangePanel;
+import miniproject.views.mainMap.MainMap2;
+import miniproject.views.MainFrame;
+
 
 public class Park2 extends JPanel {
-	private JFrame mf;
-	private JPanel panel;
+	private MainFrame mf;
+	private JPanel panel = this;
 	private ImageIcon icon;
 	private ImageIcon talk;
 	private ImageIcon Mark;
@@ -18,35 +24,42 @@ public class Park2 extends JPanel {
 	public Park2() {
 		this.mf = mf;
 		this.setLayout(null);
-		panel = this;
-		// 諛곌꼍
-		icon = new ImageIcon("image/park/park2.png");
-		// ���솕李�
-		talk = new ImageIcon("image/park/talkFrame.png");
-		// �뒓�굦�몴
+		// 배경
+		icon = new ImageIcon("src/miniproject/images/park/park2.png");
+		// 대화창
+		talk = new ImageIcon("src/miniproject/images/park/talkFrame.png");
+		// 느낌표
 		
 
-		//this.addMouseListener(new clickPanel());
+		this.addMouseListener(new MouseAdapter() {
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ChangePanel.changePanel(mf, panel, new MainMap2(mf));
+				mf.repaint();
+			}
+		});
 
 	}
 
 	public void paintComponent(Graphics g) {
 		g.drawImage(icon.getImage(), 0, 0, null);
 		g.drawImage(talk.getImage(), 5, 620, 1390, 250, null);		
-		g.setFont(new Font("Neo�뫁洹쇰え", Font.BOLD, 40));
-		g.drawString("�닔�긽�븳 �궗�엺 : �옄�꽕 �듃濡쒗듃�쓽 �떊�씠 �릺�뼱 蹂댁� �븡�쓣 �뀗媛�?", 70, 730);
-		g.drawString("愿��떖�씠 �엳�떎硫� �궡媛� �엳�뒗 JYB�냼�냽�궗濡� �삤寃뚮굹!", 290, 780);
+		g.setFont(new Font("Neo둥근모", Font.BOLD, 40));
+		g.drawString("수상한 사람 : 자네 트로트의 신이 되어 보지 않을 텐가?", 70, 730);
+		g.drawString("관심이 있다면 내가 있는 JYB소속사로 오게나!", 290, 780);
 		
-		setOpaque(false); // 洹몃┝�쓣 �몴�떆�븯寃� �꽕�젙,�닾紐낇븯寃� 議곗젅
+		setOpaque(false); // 그림을 표시하게 설정,투명하게 조절
 		super.paintComponent(g);
 	}
 
-	/*class clickPanel extends MouseAdapter {
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			ChangePanel.replacePanel(mf, panel, new Park2());
-		}
+//	class clickPanel extends MouseAdapter {
+//		@Override
+//		public void mouseClicked(MouseEvent e) {
+//			ChangePanel.changePanel(mf, panel, new MainMap2(mf));
+//			mf.repaint();
+//		}
 
-	}*/
+//	}
 	
 }
