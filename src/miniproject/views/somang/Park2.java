@@ -1,4 +1,4 @@
-package miniProject4.com.kh.views;
+package miniproject.views.somang;
 
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -19,11 +19,11 @@ public class Park2 extends JPanel {
 		this.mf = mf;
 		this.setLayout(null);
 		panel = this;
-		// 배경
+		// 諛곌꼍
 		icon = new ImageIcon("image/park/park2.png");
-		// 대화창
+		// ���솕李�
 		talk = new ImageIcon("image/park/talkFrame.png");
-		// 느낌표
+		// �뒓�굦�몴
 		
 
 		//this.addMouseListener(new clickPanel());
@@ -33,11 +33,11 @@ public class Park2 extends JPanel {
 	public void paintComponent(Graphics g) {
 		g.drawImage(icon.getImage(), 0, 0, null);
 		g.drawImage(talk.getImage(), 5, 620, 1390, 250, null);		
-		g.setFont(new Font("Neo둥근모", Font.BOLD, 40));
-		g.drawString("수상한 사람 : 자네 트로트의 신이 되어 보지 않을 텐가?", 70, 730);
-		g.drawString("관심이 있다면 내가 있는 JYB소속사로 오게나!", 290, 780);
+		g.setFont(new Font("Neo�뫁洹쇰え", Font.BOLD, 40));
+		g.drawString("�닔�긽�븳 �궗�엺 : �옄�꽕 �듃濡쒗듃�쓽 �떊�씠 �릺�뼱 蹂댁� �븡�쓣 �뀗媛�?", 70, 730);
+		g.drawString("愿��떖�씠 �엳�떎硫� �궡媛� �엳�뒗 JYB�냼�냽�궗濡� �삤寃뚮굹!", 290, 780);
 		
-		setOpaque(false); // 그림을 표시하게 설정,투명하게 조절
+		setOpaque(false); // 洹몃┝�쓣 �몴�떆�븯寃� �꽕�젙,�닾紐낇븯寃� 議곗젅
 		super.paintComponent(g);
 	}
 

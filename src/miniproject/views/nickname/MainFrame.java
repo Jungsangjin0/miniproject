@@ -1,4 +1,4 @@
-package practice.nickname;
+package miniproject.views.nickname;
 
 import java.awt.*;
 import java.awt.event.KeyAdapter;

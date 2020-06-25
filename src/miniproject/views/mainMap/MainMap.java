@@ -1,4 +1,4 @@
-package practice.mainMap;
+package miniproject.views.mainMap;
 
 import java.awt.*;
 import javax.swing.*;
@@ -11,7 +11,7 @@ public class MainMap extends JPanel {
 
 	
 	public void paintComponent(Graphics g) {
-		ImageIcon bground = new ImageIcon("mainMap/MainMap.png");
+		ImageIcon bground = new ImageIcon("src/miniproject/images/mainMap/MainMap.png");
 		
 		g.drawImage(bground.getImage(), 0, 0, 1400, 900, null);
 		//			Point p = scrollPane.getViewport().getViewPosition();

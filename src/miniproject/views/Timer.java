@@ -1,4 +1,4 @@
-package com.kh.practice.junguk;
+package miniproject.views;
 
 import java.awt.Font;
 

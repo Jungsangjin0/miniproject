@@ -1,4 +1,4 @@
-package minigame.view;
+package miniproject.views.minigame;
 
 import java.awt.Font;
 import java.awt.Graphics;

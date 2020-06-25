@@ -1,4 +1,4 @@
-package practice.suddenGame;
+package miniproject.views.suddenGameuddenGame;
 
 import javax.swing.JFrame;
 

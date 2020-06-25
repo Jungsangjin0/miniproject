@@ -1,4 +1,4 @@
-package ending.view;
+package miniproject.views.ending;
 
 import java.awt.Color;
 import java.awt.Graphics;

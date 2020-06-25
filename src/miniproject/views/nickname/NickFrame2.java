@@ -1,4 +1,4 @@
-package practice.nickname;
+package miniproject.views.nickname;
 
 import javax.swing.JFrame;
 

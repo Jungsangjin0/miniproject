@@ -1,4 +1,4 @@
-package miniProject4.com.kh.views;
+package miniproject.views.somang;
 
 import java.awt.Font;
 import java.awt.Graphics;
@@ -37,8 +37,8 @@ public class SsingNext_lose extends JPanel{
 		if (charac01 != null) {
 			g.drawImage(charac01.getImage(), 500, 250, 398, 398, this);
 		}
-		g.setFont(new Font("Neo둥근모", Font.BOLD, 40));
-		g.drawString("아쉽게 노래 점수를 얻지 못했다..!", 70, 750);
+		g.setFont(new Font("Neo�뫁洹쇰え", Font.BOLD, 40));
+		g.drawString("�븘�돺寃� �끂�옒 �젏�닔瑜� �뼸吏� 紐삵뻽�떎..!", 70, 750);
 		
 		setOpaque(false);
 		super.paintComponent(g);

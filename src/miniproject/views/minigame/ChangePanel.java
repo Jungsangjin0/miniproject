@@ -1,4 +1,4 @@
-package minigame.view;
+package miniproject.views.minigame;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;

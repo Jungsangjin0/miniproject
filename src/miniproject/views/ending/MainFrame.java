@@ -1,4 +1,4 @@
-package ending.view;
+package miniproject.views.ending;
 
 import java.awt.BorderLayout;
 import java.awt.Container;

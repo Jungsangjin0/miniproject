@@ -1,8 +1,8 @@
-package practice.mainMap;
+package miniproject.views;
 
 import javax.swing.JFrame;
 
-import  practice.mainMap.MainMap;
+import miniproject.views.mainMap.MainMap;
 
 public class MainFrame extends JFrame {
 	public MainFrame(){

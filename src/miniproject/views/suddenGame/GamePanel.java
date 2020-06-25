@@ -1,4 +1,4 @@
-package practice.suddenGame;
+package miniproject.views.suddenGame;
 
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
