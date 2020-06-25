@@ -1,20 +1,21 @@
-package miniproject.views;
+package practice.mainMap;
 
 import javax.swing.JFrame;
 
-public class MainFrame extends JFrame{
+import  practice.mainMap.MainMap;
 
-	public MainFrame() {
-		setSize(1400,900);
+public class MainFrame extends JFrame {
+	public MainFrame(){
+		this.setBounds(60, 0, 1400, 900);
+		MainMap mainmap = new MainMap();
+		mainmap.setLayout(null);
+		this.add(mainmap);
+		this.setVisible(true);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		
 		
-		
-		
-		
-		
-		
-		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	
 	}
+	
 }
