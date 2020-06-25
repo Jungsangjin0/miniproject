@@ -14,6 +14,7 @@ public class ChangePanel {
 		mf.remove(op);
 		mf.add(np);
 		mf.repaint();
+		mf.revalidate();
 	}
 }
 
