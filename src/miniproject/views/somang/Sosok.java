@@ -1,4 +1,4 @@
-package miniproject.views.somang;
+package miniProject4.com.kh.views;
 
 import java.awt.Graphics;
 import java.awt.Image;
@@ -38,7 +38,7 @@ public class Sosok extends JPanel{
 		ImageIcon sIcon = new ImageIcon(simage);
 		
 		
-		//罹먮┃�꽣�뱾
+		//캐릭터들
 		JLabel cLabel = new JLabel(cIcon);
 		JLabel sLabel = new JLabel(sIcon);
 		cLabel.setBounds(30, 250, 398, 398);
@@ -50,7 +50,7 @@ public class Sosok extends JPanel{
 		panel.add(sajangButton);
 		panel.add(cLabel);
 		
-		//臾�
+		//문
 		JLabel labelL = new JLabel(sDoorL);
 		JLabel labelR = new JLabel(sDoorR);
 		//label.getIcon();
@@ -68,10 +68,10 @@ public class Sosok extends JPanel{
 		
 		
 		
-		//�끂�옒
+		//노래
 		doorL.addMouseListener(new clickButtonL());
 		
-		//異�
+		//춤
 		doorR.addMouseListener(new clickButtonR());
 	}
 	
@@ -91,14 +91,14 @@ public class Sosok extends JPanel{
 	
 	
 	
-	//�끂�옒
+	//노래
 	class clickButtonL extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			ChangePanel.replacePanel(mf, panel, new Ssing(mf));
 		}
 	}
-	//異�
+	//춤
 	class clickButtonR extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {

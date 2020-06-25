@@ -11,17 +11,15 @@ public class ChangePanel {
 	private JPanel panel;
 	private JPanel panel2;
 	
-	public ChangePanel(JFrame mf, JPanel panel, JPanel panel2) {
-		this.mf = mf;
-		this.panel = panel;
-		this.panel2 = panel2;
-	}
+
 
 	public static void changePanel(MainFrame mf, JPanel op, JPanel np){
 		mf.remove(op);
 		mf.add(np);
+		np.setLayout(null);
+		np.setSize(1400,900);
 		mf.repaint();
-		mf.revalidate();
+	
 	}
 }
 
