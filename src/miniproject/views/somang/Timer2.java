@@ -37,7 +37,7 @@ public class Timer2 extends Thread{
 			try {
 				System.out.println(i);
 				this.sleep(1000);
-				label.setText("제한시간 : " + i);
+				label.setText("�젣�븳�떆媛� : " + i);
 			}catch(InterruptedException e) {
 				//e.printStackTrace();
 				
@@ -49,7 +49,7 @@ public class Timer2 extends Thread{
 //			}
 		}
 		
-		System.out.println("종료");
+		System.out.println("삭제");
 
 		
 	}//--run 
