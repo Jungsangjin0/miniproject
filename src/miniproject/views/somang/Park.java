@@ -50,7 +50,7 @@ public class Park extends JPanel {
 	class clickPanel extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			ChangePanel.changePanel(mf, panel, new Park2());
+			ChangePanel.changePanel(mf, panel, new Park2(mf));
 			mf.revalidate();
 		}
 

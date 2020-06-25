@@ -1,29 +1,31 @@
 package miniproject.views.jungukGame;
 
 import java.awt.Color;
-import java.awt.Container;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import miniproject.views.ChangePanel;
+import miniproject.views.MainFrame;
+import miniproject.views.Timer;
+import miniproject.views.mainMap.MainMap4;
+
 public class GamePanel extends JPanel{
 	private MainFrame mf;
-	private JPanel panel;
-	private ImageIcon icon = new ImageIcon("images/Junguk_2.PNG");
-	private Image bicon = new ImageIcon("images/button.PNG").getImage().getScaledInstance(200, 60, 0);
+	private GamePanel panel;
+	private ImageIcon icon = new ImageIcon("src/miniproject/images/junguk/Junguk_2.png");
+	private Image bicon = new ImageIcon("src/miniproject/images/junguk/button.png").getImage().getScaledInstance(200, 60, 0);
 	private String[] answer = new String[5];
 	private int gamescore = 0;
 
@@ -51,8 +53,8 @@ public class GamePanel extends JPanel{
 	private int point = 0;
 
 
-	public GamePanel() {
-
+	public GamePanel(MainFrame mf) {
+		this.mf = mf;
 		panel = this;
 		this.setLayout(null);
 
@@ -166,6 +168,38 @@ public class GamePanel extends JPanel{
 		});
 		printLabel = new JTextField(gamescore + "¡°¿ª  »πµÊ«ﬂΩ¿¥œ¥Ÿ!");
 		printLabel.setFont(new Font("Sanscerif", Font.BOLD, 70));
+		printLabel.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ChangePanel.changePanel(mf, panel, new MainMap4(mf));
+				
+			}
+		});
 		this.setComponentZOrder(scoreLabel, 0);
 		this.add(printLabel);
 	}

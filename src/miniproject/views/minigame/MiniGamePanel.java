@@ -9,24 +9,27 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import miniproject.views.ChangePanel;
+import miniproject.views.MainFrame;
+
 
 public class MiniGamePanel extends JPanel { // 미니게임 연결화면 (춤연습장 들어가서 첫화면)
 
 	private ImageIcon back;
 	private ImageIcon talk;
 	private ImageIcon characters;
-	private JPanel panel;
-	private JFrame mf;
+	private MiniGamePanel panel = this;
+	private MainFrame mf;
 
 
-	public MiniGamePanel(JFrame mf) {
+	public MiniGamePanel(MainFrame mf) {
 
 		this.mf = mf;
-		this.panel = this;
+//		this.panel = this;
 		this.setLayout(null);
-		back = new ImageIcon("images/minigamekey.PNG"); //배경
-		talk = new ImageIcon("images/conv.PNG"); //대화창
-		characters = new ImageIcon("images/Characters_1.GIF"); //캐릭터
+		back = new ImageIcon("src/miniproject/images/SJH/minigamekey.PNG"); //배경
+		talk = new ImageIcon("src/miniproject/images/SJH/conv.PNG"); //대화창
+		characters = new ImageIcon("src/miniproject/images/SJH/Characters_1.GIF"); //캐릭터
 
 
 		this.addMouseListener(new MyMouseAdapter()); 

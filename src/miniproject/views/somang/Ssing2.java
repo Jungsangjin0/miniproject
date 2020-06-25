@@ -1,4 +1,4 @@
-package miniProject4.com.kh.views;
+package miniproject.views.somang;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,9 +10,10 @@ import java.awt.event.ActionListener;
 
 //import javax.activation.ActivationDataFlavor;
 import javax.swing.*;
+import miniproject.views.MainFrame;
 
 public class Ssing2 extends JPanel {
-	private JFrame mf;
+	private MainFrame mf;
 	private JPanel panel;
 	private ImageIcon icon;
 	private ImageIcon talk;
@@ -28,13 +29,14 @@ public class Ssing2 extends JPanel {
 	//int ncnt=0;
 	
 	// Scanner sc = new Scanner(System.in);
-	public Ssing2(JFrame mf) {
+	public Ssing2(MainFrame mf) {
 		// panel = new JPanel();
+		this.mf = mf;
 		panel = this;
 		this.setLayout(null);
-		icon = new ImageIcon("image/Ssing/sosokSing.png");
-		talk = new ImageIcon("image/Ssing/talkFrame.png");
-		charac01 = new ImageIcon("image/Ssing/Characters01.gif");
+		icon = new ImageIcon("src/miniproject/images/ssing/sosokSing.png");
+		talk = new ImageIcon("src/miniproject/images/ssing/talkframe.png");
+		charac01 = new ImageIcon("src/miniproject/images/ssing/Characters01.gif");
 
 		// sTest = new ImageIcon("image/images/sTest_1.png");
 		// Stext();
@@ -123,7 +125,7 @@ public class Ssing2 extends JPanel {
 	}
 
 	int num = (int) (Math.random() * 10) + 1;
-	ImageIcon test = new ImageIcon("image/Ssing/sTest_" + num + ".png");
+	ImageIcon test = new ImageIcon("src/miniproject/images/ssing/sTest_" + num + ".png");
 	
 
 	public void paintComponent(Graphics g) {

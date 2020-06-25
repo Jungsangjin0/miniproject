@@ -3,11 +3,12 @@ package miniproject.views.suddenGame;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
+
+import miniproject.views.ChangePanel;
+import miniproject.views.MainFrame;
 
 public class GamePanel extends JPanel{
 	private GameInfo info = new GameInfo();
@@ -15,7 +16,7 @@ public class GamePanel extends JPanel{
 	private GamePanel panel = this;
 	
 	public void paintComponent(Graphics g) {
-		ImageIcon bground = new ImageIcon("suddenGame/bground_0.jpg");
+		ImageIcon bground = new ImageIcon("src/miniproject/images/suddenGame/bground_0.jpg");
 		
 		g.drawImage(bground.getImage(), 0, 0, 1400, 900, null);
 		//			Point p = scrollPane.getViewport().getViewPosition();
@@ -45,7 +46,7 @@ public class GamePanel extends JPanel{
 			this.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					ChangePanel.changePanel(mf, panel, new GamePanelReal());
+					ChangePanel.changePanel(mf, panel, new GamePanelReal(mf));
 			}
 			});
 		}

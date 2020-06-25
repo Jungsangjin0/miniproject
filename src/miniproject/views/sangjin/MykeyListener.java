@@ -11,8 +11,6 @@ class MyKeyListener extends KeyAdapter {
 
 	// 케릭터 속도 조절 기본 : 10
 	private static final int FLYING_UNIT = 10;		
-//	int valX = 10;
-//	int valY = 10;
 	JLabel la;
 
 	

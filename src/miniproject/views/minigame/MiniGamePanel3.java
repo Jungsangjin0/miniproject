@@ -12,6 +12,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import miniproject.views.ChangePanel;
+import miniproject.views.MainFrame;
+
 public class MiniGamePanel3 extends JPanel  { // 미니게임 연결화면 (소속사 화면)
 
 	private ImageIcon back; //배경
@@ -21,22 +24,22 @@ public class MiniGamePanel3 extends JPanel  { // 미니게임 연결화면 (소속사 화면)
 	private Image doorR; //소속사 문(미니게임 춤)
 	private Image doorL; //소속사 문(미니게임 노래)
 	
-	private JFrame mf;
+	private MainFrame mf;
 	private JPanel panel3;
 	
 
-	public MiniGamePanel3(JFrame mf) { //게임화면?
+	public MiniGamePanel3(MainFrame mf) { //게임화면?
 
 		this.mf=mf;
 		panel3 = this;
 		this.setLayout(null);
 
-		back = new ImageIcon("images/minibackgroundfinish.PNG"); //배경-소속사
-		talk = new ImageIcon("images/conv.PNG"); //대화창
-		characters = new ImageIcon("images/Characters_4.GIF"); //캐릭터
-		boss = new ImageIcon("images/boss.PNG"); //소속사 사장
-		doorR = new ImageIcon("images/door.PNG").getImage().getScaledInstance(175, 238, 0); //소속사 문(미니게임 춤)
-		doorL = new ImageIcon("images/door.PNG").getImage().getScaledInstance(175, 238, 0); //소속사 문(미니게임 노래)
+		back = new ImageIcon("src/miniproject/images/SJH/minibackgroundfinish.PNG"); //배경-소속사
+		talk = new ImageIcon("src/miniproject/images/SJH/conv.PNG"); //대화창
+		characters = new ImageIcon("src/miniproject/images/SJH/Characters_4.GIF"); //캐릭터
+		boss = new ImageIcon("src/miniproject/images/SJH/boss.PNG"); //소속사 사장
+		doorR = new ImageIcon("src/miniproject/images/SJH/door.PNG").getImage().getScaledInstance(175, 238, 0); //소속사 문(미니게임 춤)
+		doorL = new ImageIcon("src/miniproject/images/SJH/door.PNG").getImage().getScaledInstance(175, 238, 0); //소속사 문(미니게임 노래)
 
 		//JLabel labelR = new JLabel(doorR);  //소속사 문(미니게임 춤)
 		//JLabel labelL = new JLabel(doorL);  //소속사 문(미니게임 노래)

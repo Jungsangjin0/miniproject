@@ -1,4 +1,4 @@
-package miniProject4.com.kh.views;
+package miniproject.views.somang;
 
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
@@ -7,9 +7,10 @@ import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import miniproject.views.MainFrame;
 
 public class Timer2 extends Thread{
-	private  JFrame mf;
+	private  MainFrame mf;
 	private JPanel panel;
 	private boolean isStop = false;
 	MouseEvent e;
@@ -18,8 +19,8 @@ public class Timer2 extends Thread{
 		
 	}
 	
-	public Timer2(JFrame mf, JPanel panel) {
-		this.mf=mf;
+	public Timer2(MainFrame mf, JPanel panel) {
+		this.mf= mf;
 		this.panel =panel;
 	}
 	
