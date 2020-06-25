@@ -1,108 +1,69 @@
 package dongyub;
 
-import java.io.Serializable;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
-public class Player implements Serializable{
-	private String userId;
-	private int totalScore;
-	private int danceScore;
-	private int singScore;
-	private int playerX = 0;
-	private int playerY = 0;
-	private int quest;
+import javax.swing.*;
 
-	public Player() {}
-
-
-	public Player(String userId, int totalScore, int danceScore, int singScore, int playerX, int playerY, int quest) {
-		super();
-		this.userId = userId;
-		this.totalScore = totalScore;
-		this.danceScore = danceScore;
-		this.singScore = singScore;
-		this.playerX = playerX;
-		this.playerY = playerY;
-		this.quest = quest;
+public class Player extends JFrame {
+	private static final int SCREEN_WIDTH = 1400;
+	private static final int SCREEN_HEIGHT = 900;
+	
+	public Player() {
+		
+		this.setTitle("트롯스타메이커!!");
+		this.setVisible(true);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		this.setBounds(100, 100, SCREEN_WIDTH, SCREEN_HEIGHT);
+		
+		this.setLayout(null);
+		
+		this.add(new PyPanel());
+		
+		this.addKeyListener(new MyKeyAdapter());
+		
 	}
-
-
-	@Override
-	public String toString() {
-		return "Player [userId=" + userId + ", totalScore=" + totalScore + ", danceScore=" + danceScore + ", singScore="
-				+ singScore + ", playerX=" + playerX + ", playerY=" + playerY + ", quest=" + quest + "]";
-	}
-
-
-	public String getUserId() {
-		return userId;
-	}
-
-
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-
-
-	public int getTotalScore() {
-		return totalScore;
-	}
-
-
-	public void setTotalScore(int totalScore) {
-		this.totalScore = totalScore;
-	}
-
-
-	public int getDanceScore() {
-		return danceScore;
-	}
-
-
-	public void setDanceScore(int danceScore) {
-		this.danceScore = danceScore;
-	}
-
-
-	public int getSingScore() {
-		return singScore;
-	}
-
-
-	public void setSingScore(int singScore) {
-		this.singScore = singScore;
-	}
-
-
-	public int getPlayerX() {
-		return playerX;
-	}
-
-
-	public void setPlayerX(int playerX) {
-		this.playerX = playerX;
-	}
-
-
-	public int getPlayerY() {
-		return playerY;
-	}
-
-
-	public void setPlayerY(int playerY) {
-		this.playerY = playerY;
-	}
-
-
-	public int getQuest() {
-		return quest;
-	}
-
-
-	public void setQuest(int quest) {
-		this.quest = quest;
-	}
-
-
-
+	
 	
 }
+
+class PyPanel extends JPanel {
+	
+	public PyPanel() {
+		
+		
+	}
+	
+	
+}
+
+class MyThread extends Thread {
+	
+	@Override
+	public void run() {
+		
+		while(true) {
+			try {
+				
+				Thread.sleep(20);
+			} catch (InterruptedException e) {
+				
+				e.printStackTrace();
+			}
+		}
+	}
+	
+}
+
+class MyKeyAdapter extends KeyAdapter{
+	
+	  public void keyPressed(KeyEvent e) {
+		  
+	  }
+
+	    public void keyReleased(KeyEvent e) {
+	    	
+	    }
+	}
+
