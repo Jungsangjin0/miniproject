@@ -1,4 +1,4 @@
-package miniProject4.com.kh.views;
+package miniproject.views.somang;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
@@ -8,10 +8,13 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import miniProject4.com.kh.model.vo.UserAnswer;
+import miniproject.views.ChangePanel;
+import miniproject.views.MainFrame;
+
+//import miniProject4.com.kh.model.vo.UserAnswer;
 
 public class Ssing_test {
-	private JFrame mf;
+	private MainFrame mf;
 	private JPanel panel;
 	int num;
 	JTextField input; // 저장할공간 타입 선언
@@ -29,7 +32,7 @@ public class Ssing_test {
 	Timer2 timer = new Timer2(mf,panel);
 	MouseEvent e;
 
-	public Ssing_test(JFrame mf, JPanel panel, int num, JTextField input, JTextField input2, JTextField input3) {
+	public Ssing_test(MainFrame mf, JPanel panel, int num, JTextField input, JTextField input2, JTextField input3) {
 		this.mf = mf;
 		this.panel = panel;
 		this.num = num;
@@ -94,7 +97,7 @@ public class Ssing_test {
 		// 타이머 stop하고 다음 화면 넘어가기
 		SsingNext gp = new SsingNext(mf);
 
-		ChangePanel.replacePanel(mf, panel, gp);
+		ChangePanel.changePanel(mf, panel, gp);
 		stop();
 	}
 
@@ -124,7 +127,7 @@ public class Ssing_test {
 		// 타이머 stop하고 다음 화면 넘어가기
 		SsingNext_lose gp = new SsingNext_lose(mf);
 
-		ChangePanel.replacePanel(mf, panel, gp);
+		ChangePanel.changePanel(mf, panel, gp);
 		stop();
 	}
 	

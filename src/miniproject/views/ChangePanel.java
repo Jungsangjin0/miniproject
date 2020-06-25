@@ -11,6 +11,10 @@ public class ChangePanel {
 	private JPanel panel;
 	private JPanel panel2;
 	
+	public ChangePanel() {
+		
+	}
+	
 
 
 	public static void changePanel(MainFrame mf, JPanel op, JPanel np){

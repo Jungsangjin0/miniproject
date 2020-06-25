@@ -1,28 +1,23 @@
 package miniproject.views.jungukGame;
 
-import java.awt.Button;
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import com.kh.practice.junguk.ChangePanel;
-import com.kh.practice.junguk.GamePanel;
+
+import miniproject.views.ChangePanel;
+import miniproject.views.MainFrame;
 
 public class MainPage extends JPanel {
 	private MainFrame mf;
 	private JPanel panel;
-	private ImageIcon jungukbg = new ImageIcon("images/Junguk.PNG");
-	private ImageIcon mal = new ImageIcon("images/mal_junguk1.PNG");
-	private Image character = new ImageIcon("images/Characters02.PNG").getImage().getScaledInstance(270, 300, 0);
+	private ImageIcon jungukbg = new ImageIcon("src/miniproject/images/junguk/Junguk.PNG");
+	private ImageIcon mal = new ImageIcon("src/miniproject/images/junguk/mal_junguk1.PNG");
+	private Image character = new ImageIcon("src/miniproject/images/junguk/Characters02.PNG").getImage().getScaledInstance(270, 300, 0);
 
 	public MainPage(MainFrame mf) {
 		this.mf = mf;

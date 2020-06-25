@@ -10,16 +10,19 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import miniproject.views.ChangePanel;
+import miniproject.views.MainFrame;
+import miniproject.views.somang.Sosok;
 
 public class MiniGamePanel2 extends JPanel  { // ¹Ì´Ï°ÔÀÓ ¿¬°áÈ­¸é (Ãã¿¬½ÀÀå µé¾î°¡¼­ µÎ¹øÂ°È­¸é) -> ´Ù½Ã ¼Ò¼Ó»ç 
 											  // Å°º¸µå ÀÔ·Â¹ÞÀ» ¶§ µÎ¹øÂ°È­¸é ¹®Á¦(È­»ìÇ¥) ¾È¶ä..., °ÔÀÓ Á¶°Ç(3¹®Á¦(È­»ìÇ¥21°³)Áß 2ÁÙ ÀÌ»ó ¸ÂÃç¾ß ½ºÅ³+1, ¾Æ´Ï¸é ½ÇÆÐ ÈÄ ³ª°¡±â.
 	private ImageIcon back;
 	private ImageIcon talk;
 	private ImageIcon characters;
-	private JFrame mf;
+	private MainFrame mf;
 	private JPanel panel2;
 	private int x = 300;  //°íÁ¤(Ã¹¹øÂ°È­»ìÇ¥ À§Ä¡°ª)
 	private int x2 = 300; //°íÁ¤(µÎ¹øÂ°È­»ìÇ¥ À§Ä¡°ª)
@@ -31,15 +34,15 @@ public class MiniGamePanel2 extends JPanel  { // ¹Ì´Ï°ÔÀÓ ¿¬°áÈ­¸é (Ãã¿¬½ÀÀå µé¾
 	int num = 0;
 
 
-	public MiniGamePanel2(JFrame mf) { //°ÔÀÓÈ­¸é
+	public MiniGamePanel2(MainFrame mf) { //°ÔÀÓÈ­¸é
 
 		this.mf=mf;
 		panel2 = this;
 		this.setLayout(null);
 
-		back = new ImageIcon("images/minigamekey.PNG"); //¹è°æ
-		talk = new ImageIcon("images/conv.PNG"); //´ëÈ­Ã¢
-		characters = new ImageIcon("images/Characters_1.GIF"); //Ä³¸¯ÅÍ
+		back = new ImageIcon("src/miniproject/images/SJH/minigamekey.PNG"); //¹è°æ
+		talk = new ImageIcon("src/miniproject/images/SJH/conv.PNG"); //´ëÈ­Ã¢
+		characters = new ImageIcon("src/miniproject/images/SJH/Characters_1.GIF"); //Ä³¸¯ÅÍ
 
 
 		//È­»ìÇ¥(¹®Á¦)
@@ -90,7 +93,7 @@ public class MiniGamePanel2 extends JPanel  { // ¹Ì´Ï°ÔÀÓ ¿¬°áÈ­¸é (Ãã¿¬½ÀÀå µé¾
 		for(int i = 0; i < arrows.length; ++i) {
 			int num = new Random().nextInt(4) + 1;
 			arrNo[i] = num;
-			ImageIcon arrow = new ImageIcon("Images/"+num+"-blue.png");
+			ImageIcon arrow = new ImageIcon("src/miniproject/images/SJH/"+num+"-blue.png");
 			//URL url = getClass().getClassLoader().getResource(num+"-blue.png");
 
 			arrows[i] = new JLabel(new ImageIcon(arrow.getImage().getScaledInstance(150, 150, 0)));
@@ -130,7 +133,7 @@ public class MiniGamePanel2 extends JPanel  { // ¹Ì´Ï°ÔÀÓ ¿¬°áÈ­¸é (Ãã¿¬½ÀÀå µé¾
 
 			if(arrNo[index] == num) { 
 				color = "blue";
-				ImageIcon arrow = new ImageIcon("Images/"+num+"-"+color+".png");
+				ImageIcon arrow = new ImageIcon("src/miniproject/images/SJH/"+num+"-"+color+".png");
 
 				//URL url = getClass().getClassLoader().getResource("pororo-"+num+".png");
 
@@ -141,14 +144,14 @@ public class MiniGamePanel2 extends JPanel  { // ¹Ì´Ï°ÔÀÓ ¿¬°áÈ­¸é (Ãã¿¬½ÀÀå µé¾
 			}else {
 				color = "red";
 
-				ImageIcon arrow = new ImageIcon("Images/"+num+"-"+color+".png");
+				ImageIcon arrow = new ImageIcon("src/miniproject/images/SJH/"+num+"-"+color+".png");
 
 				System.out.println("¿©¼¸¹øÂ°È®ÀÎ¿ë :" + index);
 				//this.back.getImage();
 
 			}
 
-			ImageIcon arrow = new ImageIcon("Images/"+num+"-"+color+".png");
+			ImageIcon arrow = new ImageIcon("src/miniproject/images/SJH/"+num+"-"+color+".png");
 			//URL url = getClass().getClassLoader().getResource(num + "-" + color + ".png");
 
 			JLabel input = new JLabel(new ImageIcon(arrow.getImage().getScaledInstance(150, 150, 0)));
@@ -226,7 +229,9 @@ public class MiniGamePanel2 extends JPanel  { // ¹Ì´Ï°ÔÀÓ ¿¬°áÈ­¸é (Ãã¿¬½ÀÀå µé¾
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			ChangePanel.changePanel(mf, panel2, new MiniGamePanel3(mf));		
+//			ChangePanel.changePanel(mf, panel2, new MiniGamePanel3(mf));		
+			ChangePanel.changePanel(mf, panel2, new Sosok(mf));		
+			mf.revalidate();
 		}
 
 

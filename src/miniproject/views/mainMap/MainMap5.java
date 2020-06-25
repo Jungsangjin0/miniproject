@@ -10,15 +10,17 @@ import javax.swing.JPanel;
 import dongyub.PlayerLabel;
 import miniproject.views.ChangePanel;
 import miniproject.views.MainFrame;
+import miniproject.views.jungukGame.MainPage;
 import miniproject.views.somang.Park;
 import miniproject.views.somang.Sosok;
+import miniproject.views.suddenGame.GamePanel;
 
 
 
-public class MainMap2 extends JPanel {	
+public class MainMap5 extends JPanel {	
 	private int donum;
 	MainFrame mf;
-	MainMap2 panel = this;
+	MainMap5 panel = this;
 	private Door[] doors = {new Door(), new Door(), new Door(), new Door(), new Door(), new Door()};
 	
 	
@@ -33,7 +35,7 @@ public class MainMap2 extends JPanel {
 		setOpaque(false); //그림을 표시하게 설정,투명하게 조절
 		super.paintComponent(g);
 	}
-	public MainMap2 (MainFrame mf) {
+	public MainMap5 (MainFrame mf) {
 		
 		this.mf = mf;
 		
@@ -54,25 +56,25 @@ public class MainMap2 extends JPanel {
 //	this.doors[1].setBounds(500, 180, 308, 65); 
 //	doors[1].setVisible(false);
 	
-	this.doors[2].setLayout(null); //소속사
-	this.doors[2].setBounds(650, 500, 50, 25); 
+//	this.doors[2].setLayout(null); //소속사
+//	this.doors[2].setBounds(650, 500, 50, 25); 
 //	doors[2].setVisible(false);
-//	
+	
 //	this.doors[3].setLayout(null); //전국노래자랑
 //	this.doors[3].setBounds(850, 30, 80, 40); 
 //	
 //	this.doors[4].setLayout(null); //미스터트롯 방송국 
 //	this.doors[4].setBounds(340, 595, 70, 30); 
 //	
-//	this.doors[5].setLayout(null); //디스패치
-//	this.doors[5].setBounds(870, 0, 10, 900); 
+	this.doors[5].setLayout(null); //디스패치
+	this.doors[5].setBounds(870, 0, 10, 900); 
 	
 //	this.add(doors[0]);
 //	this.add(doors[1]);
-	this.add(doors[2]);
+//	this.add(doors[2]);
 //	this.add(doors[3]);
 //	this.add(doors[4]);
-//	this.add(doors[5]);
+	this.add(doors[5]);
 	
 //	doors[0].addMouseListener(new MouseAdapter() {
 //		
@@ -114,7 +116,36 @@ public class MainMap2 extends JPanel {
 		}
 	});
 	
+
+	doors[5].addMouseListener(new MouseAdapter() {
+		
+		
+		
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			
+			donum = 5;
+			doors_excute();
+			System.out.println("ㄱ,민헤...");
+		}
+	});
+	
 }
+//	doors[3].addMouseListener(new MouseAdapter() {
+//		
+//		
+//		
+//		@Override
+//		public void mouseClicked(MouseEvent e) {
+//			
+//			donum = 4;
+//			doors_excute();
+//			System.out.println("ㄱ,민헤...");
+//		}
+//	});
+//	
+
+	
 	
 	
 	
@@ -132,9 +163,16 @@ public class MainMap2 extends JPanel {
 			ChangePanel.changePanel(mf, panel, new Sosok(mf));
 			mf.revalidate();
 			break;
-		case 4: break;
-		case 5: break;
-		case 6: break;
+		case 4: 
+			ChangePanel.changePanel(mf, panel, new MainPage(mf));
+			mf.revalidate();
+			break;
+		case 5: 
+			ChangePanel.changePanel(mf, panel, new GamePanel(mf));
+			mf.revalidate();
+			break;
+		case 6: 
+			break;
 		}
 	}
 }

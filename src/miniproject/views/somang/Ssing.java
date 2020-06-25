@@ -1,4 +1,4 @@
-package miniProject4.com.kh.views;
+package miniproject.views.somang;
 
 import java.awt.Font;
 import java.awt.Graphics;
@@ -7,23 +7,25 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
+import miniproject.views.MainFrame;
 import javax.swing.JPanel;
 
+import miniproject.views.ChangePanel;
+
 public class Ssing extends JPanel {
-	private JFrame mf;
+	private MainFrame mf;
 	private JPanel panel;
 	private ImageIcon icon;
 	private ImageIcon talk;
 	private ImageIcon charac01;
 
-	public Ssing(JFrame mf) {
+	public Ssing(MainFrame mf) {
 		this.mf = mf;
 		panel = this;
 		this.setLayout(null);
-		icon = new ImageIcon("image/Ssing/sosokSing.png");
-		talk = new ImageIcon("image/Ssing/talkFrame.png");
-		charac01 = new ImageIcon("image/Ssing/Characters01.gif");
+		icon = new ImageIcon("src/miniproject/images/ssing/sosokSing.png");
+		talk = new ImageIcon("src/miniproject/images/ssing/talkframe.png");
+		charac01 = new ImageIcon("src/miniproject/images/ssing/Characters01.gif");
 
 		this.addMouseListener(new clickPanel());
 
@@ -77,7 +79,7 @@ public class Ssing extends JPanel {
 			
 			
 			
-			ChangePanel.replacePanel(mf, panel, gp);
+			ChangePanel.changePanel(mf, panel, gp);
 			
 		}
 

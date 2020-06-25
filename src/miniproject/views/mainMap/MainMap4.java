@@ -10,15 +10,16 @@ import javax.swing.JPanel;
 import dongyub.PlayerLabel;
 import miniproject.views.ChangePanel;
 import miniproject.views.MainFrame;
+import miniproject.views.jungukGame.MainPage;
 import miniproject.views.somang.Park;
 import miniproject.views.somang.Sosok;
 
 
 
-public class MainMap2 extends JPanel {	
+public class MainMap4 extends JPanel {	
 	private int donum;
 	MainFrame mf;
-	MainMap2 panel = this;
+	MainMap4 panel = this;
 	private Door[] doors = {new Door(), new Door(), new Door(), new Door(), new Door(), new Door()};
 	
 	
@@ -33,7 +34,7 @@ public class MainMap2 extends JPanel {
 		setOpaque(false); //그림을 표시하게 설정,투명하게 조절
 		super.paintComponent(g);
 	}
-	public MainMap2 (MainFrame mf) {
+	public MainMap4 (MainFrame mf) {
 		
 		this.mf = mf;
 		
@@ -57,9 +58,9 @@ public class MainMap2 extends JPanel {
 	this.doors[2].setLayout(null); //소속사
 	this.doors[2].setBounds(650, 500, 50, 25); 
 //	doors[2].setVisible(false);
-//	
-//	this.doors[3].setLayout(null); //전국노래자랑
-//	this.doors[3].setBounds(850, 30, 80, 40); 
+	
+	this.doors[3].setLayout(null); //전국노래자랑
+	this.doors[3].setBounds(850, 30, 80, 40); 
 //	
 //	this.doors[4].setLayout(null); //미스터트롯 방송국 
 //	this.doors[4].setBounds(340, 595, 70, 30); 
@@ -115,6 +116,21 @@ public class MainMap2 extends JPanel {
 	});
 	
 }
+//	doors[3].addMouseListener(new MouseAdapter() {
+//		
+//		
+//		
+//		@Override
+//		public void mouseClicked(MouseEvent e) {
+//			
+//			donum = 4;
+//			doors_excute();
+//			System.out.println("ㄱ,민헤...");
+//		}
+//	});
+//	
+
+	
 	
 	
 	
@@ -132,7 +148,10 @@ public class MainMap2 extends JPanel {
 			ChangePanel.changePanel(mf, panel, new Sosok(mf));
 			mf.revalidate();
 			break;
-		case 4: break;
+		case 4: 
+			ChangePanel.changePanel(mf, panel, new MainPage(mf));
+			mf.revalidate();
+			break;
 		case 5: break;
 		case 6: break;
 		}
