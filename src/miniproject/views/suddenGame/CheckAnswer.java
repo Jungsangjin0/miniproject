@@ -1,4 +1,4 @@
-package practice.suddenGame;
+package miniproject.views.suddenGame;
 
 public class CheckAnswer {
 	

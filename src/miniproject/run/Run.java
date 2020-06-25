@@ -1,6 +1,6 @@
-package com.kh.practice.jungukGame.run;
+package miniproject.run;
 
-import com.kh.practice.jungukGame.views.MainFrame;
+import miniproject.views.MainFrame;
 
 public class Run {
 

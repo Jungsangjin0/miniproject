@@ -1,4 +1,4 @@
-package com.kh.practice.junguk;
+package miniproject.views.jungukGame;
 
 import java.awt.Button;
 import java.awt.Color;

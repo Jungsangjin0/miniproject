@@ -1,4 +1,4 @@
-package practice.suddenGame;
+package miniproject.views.suddenGame;
 
 import java.awt.Font;
 import java.awt.Graphics;

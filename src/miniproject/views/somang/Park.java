@@ -1,4 +1,4 @@
-package miniProject4.com.kh.views;
+package miniproject.views.somang;
 
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -20,11 +20,11 @@ public class Park extends JPanel {
 		this.mf = mf;
 		this.setLayout(null);
 		panel = this;
-		//배경
+		//諛곌꼍
 		icon = new ImageIcon("image/park/park.png");
-		//대화창
+		//���솕李�
 		talk = new ImageIcon("image/park/talkFrame.png");
-		//느낌표
+		//�뒓�굦�몴
 		Mark = new ImageIcon("image/park/exMark.png");
 		
 		this.addMouseListener(new clickPanel());
@@ -37,10 +37,10 @@ public class Park extends JPanel {
 		if (charac01 != null) {
 			g.drawImage(charac01.getImage(), 50, 200, 398, 398, this);
 		}
-		g.setFont(new Font("Neo둥근모", Font.BOLD, 40));
-		g.drawString("!!! 수상한 사람이다 !!!", 70, 750);
+		g.setFont(new Font("Neo�뫁洹쇰え", Font.BOLD, 40));
+		g.drawString("!!! �닔�긽�븳 �궗�엺�씠�떎 !!!", 70, 750);
 		g.drawImage(Mark.getImage(),900, 250, 154, 174, null);
-		setOpaque(false); // 그림을 표시하게 설정,투명하게 조절
+		setOpaque(false); // 洹몃┝�쓣 �몴�떆�븯寃� �꽕�젙,�닾紐낇븯寃� 議곗젅
 		super.paintComponent(g);
 	}
 	

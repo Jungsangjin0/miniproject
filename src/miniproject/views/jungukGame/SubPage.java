@@ -1,4 +1,4 @@
-package com.kh.practice.junguk;
+package miniproject.views.jungukGame;
 
 import java.awt.Graphics;
 import java.awt.Image;
