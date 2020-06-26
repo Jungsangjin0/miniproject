@@ -16,65 +16,62 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-//import minigame.view.MiniGamePanel3_Win;
-//import minigame.view.MiniGamePanel2.MyMouseAdapter;
 import miniproject.views.ChangePanel;
 import miniproject.views.MainFrame;
-import miniproject.views.somang.Sosok;
 
-public class MiniGamePanel2 extends JPanel  { // ë¯¸ë‹ˆê²Œì„ ì—°ê²°í™”ë©´ (ì¶¤ì—°ìŠµì¥ ë“¤ì–´ê°€ì„œ ë‘ë²ˆì§¸í™”ë©´) -> ë‹¤ì‹œ ì†Œì†ì‚¬ 
-											  // í‚¤ë³´ë“œ ì…ë ¥ë°›ì„ ë•Œ ë‘ë²ˆì§¸í™”ë©´ ë¬¸ì œ(í™”ì‚´í‘œ) ì•ˆëœ¸..., ê²Œì„ ì¡°ê±´(3ë¬¸ì œ(í™”ì‚´í‘œ21ê°œ)ì¤‘ 2ì¤„ ì´ìƒ ë§ì¶°ì•¼ ìŠ¤í‚¬+1, ì•„ë‹ˆë©´ ì‹¤íŒ¨ í›„ ë‚˜ê°€ê¸°.
+public class MiniGamePanel2 extends JPanel  { // ¹Ì´Ï°ÔÀÓ ¿¬°áÈ­¸é (Ãã¿¬½ÀÀå µé¾î°¡¼­ µÎ¹øÂ°È­¸é) -> ´Ù½Ã ¼Ò¼Ó»ç 
+	// Å°º¸µå ÀÔ·Â¹ŞÀ» ¶§ µÎ¹øÂ°È­¸é ¹®Á¦(È­»ìÇ¥) ¾È¶ä..., °ÔÀÓ Á¶°Ç(3¹®Á¦(È­»ìÇ¥21°³)Áß 2ÁÙ ÀÌ»ó ¸ÂÃç¾ß ½ºÅ³+1, ¾Æ´Ï¸é ½ÇÆĞ ÈÄ ³ª°¡±â.
 	private ImageIcon back;
 	private ImageIcon talk;
 	private ImageIcon characters;
+	//private ImageIcon keyspace;
 	private MainFrame mf;
 	private JPanel panel2;
-	private int x = 300;  //ê³ ì •(ì²«ë²ˆì§¸í™”ì‚´í‘œ ìœ„ì¹˜ê°’)
-	private int x2 = 300; //ê³ ì •(ë‘ë²ˆì§¸í™”ì‚´í‘œ ìœ„ì¹˜ê°’)
-	private JLabel[] arrows; //í™”ì‚´í‘œ(ë¬¸ì œ)
-	private int[] arrNo; //í™”ì‚´í‘œ(ë¬¸ì œ)
+	private int x = 300;  //°íÁ¤(Ã¹¹øÂ°È­»ìÇ¥ À§Ä¡°ª)
+	private int x2 = 300; //°íÁ¤(µÎ¹øÂ°È­»ìÇ¥ À§Ä¡°ª)
+	private JLabel[] arrows; //È­»ìÇ¥(¹®Á¦)
+	private int[] arrNo; //È­»ìÇ¥(¹®Á¦)
 	private ArrayList<JLabel> inputs;
-	private int ctn = 0;
+	private int cnt = 0;
 	private int index = 0;
 	int num = 0;
-	//----ì ìˆ˜ì¶œë ¥	
+	//----Á¡¼öÃâ·Â	
 	int su = 0;
 	//---------	
 
+
 	public int point = 0;
 	private JTextField keyScore;
-	
 
 
-	public MiniGamePanel2(MainFrame mf) { //ê²Œì„í™”ë©´
+	public MiniGamePanel2(MainFrame mf) { //°ÔÀÓÈ­¸é
 
 		this.mf=mf;
 		panel2 = this;
 		this.setLayout(null);
 
-		back = new ImageIcon("src/miniproject/images/SJH/minigamekey.PNG"); //ë°°ê²½
-		talk = new ImageIcon("src/miniproject/images/SJH/conv.PNG"); //ëŒ€í™”ì°½
-		characters = new ImageIcon("src/miniproject/images/SJH/Characters_1.GIF"); //ìºë¦­í„°
-		
-//		mf.setFocusable(true);
-
-		//í™”ì‚´í‘œ(ë¬¸ì œ)
-		arrows = new JLabel[7];
+		back = new ImageIcon("src/miniproject/images/SJH/minigamekey.PNG"); //¹è°æ
+		talk = new ImageIcon("src/miniproject/images/SJH/conv.PNG"); //´ëÈ­Ã¢
+		characters = new ImageIcon("src/miniproject/images/SJH/Characters_5.png"); //Ä³¸¯ÅÍ
+		//------------»èÁ¦°¡´ÉÇÔ		(¸¸µå·Á´Ù°¡ º¸·ù.. )
+		//keyspace = new ImageIcon("images/keyspace.png"); //ºóÄ­
+		//------------------
+	//È­»ìÇ¥(¹®Á¦)
+		arrows = new JLabel[7];	
 		inputs = new ArrayList<JLabel>();
 		arrNo = new int[7];
 
+		//this.addMouseListener(new MyMouseAdapter());
 
-		panel2.addMouseListener(new MyMouseAdapter());
 
-
+		//mf.setFocusable(true);
 		buttonInit();
-		
-
-		mf.addKeyListener(new KeyAdapter() {		//**thisë¡œ í•˜ë©´ ì ˆëŒ€ì•ˆë¨........z
+		mf.requestFocus(); // -> µÎ¹øÂ° È­¸é Ãâ·Â¾ÈµÇ¼­ Æ÷Ä¿½º ¸ÂÃçµÒ
+		mf.addKeyListener(new KeyAdapter() {		//**this·Î ÇÏ¸é Àı´ë¾ÈµÊ........z
 
 			@Override
 			public void keyPressed(KeyEvent e) { 
-				System.out.println(e.getKeyCode()+ " ì²«ë²ˆì§¸ í™•ì¸ìš© ");
+				System.out.println(e.getKeyCode()+ " Ã¹¹øÂ° È®ÀÎ¿ë ");
 
 				//a = answer1.getText();
 				int num = 0;
@@ -93,56 +90,63 @@ public class MiniGamePanel2 extends JPanel  { // ë¯¸ë‹ˆê²Œì„ ì—°ê²°í™”ë©´ (ì¶¤ì
 				}
 
 
-				addButton(num);	//(ì•ˆìƒê¹€.........ã…‹ì•ˆã…‹ë¨ã…‹)->í•´ê²°í•¨.	
-				ctn++;
+				addButton(num);	//(¾È»ı±è.........¤»¾È¤»µÊ¤»)->ÇØ°áÇÔ.	
+				mf.repaint();
+				cnt++;
 			}
+
 
 
 		});
 
 	}
 
-	//ì²«ë²ˆì¬ í™”ì‚´í‘œ ì¶œë ¥(ë¬¸ì œ)
+	//Ã¹¹øÀç È­»ìÇ¥ Ãâ·Â(¹®Á¦)
 	public void buttonInit(){
-			
+		
+		x = 300; //-> »èÁ¦ÇÏ¸é µÎ¹øÂ° ¹®Á¦ Ãâ·Â¾ÈµÊ.. (ÇÁ·¹ÀÓ ¹ÛÀ¸·Î ¹ş¾î³ª¼­..)
+		
+
 		for(int i = 0; i < arrows.length; ++i) {
 			int num = new Random().nextInt(4) + 1;
 			arrNo[i] = num;
-			ImageIcon arrow = new ImageIcon("src/miniproject/images/SJH/"+num+"-blue.png");
+			ImageIcon arrow = new ImageIcon("src/miniproject/Images/SJH/"+num+"-blue.png");
 			//URL url = getClass().getClassLoader().getResource(num+"-blue.png");
 
 			arrows[i] = new JLabel(new ImageIcon(arrow.getImage().getScaledInstance(150, 150, 0)));
 			arrows[i].setBounds(x, 100, 150, 150);
 			x += 150;
 			this.add(arrows[i]);
-			System.out.println("ë‘ë²ˆÂŠ í™•ì¸ìš©");
+			System.out.println("µÎ¹ø¤Š È®ÀÎ¿ë");
+			System.out.println("µÎ ¹øÂ° È­»ìÇ¥ À§Ä¡ : " + arrows[i].getX() + ", " + arrows[i].getY());
 
-			this.repaint();
-			this.revalidate();
-			
+			//this.revalidate();
+
 		}
-		
-		
-		
+		this.repaint();
+		System.out.println(mf.isFocused());
+
+
+
 	}
 
 
 
 
-	// ë‘ë²ˆì§¸ í™”ì‚´í‘œ ì¶œë ¥(ì •ë‹µ)
+	// µÎ¹øÂ° È­»ìÇ¥ Ãâ·Â(Á¤´ä)
 	public void addButton(int num) { 
 
 		//this.num = num;
 		//this.addButton(num);
 		//this.add(panel2);
 
-		System.out.println("ì„¸ë²ˆì§¸í™•ì¸ìš© :" + num);
+		System.out.println("¼¼¹øÂ°È®ÀÎ¿ë :" + num);
 
 		if(index >= 7){
 			reset();
-			index = 0;
+			//index = 0;
 		}else{
-			System.out.println("ë„¤ë²ˆì§¸í™•ì¸ìš© : " + index);
+			System.out.println("³×¹øÂ°È®ÀÎ¿ë : " + index);
 
 			String color = "";
 
@@ -152,16 +156,15 @@ public class MiniGamePanel2 extends JPanel  { // ë¯¸ë‹ˆê²Œì„ ì—°ê²°í™”ë©´ (ì¶¤ì
 
 				//URL url = getClass().getClassLoader().getResource("pororo-"+num+".png");
 
-
 				//point-----------------------------------------------------------------------
 				point += 1;
-				System.out.println("ì ìˆ˜í™•ì¸ : " + point);
-				
-				System.out.println("ë‹¤ì„¯ë²ˆì§¸í™•ì¸ìš© : " + index);
-				//this.back.getImage();	
-				
+				System.out.println("Á¡¼öÈ®ÀÎ : " + point);
+
+				//JLabel label = new JLabel("¸ÂÃá°³¼ö : ");
+
+
 				if(point >=14) {
-					System.out.println("14ê°œ ì´ìƒ í™”ì‚´í‘œë¥¼ ë§ì·„ìŠµë‹ˆë‹¹. ì¶¤ìŠ¤í‚¬ +1 ì§ì§!!");
+					System.out.println("14°³ ÀÌ»ó È­»ìÇ¥¸¦ ¸ÂÃè½À´Ï´ç. Ãã½ºÅ³ +1 Â¦Â¦!!");
 
 					//-------------	
 					su += 1;
@@ -171,7 +174,7 @@ public class MiniGamePanel2 extends JPanel  { // ë¯¸ë‹ˆê²Œì„ ì—°ê²°í™”ë©´ (ì¶¤ì
 
 
 				}else {
-					System.out.println("ì•„ì‰½ê²Œ ìŠ¤í‚¬íšë“ì„ ëª»í–ˆë„¤ì—¼...ã….ã…....");
+					System.out.println("¾Æ½±°Ô ½ºÅ³È¹µæÀ» ¸øÇß³×¿°...¤¾.¤¾....");
 					//-------------------				
 					//keygamelose();
 
@@ -180,22 +183,16 @@ public class MiniGamePanel2 extends JPanel  { // ë¯¸ë‹ˆê²Œì„ ì—°ê²°í™”ë©´ (ì¶¤ì
 				}
 
 
-				System.out.println("ë‹¤ì„¯ë²ˆì§¸í™•ì¸ìš© : " + index);
+				System.out.println("´Ù¼¸¹øÂ°È®ÀÎ¿ë : " + index);
 				//this.back.getImage();		
 
-				//--------------------------
-				
-				
-				
-				
-				
-
+				//---------------------------------------------------------------------------À§ ÄÚµå Ãâ·Â ¾ÈµÊ.»èÁ¦¿¹Á¤.
 			}else {
 				color = "red";
 
-				ImageIcon arrow = new ImageIcon("src/miniproject/images/SJH/"+num+"-"+color+".png");
+				ImageIcon arrow = new ImageIcon("src/miniproject/images/"+num+"-"+color+".png");
 
-				System.out.println("ì—¬ì„¯ë²ˆì§¸í™•ì¸ìš© :" + index);
+				System.out.println("¿©¼¸¹øÂ°È®ÀÎ¿ë :" + index);
 				//this.back.getImage();
 
 			}
@@ -208,7 +205,7 @@ public class MiniGamePanel2 extends JPanel  { // ë¯¸ë‹ˆê²Œì„ ì—°ê²°í™”ë©´ (ì¶¤ì
 			inputs.add(input);
 			x2 += 150;
 			this.add(inputs.get(index));
-			System.out.println("ì¼ê³±ë²ˆì§¸ í™•ì¸ìš©");
+			System.out.println("ÀÏ°ö¹øÂ° È®ÀÎ¿ë");
 			this.repaint();
 			//this.revalidate();
 			index++;
@@ -218,67 +215,76 @@ public class MiniGamePanel2 extends JPanel  { // ë¯¸ë‹ˆê²Œì„ ì—°ê²°í™”ë©´ (ì¶¤ì
 
 	}
 
-	
 	//point----------------------------------------
-		public void keyScore() {
-			keyScore = new JTextField("ë§ì¶˜ê°œìˆ˜ : " + point);
-			keyScore.setFont(new Font("Sanscerif", Font.BOLD, 20));
-			keyScore.setBorder(BorderFactory.createEmptyBorder());
-			keyScore.setBackground(Color.blue);
-			this.setComponentZOrder(keyScore, 0);
-			keyScore.setBounds(500, 0, 500, 500);
-			panel2.add(keyScore);
+	public void keyScore() {
+		keyScore = new JTextField("¸ÂÃá°³¼ö : " + point);
+		keyScore.setFont(new Font("Sanscerif", Font.BOLD, 20));
+		keyScore.setBorder(BorderFactory.createEmptyBorder());
+		keyScore.setBackground(Color.blue);
+		this.setComponentZOrder(keyScore, 0);
+		keyScore.setBounds(500, 0, 500, 500);
+		panel2.add(keyScore);
 
-		}
+	}
 
-		//--------------------------------------	
-
-	
+	//--------------------------------------	
 
 	public void reset(){
 
-		System.out.println("ì—¬ëŸë²ˆì§¸í™•ì¸ìš©");
+		System.out.println("¿©´ü¹øÂ°È®ÀÎ¿ë");
 
-		//21ê°œí™”ì‚´í‘œ(ì´3ì¤„)ê¹Œì§€ëŠ” ë¦¬ì…‹(7ê°œ ê¸°ì¤€)í•´ì„œ ë¬¸ì œ ì¶œì œ,  
-		//í•œì¤„ì— 7ê°œí™”ì‚´í‘œ, ì´ 21ê°œ í™”ì‚´í‘œ 
-		//í™”ì‚´í‘œê°€ 7ê°œë³´ë‹¤ ë§ì•„ì§€ë©´ í™”ì‚´í‘œ ë¦¬ì…‹í•œ ë’¤ ë‹¤ì‹œ ì¶œë ¥ ì´ 21ê°œê¹Œì§€..
-		if(ctn < 22 ) {
-			
-		for (int i = 0; i < arrows.length; i++) {
-			this.remove(arrows[i]);
-			System.out.println("ì•„í™‰ë²ˆì§¸í™•ì¸ìš©" + "arrows : " + arrows +"i"+i  );
-			this.repaint();
-		}
+		//21°³È­»ìÇ¥(ÃÑ3ÁÙ)±îÁö´Â ¸®¼Â(7°³ ±âÁØ)ÇØ¼­ ¹®Á¦ ÃâÁ¦,  
+		//ÇÑÁÙ¿¡ 7°³È­»ìÇ¥, ÃÑ 21°³ È­»ìÇ¥ 
+		//È­»ìÇ¥°¡ 7°³º¸´Ù ¸¹¾ÆÁö¸é È­»ìÇ¥ ¸®¼ÂÇÑ µÚ ´Ù½Ã Ãâ·Â ÃÑ 21°³±îÁö..
+		if(cnt < 22 ) {
 
-		buttonInit();
 
-		for (int i = 0; i < arrNo.length; i++) {
-			this.remove(this.inputs.get(i));
-			System.out.println("ì—´ë²ˆì§¸í™•ì¸ìš©");
-			this.repaint();
-		}
+			for (int i = 0; i < arrows.length; i++) {
+				this.remove(arrows[i]);
+				System.out.println("¾ÆÈ©¹øÂ°È®ÀÎ¿ë" + "arrows : " + arrows +"i"+i  );
+				this.repaint();
 
-		inputs.clear();
 
-		System.out.println("ì—´í•œë²ˆì§¸í™•ì¸ìš©");
-		mf.repaint();
-		index = 0;
-		x =300;
-		x2 = 300;
-		
+
+			}
+
+			buttonInit();
+
+
+			for (int i = 0; i < arrNo.length; i++) {
+				this.remove(this.inputs.get(i));
+				System.out.println("¿­¹øÂ°È®ÀÎ¿ë");
+				this.repaint();
+
+
+			}
+
+			inputs.clear();
+
+			System.out.println("¿­ÇÑ¹øÂ°È®ÀÎ¿ë");
+			mf.repaint();
+			index = 0;
+			x =300;
+			x2 = 300;
+
 		} else {
 			System.out.println("end");
-			
 		}
+
 	}
+
+
+	/*public void keygamelose() {
+		MiniGamePanel3_Lose lose = new MiniGamePanel3_Lose(mf);
+		ChangePanel.changePanel(mf, panel2, lose);
+
+	}*/
 
 	public void keygamewin() {
 		MiniGamePanel3_Win win = new MiniGamePanel3_Win(mf);
 		ChangePanel.changePanel(mf, panel2, win);
 
 	}
-	
-
 
 
 
@@ -287,11 +293,11 @@ public class MiniGamePanel2 extends JPanel  { // ë¯¸ë‹ˆê²Œì„ ì—°ê²°í™”ë©´ (ì¶¤ì
 
 		super.paintComponent(g);
 		g.drawImage(back.getImage(), 0, 0, this.getWidth(),this.getHeight(),null);
-		g.drawImage(talk.getImage(), 0, 600, 1400, 250,null); //ì›ë˜ ìœ„ì¹˜ : 0,600,1400,250
-		g.setFont(new Font("Neoë‘¥ê·¼ëª¨", Font.BOLD, 30));
-		g.drawString("í†µê³¼í•˜ë©´ ë…¸ë˜ìŠ¤í‚¬ +1 !!!", 100, 700); //ê¸€ì”¨ ìœ„ì¹˜ ì¡°ì ˆ í•„ìš”
-		g.drawString("14ê°œ ì´ìƒ ë™ì¼í•œ í‚¤ë³´ë“œë¥¼ ì…ë ¥í•˜ì„¸ìš©", 100, 750);
-		g.drawImage(characters.getImage(), 10, 100, 398, 398, this); //ì›ë˜í¬ê¸° : 398,398
+		g.drawImage(talk.getImage(), 0, 600, 1400, 250,null); //¿ø·¡ À§Ä¡ : 0,600,1400,250
+		g.setFont(new Font("NeoµÕ±Ù¸ğ", Font.BOLD, 30));
+		g.drawString("Åë°úÇÏ¸é ³ë·¡½ºÅ³ +1 !!!", 100, 700); //±Û¾¾ À§Ä¡ Á¶Àı ÇÊ¿ä
+		g.drawString("14°³ ÀÌ»ó µ¿ÀÏÇÑ Å°º¸µå¸¦ ÀÔ·ÂÇÏ¼¼¿ë", 100, 750);
+		g.drawImage(characters.getImage(), 10, 100, 398, 398, this); //¿ø·¡Å©±â : 398,398
 		setOpaque(false);
 
 	}
@@ -302,10 +308,6 @@ public class MiniGamePanel2 extends JPanel  { // ë¯¸ë‹ˆê²Œì„ ì—°ê²°í™”ë©´ (ì¶¤ì
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			ChangePanel.changePanel(mf, panel2, new MiniGamePanel3_Lose(mf));		
-//			ChangePanel.changePanel(mf, panel2, new Sosok(mf));
-			
-			mf.revalidate();
-			
 		}
 
 
