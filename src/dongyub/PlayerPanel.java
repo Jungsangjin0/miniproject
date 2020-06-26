@@ -15,7 +15,7 @@ public class PlayerPanel extends JPanel {
 //		this.mf = mf;
 //		this.fp = this;
 		
-		this.addKeyListener(new MyKeyListener(fl));
+//		this.addKeyListener(new MyKeyListener(fl));
 		this.add(fl);
 //		revalidate();
 		

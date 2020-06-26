@@ -3,17 +3,17 @@ package dongyub;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import views.ChangePanel;
-import views.Dialog_dispatch;
-import views.Dispatch;
-import views.Dispatch_Game;
-import views.MainFrame;
+//import views.ChangePanel;
+//import views.Dialog_dispatch;
+//import views.Dispatch;
+//import views.Dispatch_Game;
+//import views.MainFrame;
 
 public class MyMouseAdapter extends MouseAdapter{
 
-	MainFrame mf;
-	Dispatch dis_panel;
-	Dispatch_Game panel;
+//	MainFrame mf;
+//	Dispatch dis_panel;
+//	Dispatch_Game panel;
 //	@Override
 //	public void mouseClicked(MouseEvent e) {
 //		//this.display("Mouse clicked (# of clicks : " + e.getClickCount() + " )", e);
