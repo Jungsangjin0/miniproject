@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 
 import miniproject.views.ChangePanel;
 import miniproject.views.MainFrame;
+import miniproject.views.somang.Sosok;
 
 
 public class MiniGamePanel3_Lose extends JPanel{ // 미니게임 지면 나오는 화면
@@ -26,10 +27,11 @@ public class MiniGamePanel3_Lose extends JPanel{ // 미니게임 지면 나오는 화면
 		panel3_lose = this;
 		this.setLayout(null);
 		back = new ImageIcon("src/miniproject/images/SJH/minigamekey.png");
-		talk = new ImageIcon("images/conv.png");
+		talk = new ImageIcon("src/miniproject/images/SJH/conv.png");
 		characters = new ImageIcon("src/miniproject/images/SJH/Lose_Characters02_1.png");
 		lose = new ImageIcon("src/miniproject/images/SJH/lose.png");
 		this.addMouseListener(new clickPanel());
+		this.setFocusable(true);
 	}
 
 	public void paintComponent(Graphics g) {
@@ -52,7 +54,8 @@ public class MiniGamePanel3_Lose extends JPanel{ // 미니게임 지면 나오는 화면
 		public void mouseClicked(MouseEvent e) {
 			
 
-			ChangePanel.changePanel(mf, panel3_lose, new MiniGamePanel4(mf));
+			ChangePanel.changePanel(mf, panel3_lose, new Sosok(mf));
+			mf.revalidate();
 			//MiniGamePanel3
 
 		}

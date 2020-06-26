@@ -87,6 +87,7 @@ public class MiniGamePanel4 extends JPanel  { // 미니게임 연결화면 (소속사 화면)
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			ChangePanel.changePanel(mf, panel4, new MiniGamePanel(mf));
+			mf.revalidate();
 		}
 		
 	}
@@ -95,6 +96,7 @@ public class MiniGamePanel4 extends JPanel  { // 미니게임 연결화면 (소속사 화면)
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			ChangePanel.changePanel(mf, panel4, new MiniGamePanel(mf));
+			mf.revalidate();
 		}
 		
 		

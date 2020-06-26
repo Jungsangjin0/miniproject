@@ -192,7 +192,7 @@ public class MainMap6 extends JPanel {
 			mf.revalidate();
 			break;
 		case 6: 
-			ChangePanel.changePanel(mf, panel, new EndingBack01());
+			ChangePanel.changePanel(mf, panel, new EndingBack01(mf));
 			mf.revalidate();
 			break;
 		}

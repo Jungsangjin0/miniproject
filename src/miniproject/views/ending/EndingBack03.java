@@ -8,11 +8,20 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import miniproject.views.MainFrame;
+
 public class EndingBack03 extends JPanel { //76~100% 슈퍼스타(캐릭터X)
 
+	private EndingBack03 panel = this;
+	private MainFrame mf;
+	
 	ImageIcon imageicon = new ImageIcon("images/ending_03.PNG");
 
 	Image image = imageicon.getImage();
+	
+	public EndingBack03(MainFrame mf) {
+		this.mf = mf;
+	}
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);

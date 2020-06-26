@@ -54,6 +54,7 @@ public class MiniGamePanel extends JPanel { // 미니게임 연결화면 (춤연습장 들어�
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			ChangePanel.changePanel(mf, panel, new MiniGamePanel2(mf));		
+			mf.revalidate();
 		}
 
 

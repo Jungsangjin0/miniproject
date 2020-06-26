@@ -8,12 +8,22 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-public class EndingBack02 extends JPanel { //51~75% 무명스타(남캐릭터)
+import miniproject.views.MainFrame;
 
+public class EndingBack02 extends JPanel { //51~75% 무명스타(남캐릭터)
+	
+	private MainFrame mf;
+	private EndingBack02 panel = this;
+	
 
 	ImageIcon imageicon = new ImageIcon("images/ending_02.PNG");
 
 	Image image = imageicon.getImage();
+	
+	public EndingBack02(MainFrame mf) {
+		this.mf = mf;
+		
+	}
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);

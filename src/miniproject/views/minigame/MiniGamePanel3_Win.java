@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 
 import miniproject.views.ChangePanel;
 import miniproject.views.MainFrame;
+import miniproject.views.somang.Sosok;
 
 
 public class MiniGamePanel3_Win extends JPanel{ // 미니게임 이기면 나오는 화면
@@ -30,6 +31,7 @@ public class MiniGamePanel3_Win extends JPanel{ // 미니게임 이기면 나오는 화면
 		characters = new ImageIcon("src/miniproject/images/SJH/Characters_5.png");
 		win = new ImageIcon("src/miniproject/images/SJH/win.png");
 		this.addMouseListener(new clickPanel());
+		this.setFocusable(true);
 
 	}
 
@@ -54,7 +56,8 @@ public class MiniGamePanel3_Win extends JPanel{ // 미니게임 이기면 나오는 화면
 		public void mouseClicked(MouseEvent e) {
 
 
-			ChangePanel.changePanel(mf, panel3_win, new MiniGamePanel4(mf));
+			ChangePanel.changePanel(mf, panel3_win, new Sosok(mf));
+			mf.revalidate();
 			//MiniGamePanel3
 
 		}
