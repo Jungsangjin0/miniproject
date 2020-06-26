@@ -42,6 +42,7 @@ public class FirstPage extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ChangePanel.changePanel(mf, fp, new NickName(mf));
+				mf.validate();
 				
 			}
 
