@@ -162,17 +162,17 @@ public	dispatchPanel(JFrame mf) {
 			if (Crash(x, y, sc.x, sc.y, player_img, dispatch_img)) {
 				//플레이어와 적의 충돌을 판정하여 check값을 리턴 받아 true면 아래를 실행
 				Score_List.remove(i);	//적을 제거
-				game_Score -= 20;		//디스 패치를 먹으면 -20점
+				game_Score -= 30;		//디스 패치를 먹으면 -20점
 				System.out.println("game_score : " + game_Score);
 				
 			} 
 			
-			else if(Crash(x,y, sc.x, sc.y, player_img, heart_img)) {
-				
-				Score_List.remove(i);	//하트 제거
-				game_Score += 30;
-				System.out.println("game_score : " + game_Score);
-			}
+//			else if(Crash(x,y, sc.x, sc.y, player_img, heart_img)) {
+//				
+//				Score_List.remove(i);	//하트 제거
+//				game_Score += 30;
+//				System.out.println("game_score : " + game_Score);
+//			}
 			
 			if(game_Score < 0) {
 				System.out.println("방구석 엔딩");
@@ -180,26 +180,26 @@ public	dispatchPanel(JFrame mf) {
 			}
 		}
 		
-//		//하트 충돌 판정
-//		for(int i = 0; i < Scoreh_List.size(); ++i) {
-//			sc_heart = (Score_heart) (Scoreh_List.get(i));
-//			sc_heart.move();
-//			if(sc_heart.x < -200) {
-//				Scoreh_List.remove(i);
-//			}
-//
-//			if(Crash(x,y, sc_heart.x, sc_heart.y, player_img, heart_img)) {
-//
-//				Scoreh_List.remove(i);	//별 제거
-//				game_Score += 30;		//별을 먹으면 +30점
-//				System.out.println("game_score : " + game_Score);
-//			}
-//
-//			if(game_Score < 0) {
-//				System.out.println("방구석 엔딩");
-//				th.interrupt();
-//			}
-//		}
+		//하트 충돌 판정
+		for(int i = 0; i < Scoreh_List.size(); ++i) {
+			sc_heart = (Score_heart) (Scoreh_List.get(i));
+			sc_heart.move();
+			if(sc_heart.x < -200) {
+				Scoreh_List.remove(i);
+			}
+
+			if(Crash(x,y, sc_heart.x, sc_heart.y, player_img, heart_img)) {
+
+				Scoreh_List.remove(i);	//하트 제거
+				game_Score += 30;		//하트을 먹으면 +30점
+				System.out.println("game_score : " + game_Score);
+			}
+
+			if(game_Score < 0) {
+				System.out.println("방구석 엔딩");
+				th.interrupt();
+			}
+		}
 			//별 충돌 판정
 			for(int i = 0; i < Scores_List.size(); ++i) {
 				sc_star = (Score_star) (Scores_List.get(i));
@@ -232,12 +232,18 @@ public	dispatchPanel(JFrame mf) {
 					Score_List.add(sc);
 				}
 				
-//				//하트 생성 , x 좌표  & 속도 제어 값 전달
-//				for(int i = (int)(Math.random()*820+ 1); i < (Run.SCREEN_HEIGHT -80); i+=150) {
-//					sc_heart = new Score_heart(Run.SCREEN_WIDTH + 
-//							(int)(Math.random()*70 + 1), i, heart_Speed + (int)(Math.random()*7+ 3));
-//					Scoreh_List.add(sc_heart);
-//				}
+				for(int i = (int)(Math.random()*820+ 1); i < (SCREEN_HEIGHT -80); i+=50) {
+					sc = new Score(SCREEN_WIDTH + 
+							(int)(Math.random()*70 + 1), i, dispatch_Speed +(int)(Math.random()*7+ 3));
+					Score_List.add(sc);
+				}
+				
+				//하트 생성 , x 좌표  & 속도 제어 값 전달
+				for(int i = (int)(Math.random()*820+ 1); i < (SCREEN_HEIGHT -80); i+=150) {
+					sc_heart = new Score_heart(SCREEN_WIDTH + 
+							(int)(Math.random()*70 + 1), i, heart_Speed + (int)(Math.random()*7+ 3));
+					Scoreh_List.add(sc_heart);
+				}
 				
 				//별 생성
 				for(int i = (int)(Math.random()*820 + 1); i < (SCREEN_HEIGHT -80); i+=150) {
@@ -401,11 +407,11 @@ public	dispatchPanel(JFrame mf) {
 			buffg.drawImage(dispatch_img, sc.x,	sc.y, this);
 		}
 		
-//		//하트 그림 그리기
-//		for ( int i= 0; i < Scoreh_List.size(); ++i) {
-//			sc_heart = (Score_heart) (Scoreh_List.get(i));
-//			buffg.drawImage(heart_img, sc_heart.x, sc_heart.y, this);
-//		}
+		//하트 그림 그리기
+		for ( int i= 0; i < Scoreh_List.size(); ++i) {
+			sc_heart = (Score_heart) (Scoreh_List.get(i));
+			buffg.drawImage(heart_img, sc_heart.x, sc_heart.y, this);
+		}
 		
 		//별 그림 그리기
 		for ( int i= 0; i < Scores_List.size(); ++i) {
