@@ -38,7 +38,8 @@ public class FirstPanel extends JPanel{
 		label.setIcon(new ImageIcon("src/miniproject/images/camera/startp.PNG"));
 
 
-		label.setLayout(null);
+//		label.setLayout(null);
+		panel.setLayout(null);
 		label.setBounds(200,50,1000,700);
 
 		panel.add(label);
@@ -52,10 +53,12 @@ public class FirstPanel extends JPanel{
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				System.out.println("test click");
 				label.setVisible(true);
 			}
 
 		});
+		
 		
 		label.addMouseListener(new MouseAdapter() {
 			
@@ -63,9 +66,11 @@ public class FirstPanel extends JPanel{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ChangePanel.changePanel(mf, panel, new TrotGame(mf));
+				mf.validate();
 				
 			}
 		});
 		
 	}
+	
 }

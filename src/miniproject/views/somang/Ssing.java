@@ -47,6 +47,7 @@ public class Ssing extends JPanel {
 
 		g.setFont(new Font("Neo둥근모", Font.BOLD, 40));
 		g.drawString("오늘도 노래 연습을 해보자!", 70, 750);
+		mf.validate();
 
 		setOpaque(false);
 		super.paintComponent(g);

@@ -10,10 +10,14 @@ import java.awt.event.KeyListener;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import miniproject.views.MainFrame;
+
 public class EndingBack01 extends JPanel { //0~50% - 방구석스타(남캐릭터)
 	
 	ImageIcon imageicon = new ImageIcon("src/miniproject/images/SJH/ending_01.PNG");
 	Image image = imageicon.getImage();
+	MainFrame mf;
+	EndingBack01 panel = this;
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -24,7 +28,8 @@ public class EndingBack01 extends JPanel { //0~50% - 방구석스타(남캐릭터)
 		
 	}
 	
-	public EndingBack01() {
+	public EndingBack01(MainFrame mf) {
+		this.mf = mf;
 		this.setFocusable(true);
 		this.addKeyListener(new KeyListener() {
 			
