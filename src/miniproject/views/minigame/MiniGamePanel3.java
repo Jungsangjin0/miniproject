@@ -29,7 +29,6 @@ public class MiniGamePanel3 extends JPanel  { // 미니게임 연결화면 (소속사 화면)
 	
 
 	public MiniGamePanel3(MainFrame mf) { //게임화면?
-
 		this.mf=mf;
 		panel3 = this;
 		this.setLayout(null);

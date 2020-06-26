@@ -22,8 +22,8 @@ public class MiniGamePanel extends JPanel { // 미니게임 연결화면 (춤연습장 들어�
 	private MainFrame mf;
 
 
+	
 	public MiniGamePanel(MainFrame mf) {
-
 		this.mf = mf;
 //		this.panel = this;
 		this.setLayout(null);
