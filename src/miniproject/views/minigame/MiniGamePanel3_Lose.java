@@ -6,16 +6,16 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import miniproject.views.ChangePanel;
 import miniproject.views.MainFrame;
 
+
 public class MiniGamePanel3_Lose extends JPanel{ // 미니게임 지면 나오는 화면
 
 	private MainFrame mf;
-	private JPanel panel3_lose;
+	private MiniGamePanel3_Lose panel3_lose;
 	private ImageIcon back;
 	private ImageIcon talk;
 	private ImageIcon characters;

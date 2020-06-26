@@ -1,16 +1,15 @@
 package miniproject.views.minigame;
 
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import miniproject.views.ChangePanel;
 import miniproject.views.MainFrame;
+
 
 
 public class MiniGamePanel extends JPanel { // 미니게임 연결화면 (춤연습장 들어가서 첫화면)
