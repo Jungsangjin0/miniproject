@@ -92,8 +92,8 @@ public class Sosok extends JPanel{
 		//노래
 		doorL.addMouseListener(new clickButtonL());
 		
-		//춤
-//		doorR.addMouseListener(new clickButtonR());
+		//춤(주현)
+		doorR.addMouseListener(new clickButtonR());
 	}
 	
 	public void paintComponent(Graphics g) {
@@ -120,14 +120,14 @@ public class Sosok extends JPanel{
 			mf.revalidate();
 		}
 	}
-	//춤
-//	class clickButtonR extends MouseAdapter {
-//		@Override
-//		public void mouseClicked(MouseEvent e) {
-//			ChangePanel.changePanel(mf, panel, new MiniGamePanel(mf));
-//			mf.revalidate();
-//		}
-//	}
+	//춤(주현)
+	class clickButtonR extends MouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			ChangePanel.changePanel(mf, panel, new MiniGamePanel(mf));
+			mf.revalidate();
+		}
+	}
 	
 //	class clickPanel extends MouseAdapter {
 //		@Override

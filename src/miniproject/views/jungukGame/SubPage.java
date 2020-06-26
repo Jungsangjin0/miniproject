@@ -27,6 +27,8 @@ public class SubPage extends JPanel {
    }
 
    public SubPage(MainFrame mf) {
+	   
+	   this.mf = mf;
 
       JLabel label = new JLabel() {
          public void paintComponent(Graphics g) {

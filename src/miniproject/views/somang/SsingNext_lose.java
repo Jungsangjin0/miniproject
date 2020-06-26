@@ -6,11 +6,12 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import miniproject.views.MainFrame;
+
 import miniproject.views.ChangePanel;
+import miniproject.views.MainFrame;
+
 
 
 public class SsingNext_lose extends JPanel{
@@ -56,7 +57,9 @@ public class SsingNext_lose extends JPanel{
 			
 			ChangePanel.changePanel(mf, panel, new Sosok(mf));
 			mf.revalidate();
-			
+
+
+
 		}
 
 	}
