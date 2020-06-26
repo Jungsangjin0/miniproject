@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 import miniproject.views.ChangePanel;
 import miniproject.views.MainFrame;
 import miniproject.views.mainMap.MainMap3;
-import miniproject.views.minigame.MiniGamePanel;
+import miniproject.views.minigame.MiniGameDance;
 
 
 public class Sosok extends JPanel{
@@ -116,7 +116,7 @@ public class Sosok extends JPanel{
 	class clickButtonL extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			ChangePanel.changePanel(mf, panel, new Ssing(mf));
+			ChangePanel.changePanel(mf, panel, new MiniGameSsing(mf));
 			mf.revalidate();
 		}
 	}
@@ -124,7 +124,7 @@ public class Sosok extends JPanel{
 	class clickButtonR extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			ChangePanel.changePanel(mf, panel, new MiniGamePanel(mf));
+			ChangePanel.changePanel(mf, panel, new MiniGameDance(mf));
 			mf.revalidate();
 		}
 	}

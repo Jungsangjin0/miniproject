@@ -281,7 +281,7 @@ public class MiniGameDance2 extends JPanel  { // 미니게임 연결화면 (춤연습장 들�
 	}*/
 
 	public void keygamewin() {
-		MiniGamePanel3_Win win = new MiniGamePanel3_Win(mf);
+		MiniGameDance3_Win win = new MiniGameDance3_Win(mf);
 		ChangePanel.changePanel(mf, panel2, win);
 
 	}
