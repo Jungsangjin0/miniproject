@@ -13,35 +13,36 @@ import javax.swing.JPanel;
 
 import miniproject.views.ChangePanel;
 import miniproject.views.MainFrame;
+import miniproject.views.somang.MiniGameSsing;
 
-public class MiniGameSosok extends JPanel  { // ¹Ì´Ï°ÔÀÓ ¿¬°áÈ­¸é (¼Ò¼Ó»ç È­¸é)
+public class MiniGameSosok extends JPanel  { // ë¯¸ë‹ˆê²Œì„ ì—°ê²°í™”ë©´ (ì†Œì†ì‚¬ í™”ë©´)
 
-	private ImageIcon back; //¹è°æ
-	private ImageIcon talk; //´ëÈ­»óÀÚ
-	private ImageIcon characters; //Ä³¸¯ÅÍ
-	private ImageIcon boss;//¼Ò¼Ó»ç »çÀå
-	private Image doorR; //¼Ò¼Ó»ç ¹®(¹Ì´Ï°ÔÀÓ Ãã)
-	private Image doorL; //¼Ò¼Ó»ç ¹®(¹Ì´Ï°ÔÀÓ ³ë·¡)
+	private ImageIcon back; //ë°°ê²½
+	private ImageIcon talk; //ëŒ€í™”ìƒì
+	private ImageIcon characters; //ìºë¦­í„°
+	private ImageIcon boss;//ì†Œì†ì‚¬ ì‚¬ì¥
+	private Image doorR; //ì†Œì†ì‚¬ ë¬¸(ë¯¸ë‹ˆê²Œì„ ì¶¤)
+	private Image doorL; //ì†Œì†ì‚¬ ë¬¸(ë¯¸ë‹ˆê²Œì„ ë…¸ë˜)
 	
 	private MainFrame mf;
 	private JPanel panel4;
 	
 
-	public MiniGameSosok(MainFrame mf) { //°ÔÀÓÈ­¸é?
+	public MiniGameSosok(MainFrame mf) { //ê²Œì„í™”ë©´?
 
 		this.mf=mf;
 		panel4 = this;
 		this.setLayout(null);
 
-		back = new ImageIcon("src/miniproject/images/SJH/minibackgroundfinish.PNG"); //¹è°æ-¼Ò¼Ó»ç
-		talk = new ImageIcon("src/miniproject/images/SJH/conv.PNG"); //´ëÈ­Ã¢
-		characters = new ImageIcon("src/miniproject/images/SJH/Characters_5.png"); //Ä³¸¯ÅÍ
-		boss = new ImageIcon("src/miniproject/images/SJH/boss.PNG"); //¼Ò¼Ó»ç »çÀå
-		doorR = new ImageIcon("src/miniproject/images/SJH/door.PNG").getImage().getScaledInstance(175, 282, 0); //¼Ò¼Ó»ç ¹®(¹Ì´Ï°ÔÀÓ Ãã)
-		doorL = new ImageIcon("src/miniproject/images/SJH/door.PNG").getImage().getScaledInstance(175, 282, 0); //¼Ò¼Ó»ç ¹®(¹Ì´Ï°ÔÀÓ ³ë·¡)
+		back = new ImageIcon("src/miniproject/images/SJH/minibackgroundfinish.PNG"); //ë°°ê²½-ì†Œì†ì‚¬
+		talk = new ImageIcon("src/miniproject/images/SJH/conv.PNG"); //ëŒ€í™”ì°½
+		characters = new ImageIcon("src/miniproject/images/SJH/Characters_5.png"); //ìºë¦­í„°
+		boss = new ImageIcon("src/miniproject/images/SJH/boss.PNG"); //ì†Œì†ì‚¬ ì‚¬ì¥
+		doorR = new ImageIcon("src/miniproject/images/SJH/door.PNG").getImage().getScaledInstance(175, 282, 0); //ì†Œì†ì‚¬ ë¬¸(ë¯¸ë‹ˆê²Œì„ ì¶¤)
+		doorL = new ImageIcon("src/miniproject/images/SJH/door.PNG").getImage().getScaledInstance(175, 282, 0); //ì†Œì†ì‚¬ ë¬¸(ë¯¸ë‹ˆê²Œì„ ë…¸ë˜)
 
-		//JLabel labelR = new JLabel(doorR);  //¼Ò¼Ó»ç ¹®(¹Ì´Ï°ÔÀÓ Ãã)
-		//JLabel labelL = new JLabel(doorL);  //¼Ò¼Ó»ç ¹®(¹Ì´Ï°ÔÀÓ ³ë·¡)
+		//JLabel labelR = new JLabel(doorR);  //ì†Œì†ì‚¬ ë¬¸(ë¯¸ë‹ˆê²Œì„ ì¶¤)
+		//JLabel labelL = new JLabel(doorL);  //ì†Œì†ì‚¬ ë¬¸(ë¯¸ë‹ˆê²Œì„ ë…¸ë˜)
 		
 		
 		
@@ -53,11 +54,11 @@ public class MiniGameSosok extends JPanel  { // ¹Ì´Ï°ÔÀÓ ¿¬°áÈ­¸é (¼Ò¼Ó»ç È­¸é)
 		
 		//doorR.add(labelR);
 		//doorL.add(labelL);
-		//doorR.setBounds(50, 50, 200, 200);  //¹öÆ°(¹®)
+		//doorR.setBounds(50, 50, 200, 200);  //ë²„íŠ¼(ë¬¸)
 		//doorR.setBounds(50, 50, 200, 200);
 		
-		panel4.add(dR); //¹Ì´Ï°ÔÀÓ Ãã
-		panel4.add(dL); //¹Ì´Ï°ÔÀÓ ³ë·¡
+		panel4.add(dR); //ë¯¸ë‹ˆê²Œì„ ì¶¤
+		panel4.add(dL); //ë¯¸ë‹ˆê²Œì„ ë…¸ë˜
 		
 		
 		
@@ -73,29 +74,29 @@ public class MiniGameSosok extends JPanel  { // ¹Ì´Ï°ÔÀÓ ¿¬°áÈ­¸é (¼Ò¼Ó»ç È­¸é)
 		super.paintComponent(g);
 		
 		g.drawImage(back.getImage(), 0, 0, this.getWidth(),this.getHeight(),null);
-		g.drawImage(talk.getImage(), 0, 600, 1400, 250,null); //¿ø·¡ À§Ä¡ : 0,600,1400,250
-		g.setFont(new Font("NeoµÕ±Ù¸ğ", Font.BOLD, 30));
-		g.drawString("¹®À» Å¬¸¯ÇØ¼­ ³ë·¡¿Í Ãã¿¬½ÀÀ» ÇÏÀÚ~", 100, 700);
-		g.drawImage(characters.getImage(), 600, 100, 398, 398, this); //¿ø·¡Å©±â : 398,398
+		g.drawImage(talk.getImage(), 0, 600, 1400, 250,null); //ì›ë˜ ìœ„ì¹˜ : 0,600,1400,250
+		g.setFont(new Font("Neoë‘¥ê·¼ëª¨", Font.BOLD, 30));
+		g.drawString("ë¬¸ì„ í´ë¦­í•´ì„œ ë…¸ë˜ì™€ ì¶¤ì—°ìŠµì„ í•˜ì~", 100, 700);
+		g.drawImage(characters.getImage(), 600, 100, 398, 398, this); //ì›ë˜í¬ê¸° : 398,398
 		g.drawImage(boss.getImage(), 900, 100, 398, 398, this);
 		setOpaque(false);
 
 	}
 
 	
-	class clickButtonR extends MouseAdapter{  //¹Ì´Ï°ÔÀÓ Ãã
+	class clickButtonR extends MouseAdapter{  //ë¯¸ë‹ˆê²Œì„ ì¶¤
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			ChangePanel.changePanel(mf, panel4, new MiniGameSosok(mf));
+			ChangePanel.changePanel(mf, panel4, new MiniGameDance(mf));
 			mf.revalidate();
 		}
 		
 	}
 	
-	class clickButtonL extends MouseAdapter{  //¹Ì´Ï°ÔÀÓ ³ë·¡  -> ¿©±â¿¡ ³ë·¡È­¸é ¹Ş¾Æ¼­ ¿¬°áÇØ¾ßÇÔ~
+	class clickButtonL extends MouseAdapter{  //ë¯¸ë‹ˆê²Œì„ ë…¸ë˜  -> ì—¬ê¸°ì— ë…¸ë˜í™”ë©´ ë°›ì•„ì„œ ì—°ê²°í•´ì•¼í•¨~
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			ChangePanel.changePanel(mf, panel4, new MiniGameSosok(mf));
+			ChangePanel.changePanel(mf, panel4, new MiniGameSsing(mf));
 			mf.revalidate();
 		}
 		
