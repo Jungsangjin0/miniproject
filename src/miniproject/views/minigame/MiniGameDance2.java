@@ -44,7 +44,7 @@ public class MiniGameDance2 extends JPanel  { // 미니게임 연결화면 (춤연습장 들�
 	private JTextField keyScore;
 
 
-	public MiniGamePanel2(MainFrame mf) { //게임화면
+	public MiniGameDance2(MainFrame mf) { //게임화면
 
 		this.mf=mf;
 		panel2 = this;
@@ -307,7 +307,7 @@ public class MiniGameDance2 extends JPanel  { // 미니게임 연결화면 (춤연습장 들�
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			ChangePanel.changePanel(mf, panel2, new MiniGamePanel3_Lose(mf));		
+			ChangePanel.changePanel(mf, panel2, new MiniGameDance3_Lose(mf));		
 		}
 
 

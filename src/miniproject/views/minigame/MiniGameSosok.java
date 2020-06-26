@@ -86,7 +86,7 @@ public class MiniGameSosok extends JPanel  { // 미니게임 연결화면 (소속사 화면)
 	class clickButtonR extends MouseAdapter{  //미니게임 춤
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			ChangePanel.changePanel(mf, panel4, new MiniGamePanel(mf));
+			ChangePanel.changePanel(mf, panel4, new MiniGameSosok(mf));
 			mf.revalidate();
 		}
 		
@@ -95,7 +95,7 @@ public class MiniGameSosok extends JPanel  { // 미니게임 연결화면 (소속사 화면)
 	class clickButtonL extends MouseAdapter{  //미니게임 노래  -> 여기에 노래화면 받아서 연결해야함~
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			ChangePanel.changePanel(mf, panel4, new MiniGamePanel(mf));
+			ChangePanel.changePanel(mf, panel4, new MiniGameSosok(mf));
 			mf.revalidate();
 		}
 		
