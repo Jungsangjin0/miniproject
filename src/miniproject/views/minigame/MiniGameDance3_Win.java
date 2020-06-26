@@ -13,7 +13,7 @@ import miniproject.views.MainFrame;
 import miniproject.views.somang.Sosok;
 
 
-public class MiniGamePanel3_Win extends JPanel{ // 미니게임 이기면 나오는 화면
+public class MiniGameDance3_Win extends JPanel{ // 미니게임 이기면 나오는 화면
 
 	private MainFrame mf;
 	private JPanel panel3_win;
@@ -22,7 +22,7 @@ public class MiniGamePanel3_Win extends JPanel{ // 미니게임 이기면 나오는 화면
 	private ImageIcon characters;
 	private ImageIcon win;
 
-	public MiniGamePanel3_Win(MainFrame mf) {
+	public MiniGameDance3_Win(MainFrame mf) {
 		this.mf = mf;
 		panel3_win = this;
 		this.setLayout(null);
