@@ -25,10 +25,10 @@ public class MiniGamePanel3_Lose extends JPanel{ // 미니게임 지면 나오는 화면
 		this.mf = mf;
 		panel3_lose = this;
 		this.setLayout(null);
-		back = new ImageIcon("images/minigamekey.png");
+		back = new ImageIcon("src/miniproject/images/SJH/minigamekey.png");
 		talk = new ImageIcon("images/conv.png");
-		characters = new ImageIcon("images/Lose_Characters02_1.png");
-		lose = new ImageIcon("images/lose.png");
+		characters = new ImageIcon("src/miniproject/images/SJH/Lose_Characters02_1.png");
+		lose = new ImageIcon("src/miniproject/images/SJH/lose.png");
 		this.addMouseListener(new clickPanel());
 	}
 
