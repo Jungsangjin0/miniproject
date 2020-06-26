@@ -1,5 +1,6 @@
 package miniproject.views.minigame;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.KeyAdapter;
@@ -9,10 +10,14 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Random;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
+//import minigame.view.MiniGamePanel3_Win;
+//import minigame.view.MiniGamePanel2.MyMouseAdapter;
 import miniproject.views.ChangePanel;
 import miniproject.views.MainFrame;
 import miniproject.views.somang.Sosok;
@@ -32,6 +37,13 @@ public class MiniGamePanel2 extends JPanel  { // ¹Ì´Ï°ÔÀÓ ¿¬°áÈ­¸é (Ãã¿¬½ÀÀå µé¾
 	private int ctn = 0;
 	private int index = 0;
 	int num = 0;
+	//----Á¡¼öÃâ·Â	
+	int su = 0;
+	//---------	
+
+	public int point = 0;
+	private JTextField keyScore;
+	
 
 
 	public MiniGamePanel2(MainFrame mf) { //°ÔÀÓÈ­¸é
@@ -50,7 +62,7 @@ public class MiniGamePanel2 extends JPanel  { // ¹Ì´Ï°ÔÀÓ ¿¬°áÈ­¸é (Ãã¿¬½ÀÀå µé¾
 		inputs = new ArrayList<JLabel>();
 		arrNo = new int[7];
 
-		this.addMouseListener(new MyMouseAdapter());
+		//this.addMouseListener(new MyMouseAdapter());
 
 		buttonInit();
 		
@@ -138,8 +150,42 @@ public class MiniGamePanel2 extends JPanel  { // ¹Ì´Ï°ÔÀÓ ¿¬°áÈ­¸é (Ãã¿¬½ÀÀå µé¾
 				//URL url = getClass().getClassLoader().getResource("pororo-"+num+".png");
 
 
+				//point-----------------------------------------------------------------------
+				point += 1;
+				System.out.println("Á¡¼öÈ®ÀÎ : " + point);
+				
+				System.out.println("´Ù¼¸¹øÂ°È®ÀÎ¿ë : " + index);
+				//this.back.getImage();	
+				
+				if(point >=14) {
+					System.out.println("14°³ ÀÌ»ó È­»ìÇ¥¸¦ ¸ÂÃè½À´Ï´ç. Ãã½ºÅ³ +1 Â¦Â¦!!");
+
+					//-------------	
+					su += 1;
+					keygamewin();
+					//--------------		
+
+
+
+				}else {
+					System.out.println("¾Æ½±°Ô ½ºÅ³È¹µæÀ» ¸øÇß³×¿°...¤¾.¤¾....");
+					//-------------------				
+					//keygamelose();
+
+					this.addMouseListener(new MyMouseAdapter());
+
+				}
+
+
 				System.out.println("´Ù¼¸¹øÂ°È®ÀÎ¿ë : " + index);
 				//this.back.getImage();		
+
+				//--------------------------
+				
+				
+				
+				
+				
 
 			}else {
 				color = "red";
@@ -169,6 +215,22 @@ public class MiniGamePanel2 extends JPanel  { // ¹Ì´Ï°ÔÀÓ ¿¬°áÈ­¸é (Ãã¿¬½ÀÀå µé¾
 
 	}
 
+	
+	//point----------------------------------------
+		public void keyScore() {
+			keyScore = new JTextField("¸ÂÃá°³¼ö : " + point);
+			keyScore.setFont(new Font("Sanscerif", Font.BOLD, 20));
+			keyScore.setBorder(BorderFactory.createEmptyBorder());
+			keyScore.setBackground(Color.blue);
+			this.setComponentZOrder(keyScore, 0);
+			keyScore.setBounds(500, 0, 500, 500);
+			panel2.add(keyScore);
+
+		}
+
+		//--------------------------------------	
+
+	
 
 	public void reset(){
 
@@ -202,10 +264,16 @@ public class MiniGamePanel2 extends JPanel  { // ¹Ì´Ï°ÔÀÓ ¿¬°áÈ­¸é (Ãã¿¬½ÀÀå µé¾
 		x2 = 300;
 		
 		} else {
+			System.out.println("end");
 			
 		}
 	}
 
+	public void keygamewin() {
+		MiniGamePanel3_Win win = new MiniGamePanel3_Win(mf);
+		ChangePanel.changePanel(mf, panel2, win);
+
+	}
 	
 
 
@@ -219,8 +287,9 @@ public class MiniGamePanel2 extends JPanel  { // ¹Ì´Ï°ÔÀÓ ¿¬°áÈ­¸é (Ãã¿¬½ÀÀå µé¾
 		g.drawImage(talk.getImage(), 0, 600, 1400, 250,null); //¿ø·¡ À§Ä¡ : 0,600,1400,250
 		g.setFont(new Font("NeoµÕ±Ù¸ð", Font.BOLD, 30));
 		g.drawString("Åë°úÇÏ¸é ³ë·¡½ºÅ³ +1 !!!", 100, 700); //±Û¾¾ À§Ä¡ Á¶Àý ÇÊ¿ä
+		g.drawString("14°³ ÀÌ»ó µ¿ÀÏÇÑ Å°º¸µå¸¦ ÀÔ·ÂÇÏ¼¼¿ë", 100, 750);
 		g.drawImage(characters.getImage(), 10, 100, 398, 398, this); //¿ø·¡Å©±â : 398,398
-
+		setOpaque(false);
 
 	}
 
@@ -229,8 +298,9 @@ public class MiniGamePanel2 extends JPanel  { // ¹Ì´Ï°ÔÀÓ ¿¬°áÈ­¸é (Ãã¿¬½ÀÀå µé¾
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
-//			ChangePanel.changePanel(mf, panel2, new MiniGamePanel3(mf));		
-			ChangePanel.changePanel(mf, panel2, new Sosok(mf));		
+			ChangePanel.changePanel(mf, panel2, new MiniGamePanel3_Lose(mf));		
+//			ChangePanel.changePanel(mf, panel2, new Sosok(mf));
+			
 			mf.revalidate();
 		}
 
