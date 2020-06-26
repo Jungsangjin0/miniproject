@@ -19,7 +19,7 @@ import javax.swing.JTextField;
 import miniproject.views.ChangePanel;
 import miniproject.views.MainFrame;
 
-public class MiniGamePanel2 extends JPanel  { // 미니게임 연결화면 (춤연습장 들어가서 두번째화면) -> 다시 소속사 
+public class MiniGameDance2 extends JPanel  { // 미니게임 연결화면 (춤연습장 들어가서 두번째화면) -> 다시 소속사 
 	// 키보드 입력받을 때 두번째화면 문제(화살표) 안뜸..., 게임 조건(3문제(화살표21개)중 2줄 이상 맞춰야 스킬+1, 아니면 실패 후 나가기.
 	private ImageIcon back;
 	private ImageIcon talk;
@@ -44,7 +44,7 @@ public class MiniGamePanel2 extends JPanel  { // 미니게임 연결화면 (춤연습장 들�
 	private JTextField keyScore;
 
 
-	public MiniGamePanel2(MainFrame mf) { //게임화면
+	public MiniGameDance2(MainFrame mf) { //게임화면
 
 		this.mf=mf;
 		panel2 = this;
@@ -307,7 +307,7 @@ public class MiniGamePanel2 extends JPanel  { // 미니게임 연결화면 (춤연습장 들�
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			ChangePanel.changePanel(mf, panel2, new MiniGamePanel3_Lose(mf));		
+			ChangePanel.changePanel(mf, panel2, new MiniGameDance3_Lose(mf));		
 		}
 
 

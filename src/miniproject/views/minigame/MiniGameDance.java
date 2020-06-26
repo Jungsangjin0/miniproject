@@ -12,16 +12,16 @@ import miniproject.views.MainFrame;
 
 
 
-public class MiniGamePanel extends JPanel { // 미니게임 연결화면 (춤연습장 들어가서 첫화면)
+public class MiniGameDance extends JPanel { // 미니게임 연결화면 (춤연습장 들어가서 첫화면)
 
 	private ImageIcon back;
 	private ImageIcon talk;
 	private ImageIcon characters;
-	private MiniGamePanel panel = this;
+	private MiniGameDance panel = this;
 	private MainFrame mf;
 
 
-	public MiniGamePanel(MainFrame mf) {
+	public MiniGameDance(MainFrame mf) {
 
 		this.mf = mf;
 		this.panel = this;
@@ -53,7 +53,7 @@ public class MiniGamePanel extends JPanel { // 미니게임 연결화면 (춤연습장 들어�
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			ChangePanel.changePanel(mf, panel, new MiniGamePanel2(mf));		
+			ChangePanel.changePanel(mf, panel, new MiniGameDance2(mf));		
 			mf.revalidate();
 		}
 

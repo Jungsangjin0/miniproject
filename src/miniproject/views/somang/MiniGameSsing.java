@@ -12,14 +12,14 @@ import javax.swing.JPanel;
 
 import miniproject.views.ChangePanel;
 
-public class Ssing extends JPanel {
+public class MiniGameSsing extends JPanel {
 	private MainFrame mf;
 	private JPanel panel;
 	private ImageIcon icon;
 	private ImageIcon talk;
 	private ImageIcon charac01;
 
-	public Ssing(MainFrame mf) {
+	public MiniGameSsing(MainFrame mf) {
 		this.mf = mf;
 		panel = this;
 		this.setLayout(null);

@@ -13,16 +13,16 @@ import miniproject.views.MainFrame;
 import miniproject.views.somang.Sosok;
 
 
-public class MiniGamePanel3_Lose extends JPanel{ // 미니게임 지면 나오는 화면
+public class MiniGameDance3_Lose extends JPanel{ // 미니게임 지면 나오는 화면
 
 	private MainFrame mf;
-	private MiniGamePanel3_Lose panel3_lose;
+	private MiniGameDance3_Lose panel3_lose;
 	private ImageIcon back;
 	private ImageIcon talk;
 	private ImageIcon characters;
 	private ImageIcon lose;
 
-	public MiniGamePanel3_Lose(MainFrame mf) {
+	public MiniGameDance3_Lose(MainFrame mf) {
 		this.mf = mf;
 		panel3_lose = this;
 		this.setLayout(null);
