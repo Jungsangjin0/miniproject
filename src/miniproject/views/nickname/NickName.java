@@ -1,26 +1,31 @@
 package miniproject.views.nickname;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.LinkedHashSet;
 import java.util.Scanner;
 import java.util.Set;
 
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
+import miniproject.views.ChangePanel;
 import miniproject.views.MainFrame;
+import miniproject.views.selectC.SelectC;
 
 
 public class NickName extends JPanel {
    public static String nickname;
    Graphics g;
    Set nicks = new LinkedHashSet(); 
+   NickName panel = this;
    // 배경화면 설정부분
    public void paintComponent(Graphics g) { 
 	   ImageIcon bground = new ImageIcon("src/miniproject/images/nickNameSelect/nickname_background.jpeg");
@@ -124,6 +129,8 @@ public class NickName extends JPanel {
             setBtnText.setText("당신의 닉네임은 "+ nickname + " 입니다. 환영합니다.");
             setBtnText.removeAll();
             setBtnText.setFocusable(true);
+            ChangePanel.changePanel(mf, panel, new SelectC(mf));
+            mf.revalidate();
             }
             
          }
