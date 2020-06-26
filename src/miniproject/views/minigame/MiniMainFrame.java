@@ -9,9 +9,9 @@ public class MiniMainFrame extends JFrame{
 		Container contentPane;
 		public MiniMainFrame() {
 			
-			this.setTitle("트롯스타메이커0625");
+			this.setTitle("트롯스타메이커");
 			this.setSize(1400, 900);
-			this.add(new MiniGamePanel(this));
+			//this.add(new MiniGamePanel(this));
 			this.setVisible(true);
 									
 		

@@ -25,7 +25,7 @@ public class MiniGamePanel extends JPanel { // 미니게임 연결화면 (춤연습장 들어�
 	public MiniGamePanel(MainFrame mf) {
 
 		this.mf = mf;
-//		this.panel = this;
+		this.panel = this;
 		this.setLayout(null);
 		back = new ImageIcon("src/miniproject/images/SJH/minigamekey.PNG"); //배경
 		talk = new ImageIcon("src/miniproject/images/SJH/conv.PNG"); //대화창
@@ -40,10 +40,12 @@ public class MiniGamePanel extends JPanel { // 미니게임 연결화면 (춤연습장 들어�
 		super.paintComponent(g);
 		g.drawImage(back.getImage(), 0, 0, this.getWidth(),this.getHeight(),null);
 		g.drawImage(talk.getImage(), 0, 600, 1400, 250,null); //원래 위치 : 0,600,1400,250
-		g.setFont(new Font("Neo둥근모", Font.BOLD, 40));
-		g.drawString("오늘도 춤연습을 해보자 두둠치", 100, 700); //글씨 위치 조절 필요
+		g.drawString("※ 클릭하여 게임을 진행하세요 ※ ", 100, 660);
+		g.drawString("오늘도 춤연습을 해보자 ♪", 100, 710); //글씨 위치 조절 필요    //700->700
+		g.drawString("Yeah 다시 돌아왔지 내 이름 레인 스웩을 뽐내 WHOO ~ ♬  ", 100, 760);   //780->750
+		g.drawString("They call it 왕의 귀환 ~ ♭ ", 100, 810);  //850->800
 		g.drawImage(characters.getImage(), 520, 200, 398, 398, this);//원래크기 : 398,398
-
+		setOpaque(false);
 	}
 
 
