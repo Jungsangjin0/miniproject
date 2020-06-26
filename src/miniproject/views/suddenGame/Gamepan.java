@@ -41,15 +41,15 @@ public class Gamepan extends JPanel {
 		this.setLayout(null);
 
 
-		Image no1 = new ImageIcon("suddenGame/1.jpg").getImage().getScaledInstance(150, 150, 0);
-		Image no2 = new ImageIcon("suddenGame/2.jpg").getImage().getScaledInstance(150, 150, 0);
-		Image no3 = new ImageIcon("suddenGame/3.jpg").getImage().getScaledInstance(150, 150, 0);
-		Image no4 = new ImageIcon("suddenGame/4.jpg").getImage().getScaledInstance(150, 150, 0);
-		Image no5 = new ImageIcon("suddenGame/5.jpg").getImage().getScaledInstance(150, 150, 0);
-		Image no6 = new ImageIcon("suddenGame/6.jpg").getImage().getScaledInstance(150, 150, 0);
-		Image no7 = new ImageIcon("suddenGame/7.jpg").getImage().getScaledInstance(150, 150, 0);
-		Image no8 = new ImageIcon("suddenGame/8.jpg").getImage().getScaledInstance(150, 150, 0);
-		Image no9 = new ImageIcon("suddenGame/9.jpg").getImage().getScaledInstance(150, 150, 0);
+		Image no1 = new ImageIcon("src/miniproject/images/suddenGame/1.jpg").getImage().getScaledInstance(150, 150, 0);
+		Image no2 = new ImageIcon("src/miniproject/images/suddenGame/2.jpg").getImage().getScaledInstance(150, 150, 0);
+		Image no3 = new ImageIcon("src/miniproject/images/suddenGame/3.jpg").getImage().getScaledInstance(150, 150, 0);
+		Image no4 = new ImageIcon("src/miniproject/images/suddenGame/4.jpg").getImage().getScaledInstance(150, 150, 0);
+		Image no5 = new ImageIcon("src/miniproject/images/suddenGame/5.jpg").getImage().getScaledInstance(150, 150, 0);
+		Image no6 = new ImageIcon("src/miniproject/images/suddenGame/6.jpg").getImage().getScaledInstance(150, 150, 0);
+		Image no7 = new ImageIcon("src/miniproject/images/suddenGame/7.jpg").getImage().getScaledInstance(150, 150, 0);
+		Image no8 = new ImageIcon("src/miniproject/images/suddenGame/8.jpg").getImage().getScaledInstance(150, 150, 0);
+		Image no9 = new ImageIcon("src/miniproject/images/suddenGame/9.jpg").getImage().getScaledInstance(150, 150, 0);
 
 		btns[0] = new JButton(new ImageIcon(no1));
 		btns[1] = new JButton(new ImageIcon(no2)); 

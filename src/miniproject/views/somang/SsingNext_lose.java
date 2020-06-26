@@ -1,4 +1,4 @@
-package miniProject4.com.kh.views;
+package miniproject.views.somang;
 
 import java.awt.Font;
 import java.awt.Graphics;
@@ -6,27 +6,31 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+
+import miniproject.views.ChangePanel;
+import miniproject.views.MainFrame;
+
 
 
 public class SsingNext_lose extends JPanel{
 
-	private JFrame mf;
+	private MainFrame mf;
 	private JPanel panel;
 	private ImageIcon back;
 	private ImageIcon talk;
 	private ImageIcon charac01;
 	private ImageIcon lose;
 	
-	public SsingNext_lose(JFrame mf) {
+	public SsingNext_lose(MainFrame mf) {
 		this.mf = mf;
 		panel = this;
 		this.setLayout(null);
-		back = new ImageIcon("image/ssing/sosokSing_b.png");
-		talk = new ImageIcon("image/ssing/talkFrame.png");
-		charac01 = new ImageIcon("image/ssing/Lose_Characters01.gif");
-		lose = new ImageIcon("image/ssing/lose.png");
+		back = new ImageIcon("src/miniproject/images/ssing/sosokSing_b.png");
+		talk = new ImageIcon("src/miniproject/images/ssing/talkFrame.png");
+		charac01 = new ImageIcon("src/miniproject/images/ssing/Lose_Characters01.gif");
+		lose = new ImageIcon("src/miniproject/images/ssing/lose.png");
 		this.addMouseListener(new clickPanel());
 	}
 	
@@ -51,8 +55,11 @@ public class SsingNext_lose extends JPanel{
 			//ChangePanel.replacePanel(mf, panel, new Ssing2());
 			//ChangePanel cp = new ChangePanel(mf,panel, panel);
 			
-			ChangePanel.replacePanel(mf, panel, new Sosok(mf));
-			
+			ChangePanel.changePanel(mf, panel, new Sosok(mf));
+			mf.revalidate();
+
+
+
 		}
 
 	}

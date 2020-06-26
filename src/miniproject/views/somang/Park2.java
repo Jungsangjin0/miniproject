@@ -21,7 +21,7 @@ public class Park2 extends JPanel {
 	private ImageIcon talk;
 	private ImageIcon Mark;
 
-	public Park2() {
+	public Park2(MainFrame mf) {
 		this.mf = mf;
 		this.setLayout(null);
 		// 배경

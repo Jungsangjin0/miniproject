@@ -1,4 +1,4 @@
-package miniProject4.com.kh.views;
+package miniproject.views.somang;
 
 import java.awt.Font;
 import java.awt.Graphics;
@@ -6,27 +6,28 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import miniproject.views.ChangePanel;
+import miniproject.views.MainFrame;
 
 
 public class SsingNext extends JPanel{
 
-	private JFrame mf;
-	private JPanel panel;
+	private MainFrame mf;
+	private SsingNext panel = this;
 	private ImageIcon back;
 	private ImageIcon talk;
 	private ImageIcon charac01;
 	private ImageIcon win;
 	
-	public SsingNext(JFrame mf) {
+	public SsingNext(MainFrame mf) {
 		this.mf = mf;
-		panel = this;
 		this.setLayout(null);
-		back = new ImageIcon("image/ssing/sosokSing.png");
-		talk = new ImageIcon("image/ssing/talkFrame.png");
-		charac01 = new ImageIcon("image/ssing/Characters01.gif");
-		win = new ImageIcon("image/ssing/win.png");
+		back = new ImageIcon("src/miniproject/images/ssing/sosokSing.png");
+		talk = new ImageIcon("src/miniproject/images/ssing/talkframe.png");
+		charac01 = new ImageIcon("src/miniproject/images/ssing/Characters01.gif");
+		win = new ImageIcon("src/miniproject/images/ssing/win.png");
 		this.addMouseListener(new clickPanel());
 	}
 	
@@ -51,7 +52,8 @@ public class SsingNext extends JPanel{
 			//ChangePanel.replacePanel(mf, panel, new Ssing2());
 			//ChangePanel cp = new ChangePanel(mf,panel, panel);
 			
-			ChangePanel.replacePanel(mf, panel, new Sosok(mf));
+			ChangePanel.changePanel(mf, panel, new Sosok(mf));
+			mf.revalidate();
 			
 		}
 

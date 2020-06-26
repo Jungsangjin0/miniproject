@@ -1,12 +1,14 @@
 package miniproject.views.suddenGame;
 
 import java.awt.Graphics;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
 
 import practice.suddenGame.ChangePanel;
 
@@ -31,7 +33,7 @@ tempPass.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, panel, /*»õ·Î¿î ¸ÞÀÎ¸Ê*/);
+				ChangePanel.changePanel(mf, panel, /*Â»ÃµÂ·ÃŽÂ¿Ã® Â¸ÃžÃ€ÃŽÂ¸ÃŠ*/);
 			}
 			
 		});

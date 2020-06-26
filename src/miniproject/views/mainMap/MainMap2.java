@@ -11,6 +11,7 @@ import dongyub.PlayerLabel;
 import miniproject.views.ChangePanel;
 import miniproject.views.MainFrame;
 import miniproject.views.somang.Park;
+import miniproject.views.somang.Sosok;
 
 
 
@@ -45,17 +46,17 @@ public class MainMap2 extends JPanel {
 		
 		
 		
-	this.doors[0].setLayout(null); //집
-	this.doors[0].setBounds(1075, 500, 50, 25); 
+//	this.doors[0].setLayout(null); //집
+//	this.doors[0].setBounds(1075, 500, 50, 25); 
 //	doors[0].setVisible(false);
 	
-	this.doors[1].setLayout(null); //공원
-	this.doors[1].setBounds(500, 180, 308, 65); 
+//	this.doors[1].setLayout(null); //공원
+//	this.doors[1].setBounds(500, 180, 308, 65); 
 //	doors[1].setVisible(false);
 	
-//	this.doors[2].setLayout(null); //소속사
-//	this.doors[2].setBounds(650, 500, 50, 25); 
-////	doors[2].setVisible(false);
+	this.doors[2].setLayout(null); //소속사
+	this.doors[2].setBounds(650, 500, 50, 25); 
+//	doors[2].setVisible(false);
 //	
 //	this.doors[3].setLayout(null); //전국노래자랑
 //	this.doors[3].setBounds(850, 30, 80, 40); 
@@ -66,35 +67,48 @@ public class MainMap2 extends JPanel {
 //	this.doors[5].setLayout(null); //디스패치
 //	this.doors[5].setBounds(870, 0, 10, 900); 
 	
-	this.add(doors[0]);
-	this.add(doors[1]);
-//	this.add(doors[2]);
+//	this.add(doors[0]);
+//	this.add(doors[1]);
+	this.add(doors[2]);
 //	this.add(doors[3]);
 //	this.add(doors[4]);
 //	this.add(doors[5]);
 	
-	doors[0].addMouseListener(new MouseAdapter() {
-		
-		
-		
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			
-			donum = 1;
+//	doors[0].addMouseListener(new MouseAdapter() {
+//		
+//		
+//		
+//		@Override
+//		public void mouseClicked(MouseEvent e) {
+//			
+//			donum = 1;
 //			doors_excute();
 //			System.out.println("ㄱ,민헤...");
-			
-		}
-	});
-	
-	doors[1].addMouseListener(new MouseAdapter() {
+//			
+//		}
+//	});
+//	
+//	doors[1].addMouseListener(new MouseAdapter() {
+//		
+//		
+//		
+//		@Override
+//		public void mouseClicked(MouseEvent e) {
+//			
+//			donum = 2;
+//			doors_excute();
+//			System.out.println("ㄱ,민헤...");
+//		}
+//	});
+//	
+	doors[2].addMouseListener(new MouseAdapter() {
 		
 		
 		
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			
-			donum = 2;
+			donum = 3;
 			doors_excute();
 			System.out.println("ㄱ,민헤...");
 		}
@@ -114,7 +128,10 @@ public class MainMap2 extends JPanel {
 			ChangePanel.changePanel(mf, panel, new Park(mf));
 			mf.revalidate();
 			break;
-		case 3: break;
+		case 3:
+			ChangePanel.changePanel(mf, panel, new Sosok(mf));
+			mf.revalidate();
+			break;
 		case 4: break;
 		case 5: break;
 		case 6: break;

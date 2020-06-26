@@ -45,6 +45,11 @@ public class MainRoom extends JPanel{
 		door.setBounds(600,580,150,150);
 		door.setOpaque(true);
 		this.add(door);
+//		if((pl.getX()>= 600 && pl.getX()<= 650)&& (pl.getY() >= 530)) {
+//			
+//			ChangePanel.changePanel(mf, panel, new MainMap(mf));
+//			mf.revalidate();
+//		}
 		
 		door.addMouseListener(new MouseListener() {
 			
@@ -78,15 +83,8 @@ public class MainRoom extends JPanel{
 				ChangePanel.changePanel(mf, panel, new MainMap(mf));
 				mf.revalidate();
 			}
+		
 		});
-		
-//		x = pl.getX(); 
-//		y = pl.getY();
-		
-//		if(Crash(x,y,door.getX(),door.getY(),pl,door)) {
-//			ChangePanel.changePanel(mf, this, new MainMap());
-//		}
-		
 	}
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -97,48 +95,4 @@ public class MainRoom extends JPanel{
 		setOpaque(false);
 	}
 	
-	
-	
-	public void Crash() {}       //위치 이동용
-	
-	
-	
-//	   public boolean Crash(int x1, int y1, int x2, int y2, Image player_img, Image dispatch_img) {
-//	      //해당 이미지의 넓이, 높이값을 계산
-//	      boolean check = false;
-//
-//	      if(Math.abs((x1 + player_img.getWidth(null) / 2) - (x2 + dispatch_img.getWidth(null) / 2)) <
-//	            (dispatch_img.getWidth(null) / 2 + player_img.getWidth(null) / 2) 
-//	            && Math.abs((y1 + player_img.getHeight(null) / 2)  - (y2 + dispatch_img.getHeight(null) /2)) <
-//	            (dispatch_img.getHeight(null) / 2 + player_img.getHeight(null) /2 )) {
-//	         //이미지 넓이, 높이값을 바로 받아 계산
-//
-//	         check = true;   //위 값이 true면 check에 true를 전달
-//	      } else {
-//	         check = false;
-//	      }
-//
-//	      return check;      //check의 값을 메소드에 리턴 시킴
-//	
-//	
-//	   }
-//	   public boolean Crash(int x1, int y1, int x2, int y2, JLabel pl, JLabel door) {
-//		   //해당 이미지의 넓이, 높이값을 계산
-//		   check = false;
-//		   
-//		   if((((pl.getX() + pl.getX() + 100) / 2) - ((x2 + door.getX() + 150 ) / 2)) <
-//				   (door.getX() / 2 + pl.getX() / 2) 
-//				   && (((y1 + pl.getY() + 100) / 2)  - ((y2 + door.getY()+20) /2)) <
-//				   (door.getY() / 2 + pl.getY() /2 )) {
-//			   //이미지 넓이, 높이값을 바로 받아 계산
-//			   
-//			   check = true;   //위 값이 true면 check에 true를 전달
-//		   } else {
-//			   check = false;
-//		   }
-//		   
-//		   return check;      //check의 값을 메소드에 리턴 시킴
-		   
-		   
-//	   }
 }
