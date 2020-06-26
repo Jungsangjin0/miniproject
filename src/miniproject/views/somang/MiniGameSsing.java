@@ -12,14 +12,14 @@ import javax.swing.JPanel;
 
 import miniproject.views.ChangePanel;
 
-public class Ssing extends JPanel {
+public class MiniGameSsing extends JPanel {
 	private MainFrame mf;
 	private JPanel panel;
 	private ImageIcon icon;
 	private ImageIcon talk;
 	private ImageIcon charac01;
 
-	public Ssing(MainFrame mf) {
+	public MiniGameSsing(MainFrame mf) {
 		this.mf = mf;
 		panel = this;
 		this.setLayout(null);
@@ -72,7 +72,7 @@ public class Ssing extends JPanel {
 		public void mouseClicked(MouseEvent e) {
 			//ChangePanel.replacePanel(mf, panel, new Ssing2());
 			//ChangePanel cp = new ChangePanel(mf,panel, panel);
-			Ssing2 gp = new Ssing2(mf);
+			MiniGameSsing2 gp = new MiniGameSsing2(mf);
 			Timer2 timer = new Timer2(mf,gp);
 			Thread t1 = timer;
 			t1.start();

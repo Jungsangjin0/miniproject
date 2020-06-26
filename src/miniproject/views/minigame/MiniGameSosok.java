@@ -13,8 +13,9 @@ import javax.swing.JPanel;
 
 import miniproject.views.ChangePanel;
 import miniproject.views.MainFrame;
+import miniproject.views.somang.MiniGameSsing;
 
-public class MiniGamePanel4 extends JPanel  { // 미니게임 연결화면 (소속사 화면)
+public class MiniGameSosok extends JPanel  { // 미니게임 연결화면 (소속사 화면)
 
 	private ImageIcon back; //배경
 	private ImageIcon talk; //대화상자
@@ -27,7 +28,7 @@ public class MiniGamePanel4 extends JPanel  { // 미니게임 연결화면 (소속사 화면)
 	private JPanel panel4;
 	
 
-	public MiniGamePanel4(MainFrame mf) { //게임화면?
+	public MiniGameSosok(MainFrame mf) { //게임화면?
 
 		this.mf=mf;
 		panel4 = this;
@@ -95,7 +96,7 @@ public class MiniGamePanel4 extends JPanel  { // 미니게임 연결화면 (소속사 화면)
 	class clickButtonL extends MouseAdapter{  //미니게임 노래  -> 여기에 노래화면 받아서 연결해야함~
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			ChangePanel.changePanel(mf, panel4, new MiniGamePanel(mf));
+			ChangePanel.changePanel(mf, panel4, new MiniGameSsing(mf));
 			mf.revalidate();
 		}
 		
