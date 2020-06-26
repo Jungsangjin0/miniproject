@@ -25,10 +25,10 @@ public class MiniGamePanel3_Win extends JPanel{ // 미니게임 이기면 나오는 화면
 		this.mf = mf;
 		panel3_win = this;
 		this.setLayout(null);
-		back = new ImageIcon("images/minigamekey.png");
-		talk = new ImageIcon("images/conv.png");
-		characters = new ImageIcon("images/Characters_5.png");
-		win = new ImageIcon("images/win.png");
+		back = new ImageIcon("src/miniproject/images/SJH/minigamekey.png");
+		talk = new ImageIcon("src/miniproject/images/SJH/conv.png");
+		characters = new ImageIcon("src/miniproject/images/SJH/Characters_5.png");
+		win = new ImageIcon("src/miniproject/images/SJH/win.png");
 		this.addMouseListener(new clickPanel());
 
 	}

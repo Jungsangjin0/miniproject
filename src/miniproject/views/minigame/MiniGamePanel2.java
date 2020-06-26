@@ -190,7 +190,7 @@ public class MiniGamePanel2 extends JPanel  { // 미니게임 연결화면 (춤연습장 들�
 			}else {
 				color = "red";
 
-				ImageIcon arrow = new ImageIcon("src/miniproject/images/"+num+"-"+color+".png");
+				ImageIcon arrow = new ImageIcon("src/miniproject/images/SJH/"+num+"-"+color+".png");
 
 				System.out.println("여섯번째확인용 :" + index);
 				//this.back.getImage();
