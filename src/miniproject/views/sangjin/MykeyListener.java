@@ -1,21 +1,25 @@
 package miniproject.views.sangjin;
 
-import java.awt.Image;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+
+import miniproject.views.MainFrame;
 
 class MyKeyListener extends KeyAdapter {
 
 	// 케릭터 속도 조절 기본 : 10
 	private static final int FLYING_UNIT = 10;		
 	JLabel la;
+	MainFrame mf;
+	MainRoom mm;
 
 	
-	public MyKeyListener(JLabel la) {
+	public MyKeyListener(JLabel la,MainFrame mf, MainRoom mm) {
 		this.la = la;
+		this.mf = mf;
+		this.mm = mm;
 	}
 
 	public void keyPressed(KeyEvent e) {
