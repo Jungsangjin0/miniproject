@@ -13,7 +13,7 @@ import miniproject.views.MainFrame;
 
 //import miniProject4.com.kh.model.vo.UserAnswer;
 
-public class Ssing_test {
+public class MiniGameSsing_test {
 	private MainFrame mf;
 	private JPanel panel;
 	int num;
@@ -32,7 +32,7 @@ public class Ssing_test {
 	Timer2 timer = new Timer2(mf,panel);
 	MouseEvent e;
 
-	public Ssing_test(MainFrame mf, JPanel panel, int num, JTextField input, JTextField input2, JTextField input3) {
+	public MiniGameSsing_test(MainFrame mf, JPanel panel, int num, JTextField input, JTextField input2, JTextField input3) {
 		this.mf = mf;
 		this.panel = panel;
 		this.num = num;
@@ -95,7 +95,7 @@ public class Ssing_test {
 	public void ssingNext() {
 		// 통과이면(cnt 2이상이고 3이되면) 노래점수+1
 		// 타이머 stop하고 다음 화면 넘어가기
-		SsingNext gp = new SsingNext(mf);
+		MiniGameSsing_Win gp = new MiniGameSsing_Win(mf);
 
 		ChangePanel.changePanel(mf, panel, gp);
 		stop();
@@ -125,7 +125,7 @@ public class Ssing_test {
 	public void ssingNext_lose() {
 		// 통과이면(cnt 2이상이고 3이되면) 노래점수+1
 		// 타이머 stop하고 다음 화면 넘어가기
-		SsingNext_lose gp = new SsingNext_lose(mf);
+		MiniGameSsing_lose gp = new MiniGameSsing_lose(mf);
 
 		ChangePanel.changePanel(mf, panel, gp);
 		stop();

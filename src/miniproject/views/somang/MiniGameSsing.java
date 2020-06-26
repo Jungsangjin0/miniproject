@@ -72,7 +72,7 @@ public class MiniGameSsing extends JPanel {
 		public void mouseClicked(MouseEvent e) {
 			//ChangePanel.replacePanel(mf, panel, new Ssing2());
 			//ChangePanel cp = new ChangePanel(mf,panel, panel);
-			Ssing2 gp = new Ssing2(mf);
+			MiniGameSsing2 gp = new MiniGameSsing2(mf);
 			Timer2 timer = new Timer2(mf,gp);
 			Thread t1 = timer;
 			t1.start();

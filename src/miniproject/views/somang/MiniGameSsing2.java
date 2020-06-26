@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import miniproject.views.MainFrame;
 
-public class Ssing2 extends JPanel {
+public class MiniGameSsing2 extends JPanel {
 	private MainFrame mf;
 	private JPanel panel;
 	private ImageIcon icon;
@@ -26,10 +26,10 @@ public class Ssing2 extends JPanel {
 	String one = "";
 	String two = "";
 	String three = "";
-	//int ncnt=0;
+	//int ncnt=0; 
 	
 	// Scanner sc = new Scanner(System.in);
-	public Ssing2(MainFrame mf) {
+	public MiniGameSsing2(MainFrame mf) {
 		// panel = new JPanel();
 		this.mf = mf;
 		panel = this;
@@ -68,7 +68,7 @@ public class Ssing2 extends JPanel {
 		panel.add(input3);
 
 		// StestPass();
-		Ssing_test st = new Ssing_test(mf, panel, num, input, input2, input3);
+		MiniGameSsing_test st = new MiniGameSsing_test(mf, panel, num, input, input2, input3);
 
 //		input.addActionListener(new ActionListener() {
 //

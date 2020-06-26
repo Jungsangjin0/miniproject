@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 
 import miniproject.views.ChangePanel;
 import miniproject.views.MainFrame;
-import miniproject.views.somang.Sosok;
+import miniproject.views.minipublic.Sosok_04;
 
 
 public class MiniGameDance3_Lose extends JPanel{ // 미니게임 지면 나오는 화면
@@ -54,7 +54,7 @@ public class MiniGameDance3_Lose extends JPanel{ // 미니게임 지면 나오는 화면
 		public void mouseClicked(MouseEvent e) {
 			
 
-			ChangePanel.changePanel(mf, panel3_lose, new Sosok(mf));
+			ChangePanel.changePanel(mf, panel3_lose, new Sosok_04(mf));
 			mf.revalidate();
 			//MiniGamePanel3
 
