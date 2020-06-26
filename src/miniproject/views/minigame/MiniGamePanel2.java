@@ -43,14 +43,15 @@ public class MiniGamePanel2 extends JPanel  { // 미니게임 연결화면 (춤연습장 들�
 		back = new ImageIcon("src/miniproject/images/SJH/minigamekey.PNG"); //배경
 		talk = new ImageIcon("src/miniproject/images/SJH/conv.PNG"); //대화창
 		characters = new ImageIcon("src/miniproject/images/SJH/Characters_1.GIF"); //캐릭터
-
+		
+//		mf.setFocusable(true);
 
 		//화살표(문제)
 		arrows = new JLabel[7];
 		inputs = new ArrayList<JLabel>();
 		arrNo = new int[7];
 
-		this.addMouseListener(new MyMouseAdapter());
+		panel2.addMouseListener(new MyMouseAdapter());
 
 		buttonInit();
 		
@@ -232,6 +233,7 @@ public class MiniGamePanel2 extends JPanel  { // 미니게임 연결화면 (춤연습장 들�
 //			ChangePanel.changePanel(mf, panel2, new MiniGamePanel3(mf));		
 			ChangePanel.changePanel(mf, panel2, new Sosok(mf));		
 			mf.revalidate();
+			
 		}
 
 
