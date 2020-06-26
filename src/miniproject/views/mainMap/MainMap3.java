@@ -13,7 +13,7 @@ import miniproject.views.MainFrame;
 import miniproject.views.jungukGame.MainPage;
 import miniproject.views.somang.Park;
 import miniproject.views.somang.Sosok;
-import miniproject.views.trotGame.TrotGame;
+import miniproject.views.trotGame.FirstPanel;
 
 
 
@@ -153,8 +153,9 @@ public class MainMap3 extends JPanel {
 			mf.revalidate();
 			break;
 		case 5:
-			ChangePanel.changePanel(mf, panel, new TrotGame(mf));
-			mf.revalidate();
+			ChangePanel.changePanel(mf, panel, new FirstPanel(mf));
+			System.out.println("실행했따");
+			mf.repaint();
 			break;
 		case 6: break;
 		}

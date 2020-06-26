@@ -288,10 +288,6 @@ public class TrotGame extends JPanel{
 //						offHandler(index);
 //					}
 					
-					
-					
-					
-					
 				}catch(InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -306,10 +302,4 @@ public class TrotGame extends JPanel{
 		setOpaque(false);
 		mf.repaint();
 	}
-	
-
-	
-	
-	
-
 }
