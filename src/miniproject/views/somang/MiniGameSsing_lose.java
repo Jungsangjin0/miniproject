@@ -1,17 +1,19 @@
 package miniproject.views.somang;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-
+import miniproject.model.vo.Player123;
 import miniproject.views.ChangePanel;
 import miniproject.views.MainFrame;
-import miniproject.views.minipublic.Sosok_04;
+import miniproject.views.minipublic.Sosok_singbutton;
 
 
 
@@ -19,21 +21,40 @@ public class MiniGameSsing_lose extends JPanel{
 
 	private MainFrame mf;
 	private JPanel panel;
+	
 	private ImageIcon back;
 	private ImageIcon talk;
 	private ImageIcon charac01;
 	private ImageIcon lose;
 	
-	public MiniGameSsing_lose(MainFrame mf) {
+	private int jum =0;
+	
+	private Player123 player;
+
+	public MiniGameSsing_lose(MainFrame mf, Player123 player, int jum) {
 		this.mf = mf;
 		panel = this;
+		this.player = player;
+		
 		this.setLayout(null);
 		back = new ImageIcon("src/miniproject/images/ssing/sosokSing_b.png");
 		talk = new ImageIcon("src/miniproject/images/ssing/talkFrame.png");
-		charac01 = new ImageIcon("src/miniproject/images/ssing/Lose_Characters01.gif");
+		charac01 = new ImageIcon("src/miniproject/images/ssing/Lose_Characters02.gif");
 		lose = new ImageIcon("src/miniproject/images/ssing/lose.png");
 		this.addMouseListener(new clickPanel());
 	}
+	
+	public void jumsu(int jum) {
+		int jum2 = jum;
+		JLabel jlabel = new JLabel(jum2+"Á¡! ´É·ÂÄ¡¸¦ ¿Ã¸®Ä¡ ¸øÇß´Ù!!");
+		jlabel.setBounds(5,5,300,50);
+		jlabel.setFont(new Font("Sanscerif",Font.BOLD,20));
+		jlabel.setForeground(Color.BLACK);
+		panel.add(jlabel);
+		
+	}
+		
+	
 	
 	public void paintComponent(Graphics g) {
 		g.drawImage(back.getImage(), 0, 0, null);
@@ -42,8 +63,8 @@ public class MiniGameSsing_lose extends JPanel{
 		if (charac01 != null) {
 			g.drawImage(charac01.getImage(), 500, 250, 398, 398, this);
 		}
-		g.setFont(new Font("Neoë‘¥ê·¼ëª¨", Font.BOLD, 40));
-		g.drawString("ì•„ì‰½ê²Œ ë…¸ë˜ ì ìˆ˜ë¥¼ ì–»ì§€ ëª»í–ˆë‹¤..!", 70, 750);
+		g.setFont(new Font("NeoµÕ±Ù¸ğ", Font.BOLD, 40));
+		g.drawString("¾Æ½±°Ô ³ë·¡ Á¡¼ö¸¦ ¾òÁö ¸øÇß´Ù..!", 70, 750);
 		
 		setOpaque(false);
 		super.paintComponent(g);
@@ -53,13 +74,9 @@ public class MiniGameSsing_lose extends JPanel{
 	class clickPanel extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			//ChangePanel.replacePanel(mf, panel, new Ssing2());
-			//ChangePanel cp = new ChangePanel(mf,panel, panel);
 			
-			ChangePanel.changePanel(mf, panel, new Sosok_04(mf));
+			ChangePanel.changePanel(mf, panel, new Sosok_singbutton(mf, player));
 			mf.revalidate();
-
-
 
 		}
 

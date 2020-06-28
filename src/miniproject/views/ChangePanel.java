@@ -5,11 +5,16 @@ import java.awt.Component;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import miniproject.model.vo.Player123;
+
 
 public class ChangePanel {
 	private JFrame mf;
 	private JPanel panel;
 	private JPanel panel2;
+	private Player123 player;
+	
+	
 	
 	public ChangePanel() {
 		

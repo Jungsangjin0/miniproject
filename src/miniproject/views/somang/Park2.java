@@ -9,8 +9,9 @@ import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import miniproject.model.vo.Player123;
 import miniproject.views.ChangePanel;
-import miniproject.views.mainMap.MainMap2;
+import miniproject.views.mainMap.MainMapSosok;
 import miniproject.views.MainFrame;
 
 
@@ -20,9 +21,11 @@ public class Park2 extends JPanel {
 	private ImageIcon icon;
 	private ImageIcon talk;
 	private ImageIcon Mark;
+	private Player123 player;
 
-	public Park2(MainFrame mf) {
+	public Park2(MainFrame mf, Player123 player) {
 		this.mf = mf;
+		this.player = player;
 		this.setLayout(null);
 		// 배경
 		icon = new ImageIcon("src/miniproject/images/park/park2.png");
@@ -32,10 +35,10 @@ public class Park2 extends JPanel {
 		
 
 		this.addMouseListener(new MouseAdapter() {
-			
+		
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ChangePanel.changePanel(mf, panel, new MainMap2(mf));
+				ChangePanel.changePanel(mf, panel, new MainMapSosok(mf,player));
 				mf.repaint();
 			}
 		});
@@ -53,13 +56,5 @@ public class Park2 extends JPanel {
 		super.paintComponent(g);
 	}
 
-//	class clickPanel extends MouseAdapter {
-//		@Override
-//		public void mouseClicked(MouseEvent e) {
-//			ChangePanel.changePanel(mf, panel, new MainMap2(mf));
-//			mf.repaint();
-//		}
-
-//	}
 	
 }

@@ -9,6 +9,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import miniproject.model.vo.Player123;
 import miniproject.views.ChangePanel;
 import miniproject.views.MainFrame;
 import miniproject.views.firstPage.FirstPage;
@@ -19,8 +20,9 @@ public class SelectC extends JPanel {
 	private SelectC sc = this;
 	
 	
-	JLabel label;
-	JLabel label2;
+	private JLabel label;
+	private JLabel label2;
+	private Player123 player;
 	
 	public void paintComponent(Graphics g) {	
 		ImageIcon  sback = new ImageIcon("src/miniproject/images/nickNameSelect/nickname_background.jpeg");
@@ -32,8 +34,10 @@ public class SelectC extends JPanel {
 		
 	}
 	
-	public SelectC(MainFrame mf) {
+	public SelectC(MainFrame mf, Player123 player) {
 		this.mf = mf;
+		this.player = player;
+		
 		label = new JLabel();
 		label.setIcon(new ImageIcon("src/miniproject/images/selectC/character02.gif"));
 		label2 = new JLabel();
@@ -46,7 +50,7 @@ public class SelectC extends JPanel {
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ChangePanel.changePanel(mf, sc, new MainRoom(mf));
+				ChangePanel.changePanel(mf, sc, new MainRoom(mf,player));
 				mf.validate();
 				
 			}
@@ -63,8 +67,6 @@ public class SelectC extends JPanel {
 				mf.validate();
 				
 			}
-
-			
 			
 		});
 		

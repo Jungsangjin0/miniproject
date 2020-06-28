@@ -2,14 +2,14 @@ package miniproject.views.somang;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
-//import java.util.Scanner;
-//import java.awt.event.*;
-//import java.net.URL;
-//import java.util.Random;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
-//import javax.activation.ActivationDataFlavor;
 import javax.swing.*;
+
+import miniproject.model.vo.Player123;
+import miniproject.views.ChangePanel;
 import miniproject.views.MainFrame;
 
 public class MiniGameSsing2 extends JPanel {
@@ -23,27 +23,29 @@ public class MiniGameSsing2 extends JPanel {
 	private JTextField input;
 	private JTextField input2;
 	private JTextField input3;
+	
+	private Player123 player;
+	
 	String one = "";
 	String two = "";
 	String three = "";
-	//int ncnt=0; 
 	
-	// Scanner sc = new Scanner(System.in);
-	public MiniGameSsing2(MainFrame mf) {
-		// panel = new JPanel();
+	public MiniGameSsing2(MainFrame mf, Player123 player) {
+		
 		this.mf = mf;
 		panel = this;
+		this.player = player;
+		
 		this.setLayout(null);
 		icon = new ImageIcon("src/miniproject/images/ssing/sosokSing.png");
 		talk = new ImageIcon("src/miniproject/images/ssing/talkframe.png");
-		charac01 = new ImageIcon("src/miniproject/images/ssing/Characters01.gif");
+		charac01 = new ImageIcon("src/miniproject/images/ssing/Characters02.gif");
 
-		// sTest = new ImageIcon("image/images/sTest_1.png");
-		// Stext();
+		
 
-		// í…ìŠ¤íŠ¸ì…ë ¥
-		JLabel label = new JLabel("ë¹ˆì¹¸ì— ë“¤ì–´ê°ˆ ë§ì€? : ");
-		label.setFont(new Font("Neoë‘¥ê·¼ëª¨", Font.PLAIN, 25));
+		// ÅØ½ºÆ®ÀÔ·Â
+		JLabel label = new JLabel("ºóÄ­¿¡ µé¾î°¥ ¸»Àº? : ");
+		label.setFont(new Font("NeoµÕ±Ù¸ğ", Font.PLAIN, 25));
 		label.setBounds(70, 740, 250, 50);
 		panel.add(label);
 
@@ -51,76 +53,48 @@ public class MiniGameSsing2 extends JPanel {
 		input2 = new JTextField();
 		input3 = new JTextField();
 
-		// input.addActionListener(action);
-		input.setFont(new Font("Neoë‘¥ê·¼ëª¨", Font.BOLD, 30));
+		input.setFont(new Font("NeoµÕ±Ù¸ğ", Font.BOLD, 30));
 		input.setBounds(300, 740, 100, 50);
 
-		// input2.addActionListener(action);
-		input2.setFont(new Font("Neoë‘¥ê·¼ëª¨", Font.BOLD, 30));
+		input2.setFont(new Font("NeoµÕ±Ù¸ğ", Font.BOLD, 30));
 		input2.setBounds(410, 740, 100, 50);
 
-		// input3.addActionListener(action);
-		input3.setFont(new Font("Neoë‘¥ê·¼ëª¨", Font.BOLD, 30));
+		input3.setFont(new Font("NeoµÕ±Ù¸ğ", Font.BOLD, 30));
 		input3.setBounds(520, 740, 100, 50);
 
 		panel.add(input);
 		panel.add(input2);
 		panel.add(input3);
 
-		// StestPass();
-		MiniGameSsing_test st = new MiniGameSsing_test(mf, panel, num, input, input2, input3);
+		Timer2 timer = new Timer2(mf,this);
+		 Thread t1 = timer;
+		 t1.start();
+			
+		MiniGameSsing_test st = new MiniGameSsing_test(mf, panel, num, input, input2, input3,player);
 
-//		input.addActionListener(new ActionListener() {
-//
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				one = input.getText();
-//				System.out.println(one);
-//				st.StestPass(input);
-//			}
-//
-//		});
-//		input2.addActionListener(new ActionListener() {
-//
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				two = input2.getText();
-//				System.out.println(two);
-//				st.StestPass(input2);
-//			}
-//
-//		});
-		//3ë²ˆì§¸ì—ì„œë§Œ ì—”í„° ì´ë²¤íŠ¸ ë°œìƒ  -> ì „ì²´ ì…ë ¥ì‹œ í•œë²ˆì— ê²€í† í›„ ë„˜ì–´ê°€ê¸°
+		//3¹øÂ°¿¡¼­¸¸ ¿£ÅÍ ÀÌº¥Æ® ¹ß»ı  -> ÀüÃ¼ ÀÔ·Â½Ã ÇÑ¹ø¿¡ °ËÅäÈÄ ³Ñ¾î°¡±â
 		input3.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				one = input.getText();
 				System.out.println(one);
-				//st.StestPass(input);
 
 				two = input2.getText();
 				System.out.println(two);
-				//st.StestPass(input2);
 
 				three = input3.getText();
 				System.out.println(three);
-				//st.StestPass(input3);
 				
 				String[] inputArr = {one, two, three};
 				
 				st.StestPass(inputArr);
-				
-//				UserAnswer userAnswer = new UserAnswer();
-//				userAnswer.setFirstAnswer(input.getText());
-//				userAnswer.setSecondAnswer(input2.getText());
-//				userAnswer.setThirdAnswer(input3.getText());
-//				
-//				st.StestPass(userAnswer);
-				//ncnt++;				
+				t1.stop();
 			}
 
 		});
+		
+		
 
 	}
 
@@ -131,35 +105,26 @@ public class MiniGameSsing2 extends JPanel {
 	public void paintComponent(Graphics g) {
 
 		super.paintComponent(g);
-		// JTextField sText = new JTextField();
-		// sText.setBounds(50,500,180,40);
 
-		// ë°°ê²½ì´ë¯¸ì§€
+		// ¹è°æÀÌ¹ÌÁö
 		g.drawImage(icon.getImage(), 0, 0, null);
-		// ëŒ€í™”ì°½ì´ë¯¸ì§€
+		// ´ëÈ­Ã¢ÀÌ¹ÌÁö
 		g.drawImage(talk.getImage(), 5, 620, 1390, 250, null);
-		// ìºë¦­í„° ì´ë¯¸ì§€
+		// Ä³¸¯ÅÍ ÀÌ¹ÌÁö
 		if (charac01 != null) {
 			g.drawImage(charac01.getImage(), 50, 200, 398, 398, this);
 		}
-		// í…ŒìŠ¤íŠ¸ ì´ë¯¸ì§€
+		// Å×½ºÆ® ÀÌ¹ÌÁö
 
-		sTest = test; // ì´ë¯¸ì§€ 1
-		g.drawImage(sTest.getImage(), 500, 180, 772, 408, null); // ì´ë¯¸ì§€1
-
-		g.setFont(new Font("Neoë‘¥ê·¼ëª¨", Font.BOLD, 36));
-		g.drawString("ë¹ˆì¹¸ì— ì•Œë§ì€ ë…¸ë˜ê°€ì‚¬ë¥¼ ì ì! ì—”í„°ë¥¼ ëˆ„ë¥´ì§€ ì•Šìœ¼ë©´ ë¬´íš¨! \n", 70, 720);
-
-//	if(ncnt==0) {
-//		sTest = test; // ì´ë¯¸ì§€ 1
-//		g.drawImage(sTest.getImage(), 500, 180, 772, 408, null); 
-//	}else if(ncnt ==1){
-//		sTest = test; // ì´ë¯¸ì§€ 1
-//		g.drawImage(sTest.getImage(), 500, 180, 772, 408, null); 
-//	}
+		sTest = test; // ÀÌ¹ÌÁö 1
+		g.drawImage(sTest.getImage(), 500, 180, 772, 408, null); // ÀÌ¹ÌÁö1
+		g.setFont(new Font("NeoµÕ±Ù¸ğ", Font.BOLD, 36));
+		g.drawString("ºóÄ­¿¡ ¾Ë¸ÂÀº ³ë·¡°¡»ç¸¦ ÀûÀÚ! ¿£ÅÍ¸¦ ´©¸£Áö ¾ÊÀ¸¸é ¹«È¿! \n", 70, 720);
 		
 		setOpaque(false);
 
 	}
-
+	
+	
+	
 }

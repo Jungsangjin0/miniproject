@@ -8,20 +8,22 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import miniproject.model.vo.Player123;
 import miniproject.views.MainFrame;
 
 public class EndingBack02 extends JPanel { //51~75% 무명스타(남캐릭터)
 	
 	private MainFrame mf;
 	private EndingBack02 panel = this;
-	
+	private Player123 player;
 
-	ImageIcon imageicon = new ImageIcon("images/ending_02.PNG");
+	private ImageIcon imageicon = new ImageIcon("src/miniproject/images/SJH/endingmo.png");
 
-	Image image = imageicon.getImage();
+	private Image image = imageicon.getImage();
 	
-	public EndingBack02(MainFrame mf) {
+	public EndingBack02(MainFrame mf, Player123 player) {
 		this.mf = mf;
+		this.player = player;
 		
 	}
 

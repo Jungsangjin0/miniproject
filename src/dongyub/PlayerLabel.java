@@ -7,7 +7,7 @@ import javax.swing.JLabel;
 
 public class PlayerLabel extends JLabel{
 
-	Image icon =  new ImageIcon("src/miniproject/images/camera/character.png").getImage().getScaledInstance(100, 100, 0);
+	Image icon =  new ImageIcon("src/miniproject/images/camera/char.gif").getImage().getScaledInstance(100, 100, 0);
 	
 	public PlayerLabel() {
 		

@@ -13,6 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import miniproject.model.vo.Player123;
 import miniproject.views.ChangePanel;
 import miniproject.views.MainFrame;
 
@@ -21,8 +22,11 @@ public class FirstPanel extends JPanel{
 	private MainFrame mf;
 	private JFrame jf;
 	private FirstPanel panel;
+	
 	private JLabel label;
-	private Image back = new ImageIcon("src/miniproject/images/camera/panel2.PNG").getImage().getScaledInstance(1400, 900, 0);
+	private Player123 player;
+	
+	private Image back = new ImageIcon("src/miniproject/images/camera/panel3.PNG").getImage().getScaledInstance(1400, 900, 0);
 
 
 	public void paintComponent(Graphics g) {
@@ -30,34 +34,31 @@ public class FirstPanel extends JPanel{
 		g.drawImage(back, 0,0,1400,900,this);
 		setOpaque(false);
 	}
+	
 
-	public FirstPanel(MainFrame mf) {
+	public FirstPanel(MainFrame mf, Player123 player) {
 		panel = this;
 		this.mf = mf;
+		this.player = player;
+		
 		label = new JLabel();
-		label.setIcon(new ImageIcon("src/miniproject/images/camera/startp.PNG"));
+		label.setIcon(new ImageIcon("src/miniproject/images/camera/startp.png"));
 
-
-//		label.setLayout(null);
 		panel.setLayout(null);
 		label.setBounds(200,50,1000,700);
 
 		panel.add(label);
 		label.setVisible(false);
-
-
-		
 		
 		panel.addMouseListener(new MouseAdapter() {
 
-
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				System.out.println("test click");
 				label.setVisible(true);
 			}
 
 		});
+		
 		
 		
 		label.addMouseListener(new MouseAdapter() {
@@ -65,7 +66,7 @@ public class FirstPanel extends JPanel{
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				ChangePanel.changePanel(mf, panel, new TrotGame(mf));
+				ChangePanel.changePanel(mf, panel, new TrotGame(mf,player));
 				mf.validate();
 				
 			}
