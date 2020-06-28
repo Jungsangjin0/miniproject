@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 import miniproject.model.vo.Player123;
 import miniproject.views.ChangePanel;
 import miniproject.views.MainFrame;
-import miniproject.views.mainMap.MainMapSudden;
+import miniproject.views.suddenGame.SuddenGameStart;
 
 public class Sosok_01_trot extends JPanel { //소속사 첫화면
 
@@ -50,7 +50,7 @@ public class Sosok_01_trot extends JPanel { //소속사 첫화면
       //문 
       door = new JLabel(doorMain);
       door.setLayout(null);
-      door.setBounds(0, 400, 40, 250);
+      door.setBounds(0, 300, 40, 250);
       door.setOpaque(false);
       this.add(door);
 
@@ -58,7 +58,7 @@ public class Sosok_01_trot extends JPanel { //소속사 첫화면
 
          @Override
          public void mouseClicked(MouseEvent e) {
-            ChangePanel.changePanel(mf, panel, new MainMapSudden(mf,player));
+            ChangePanel.changePanel(mf, panel, new SuddenGameStart(mf,player));
 
          }
       });

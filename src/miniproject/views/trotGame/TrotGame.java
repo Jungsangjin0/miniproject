@@ -220,6 +220,7 @@ public class TrotGame extends JPanel{
 					programStart = true;
 					offAll();
 					totalScore.setVisible(true);
+					player.setTotalScore(player.getTotalScore() + score);
 					printText = new JTextField(score + "¡°¿ª »πµÊ«œºÃΩ¿¥œ¥Ÿ.") {
 						@Override
 						public void setBorder(Border boder) {

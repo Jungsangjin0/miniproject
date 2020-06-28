@@ -51,25 +51,10 @@ public class MiniGameSsing extends JPanel {
 	}
 
 	
-//	class clickPanel extends MouseAdapter {
-//		@Override
-//		public void mouseClicked(MouseEvent e) {
-//			MiniGameSsing2 gp = new MiniGameSsing2(mf,player);
-//			Timer2 timer = new Timer2(mf,gp);
-//			Thread t1 = timer;
-//			t1.start();
-//	
-//			ChangePanel.changePanel(mf, panel, gp);
-//			
-//		}
-//
-//	}
 	
 	class clickPanel extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			//ChangePanel.replacePanel(mf, panel, new Ssing2());
-			//ChangePanel cp = new ChangePanel(mf,panel, panel);
 			MiniGameSsing2 gp = new MiniGameSsing2(mf,player);
 		
 			ChangePanel.changePanel(mf, panel, gp);

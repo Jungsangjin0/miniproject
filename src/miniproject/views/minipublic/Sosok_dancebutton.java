@@ -1,4 +1,5 @@
 package miniproject.views.minipublic;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -13,6 +14,7 @@ import javax.swing.JPanel;
 import miniproject.model.vo.Player123;
 import miniproject.views.ChangePanel;
 import miniproject.views.MainFrame;
+import miniproject.views.Pyosi;
 import miniproject.views.mainMap.MainMapJunguk;
 import miniproject.views.minigame.MiniGameDance;
 import miniproject.views.somang.MiniGameSsing;
@@ -32,12 +34,20 @@ public class Sosok_dancebutton extends JPanel{
 	private ImageIcon doorMain;
 	
 	private Player123 player;
+	private Pyosi pyosi;
 
 
 	public Sosok_dancebutton(MainFrame mf, Player123 player) {
 		
 		this.mf = mf;
 		this.player = player;
+		
+		pyosi = new Pyosi(player);
+		pyosi.setLayout(null);
+		pyosi.setBounds(600,0,500,200);
+		pyosi.setFont(new Font("¸¼Àº°íµñ", Font.BOLD, 25));
+		pyosi.setForeground(Color.WHITE);
+		panel.add(pyosi);
 		
 		this.setLayout(null);
 		back = new ImageIcon("src/miniproject/images/sosok/sosok.png");
@@ -53,7 +63,7 @@ public class Sosok_dancebutton extends JPanel{
 		//¹® 
 		door = new JLabel(doorMain);
 		door.setLayout(null);
-		door.setBounds(0, 400, 40, 250);
+		door.setBounds(0, 300, 40, 250);
 		door.setOpaque(false);
 		this.add(door);
 

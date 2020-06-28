@@ -1,5 +1,6 @@
 package miniproject.views.minipublic;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -13,6 +14,7 @@ import javax.swing.JPanel;
 import miniproject.model.vo.Player123;
 import miniproject.views.ChangePanel;
 import miniproject.views.MainFrame;
+import miniproject.views.Pyosi;
 import miniproject.views.mainMap.MainMapJunguk;
 
 public class Sosok_01 extends JPanel { //소속사 첫화면
@@ -28,14 +30,23 @@ public class Sosok_01 extends JPanel { //소속사 첫화면
    private ImageIcon doorMain;
    private JLabel door;//문
    private Player123 player;
+   private Pyosi pyosi;
    
    
    public Sosok_01(MainFrame mf, Player123 player) {
+	   
 
       this.mf=mf;
       panel = this;
       this.player  = player;
+      
       this.setLayout(null);
+      pyosi = new Pyosi(player);
+      pyosi.setLayout(null);
+      pyosi.setBounds(600,0,500,200);
+      pyosi.setFont(new Font("맑은고딕", Font.BOLD, 25));
+      pyosi.setForeground(Color.WHITE);
+      panel.add(pyosi);
       
 
       back = new ImageIcon("src/miniproject/images/SJH/minibackgroundfinish.PNG"); //배경-소속사
@@ -50,7 +61,7 @@ public class Sosok_01 extends JPanel { //소속사 첫화면
       //문 
       door = new JLabel(doorMain);
       door.setLayout(null);
-      door.setBounds(0, 400, 40, 250);
+      door.setBounds(0, 300, 40, 250);
       door.setOpaque(false);
       this.add(door);
 

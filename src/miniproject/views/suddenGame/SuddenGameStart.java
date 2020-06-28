@@ -1,6 +1,7 @@
 package miniproject.views.suddenGame;
 
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -17,6 +18,7 @@ public class SuddenGameStart extends JPanel {
 	private MainFrame mf;
 	private Player123 player;
 	private JPanel panel = this;
+	private Image gi = new ImageIcon("src/miniproject/images/suddenGame/start.png").getImage().getScaledInstance(1000, 400, 0);
 	public void paintComponent(Graphics g) {
 		ImageIcon bground = new ImageIcon("src/miniproject/images/suddenGame/bground_0.jpg");
 		
@@ -29,7 +31,7 @@ public class SuddenGameStart extends JPanel {
 	
 	public SuddenGameStart(MainFrame mf,Player123 player) {
 		
-		JLabel giza = new JLabel(new ImageIcon ("src/miniproject/images/suddenGame/start.png")); 
+		JLabel giza = new JLabel(new ImageIcon(gi)); 
 		giza.setOpaque(false);
 		giza.setLayout(null);
 		giza.setBounds(200,50,1000,700);

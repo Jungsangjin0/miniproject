@@ -45,16 +45,24 @@ public class MyKeyListenerSosok extends KeyAdapter{
 		
 		switch(keyCode) {
 		case KeyEvent.VK_UP:
+			if(b >= 0) {
 			la.setLocation(la.getX(), la.getY() - MOVE_UNIT);
+			}
 			break;
 		case KeyEvent.VK_DOWN :
+			if(b <= 790) {
 			la.setLocation(la.getX(), la.getY() + MOVE_UNIT);
 			break;
+			}
 		case KeyEvent.VK_LEFT:
+			if(a >= 10) {
 			la.setLocation(la.getX() - MOVE_UNIT, la.getY());
+			}
 			break;
 		case KeyEvent.VK_RIGHT:
+			if(a <= 1300) {
 			la.setLocation(la.getX() + MOVE_UNIT, la.getY());
+			}
 			break;
 		case KeyEvent.VK_SPACE :
 			System.out.println(la.getX());

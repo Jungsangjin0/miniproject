@@ -46,7 +46,7 @@ public class NickName extends JPanel {
 	   player = new Player123();
 	   
       //텍스트 입력하는 곳-------------------------------
-      JTextField get_nickname = new JTextField() {
+      JTextField get_nickname = new JTextField(3) {
          public void paintComponent (Graphics g) {
         	 ImageIcon inputw = new ImageIcon("src/miniproject/images/nickNameSelect/malpung.png");
             g.drawImage(inputw.getImage(), 0, 0, 450, 120, null);
@@ -107,7 +107,7 @@ public class NickName extends JPanel {
          public void actionPerformed(ActionEvent e) {
             nickname = get_nickname.getText();
             if (nickname.equals("")) {
-            	 setBtnText.setText("닉네임은 1글자 이상, 5글자 이하로 입력해주세요");
+            	 setBtnText.setText("닉네임은 1글자 이상, 3글자 이하로 입력해주세요");
             }else {
             setBtnText.setText("당신의 닉네임은 "+ nickname + " 입니다. 환영합니다.");
             setBtnText.removeAll();

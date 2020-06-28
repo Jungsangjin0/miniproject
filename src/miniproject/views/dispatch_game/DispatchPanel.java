@@ -111,7 +111,7 @@ public class DispatchPanel extends JPanel implements KeyListener{
 		//전체 배경화면 이미지
 		bg_img = new ImageIcon("src/miniproject/images/dispatch_images/miniGame/background.png").getImage().getScaledInstance(SCREEN_WIDTH, SCREEN_HEIGHT, 0);
 
-		game_Score = 0;          //게임 스코어 초기화
+		game_Score = player.getTotalScore();          //게임 스코어 초기화
 
 		player_Speed = 10;    //유저 케릭터 움직이는 속도 설정
 		score_Speed = 5;    //점수가 날라오는 속도 설정, 높을 수록 빨라짐
@@ -170,42 +170,19 @@ public class DispatchPanel extends JPanel implements KeyListener{
 					lbTimeLeft.setText("남은시간  : ");
 					timer.stop();
 					stopAll = true;			//스레드 멈출 flag
-					if(game_Score > 10000) {
+					if(game_Score >= 500) {
 						ChangePanel.changePanel(mf, panel, new EndingBack03(mf, player));
 						mf.revalidate();
 						
-					}else if(game_Score > 1000 && game_Score < 5000) {
+					}else if(game_Score >= 250 && game_Score <= 499) {
 						ChangePanel.changePanel(mf, panel, new EndingBack02(mf, player));
 						mf.revalidate();
 						
-					}else if(game_Score > 100 && game_Score < 900) {
+					}else if(game_Score > 1 && game_Score < 250) {
 						ChangePanel.changePanel(mf, panel, new EndingBack01(mf, player));
 						mf.revalidate();
 					}	
 					
-//					ChangePanel.changePanel(mf, panel, new EndingBack01(mf, player));
-//					mf.revalidate();
-					
-//					totalScore.setVisible(true);
-//					printText = new JTextField(game_Score + "점을 획득하셨습니다.") {
-//						@Override
-//						public void setBorder(Border boder) {
-//
-//						}
-//					};
-//					printText.setFont(new Font("휴먼엑스포", Font.BOLD, 50));
-//					printText.setForeground(Color.BLACK);
-//					printText.setBounds(80,400,700,200);
-//					printText.addMouseListener(new MouseAdapter() {
-//
-//
-//						@Override
-//						public void mouseClicked(MouseEvent e) {
-//							ChangePanel.changePanel(mf, panel, new EndingBack01(mf, player));
-//							mf.revalidate();
-//						}
-//					});
-//					totalScore.add(printText);
 
 				}
 				lbTimeLeft.setText("남은시간 : " + timeLeft);
@@ -380,7 +357,7 @@ public class DispatchPanel extends JPanel implements KeyListener{
 				if (Crash(x, y, sc.x, sc.y, player_img, dispatch_img)) {
 					//플레이어와 적의 충돌을 판정하여 check값을 리턴 받아 true면 아래를 실행
 					Score_List.remove(i);   //적을 제거
-					game_Score -= 20;      //디스 패치를 먹으면 -20점
+					game_Score -= 10;      //디스 패치를 먹으면 -20점
 					System.out.println("game_score : " + game_Score);
 
 				}
@@ -458,24 +435,6 @@ public class DispatchPanel extends JPanel implements KeyListener{
 	}
 
 	public void Draw_Ending() {
-		//      if(game_Score == 0) {
-		//         Image ending_01 = new ImageIcon("src/miniproject/images/SJH/ending_01.PNG").
-		//               getImage().getScaledInstance(1400, 900, 0);
-		//         buffg.drawImage(ending_01, 200, 200, this);
-		//         
-		//      } else if (timeLeft == 0 ) {
-		//         
-		//         if(game_Score > 3000) {
-		//            Image ending_02 = new ImageIcon("src/miniproject/images/SJH/ending_02.PNG").
-		//                  getImage().getScaledInstance(1400, 900, 0);
-		//            buffg.drawImage(ending_02, 200, 200, this);
-		//         } else {
-		//            Image ending_03 = new ImageIcon("src/miniproject/images/SJH/ending_03.PNG").
-		//                  getImage().getScaledInstance(1400, 900, 0);
-		//            buffg.drawImage(ending_03, 200, 200, this);
-		//         }
-		//         
-		//      }
 	}
 
 	public void Draw_Background() {
