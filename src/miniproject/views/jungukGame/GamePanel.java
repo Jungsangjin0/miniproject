@@ -248,6 +248,7 @@ public class GamePanel extends JPanel{
 								} if (point >= 0) {
 									gamescore += point;
 									System.out.println(gamescore);
+									player.setTotalScore(player.getTotalScore() + gamescore);
 									gamePage.remove(submit);
 									gamePage.repaint();
 									JLabel scoreprint = new JLabel(new ImageIcon(sL2));

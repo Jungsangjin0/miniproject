@@ -43,6 +43,7 @@ public class MiniGameSsing_Win extends JPanel{
 	public void jumsu(int jum) {
 		int jum2 = jum;
 		JLabel jlabel = new JLabel("능력치가"+jum2+"점 상승했다!");
+		player.setSingScore(player.getSingScore() + jum2);
 		jlabel.setBounds(5,5,300,50);
 		jlabel.setFont(new Font("Sanscerif",Font.BOLD,20));
 		jlabel.setForeground(Color.BLACK);

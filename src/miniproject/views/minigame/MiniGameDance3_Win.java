@@ -77,10 +77,8 @@ public class MiniGameDance3_Win extends JPanel{ // 미니게임 이기면 나오는 화면
 		@Override
 		public void mouseClicked(MouseEvent e) {
 
-
 			ChangePanel.changePanel(mf, panel, new Sosok_junguk(mf,player));   //소속사 밖으로 나가는 문이 활성화되어있는 곳으로 나가야함.
 			mf.revalidate();
-
 		}
 
 	}

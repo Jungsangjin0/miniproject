@@ -37,6 +37,8 @@ public class FirstPanel extends JPanel{
 	
 
 	public FirstPanel(MainFrame mf, Player123 player) {
+		System.out.println(player.getDanceScore());
+		System.out.println(player.getSingScore());
 		panel = this;
 		this.mf = mf;
 		this.player = player;

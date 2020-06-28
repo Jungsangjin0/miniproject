@@ -56,18 +56,12 @@ public class MiniGameDance2 extends JPanel  { // ¹Ì´Ï°ÔÀÓ ¿¬°áÈ­¸é (Ãã¿¬½ÀÀå µé¾
       back = new ImageIcon("src/miniproject/images/SJH/minigamekey.PNG"); //¹è°æ
       talk = new ImageIcon("src/miniproject/images/SJH/conv.PNG"); //´ëÈ­Ã¢
       characters = new ImageIcon("src/miniproject/images/SJH/Characters_5.png"); //Ä³¸¯ÅÍ
-      //------------»èÁ¦°¡´ÉÇÔ      (¸¸µå·Á´Ù°¡ º¸·ù.. )
-      //keyspace = new ImageIcon("images/keyspace.png"); //ºóÄ­
-      //------------------
-      //È­»ìÇ¥(¹®Á¦)
       arrows = new JLabel[7];   
       inputs = new ArrayList<JLabel>();
       arrNo = new int[7];
 
-      //this.addMouseListener(new MyMouseAdapter());
 
 
-      //mf.setFocusable(true);
       buttonInit();
       mf.requestFocus(); // -> µÎ¹øÂ° È­¸é¿¡¼­ ¹®Á¦È­»ìÇ¥ Ãâ·Â¾ÈµÇ¼­ Æ÷Ä¿½º ¸ÂÃçµÒ
       mf.addKeyListener(new KeyAdapter() {      //**this·Î ÇÏ¸é Àý´ë¾ÈµÊ........z
@@ -78,7 +72,6 @@ public class MiniGameDance2 extends JPanel  { // ¹Ì´Ï°ÔÀÓ ¿¬°áÈ­¸é (Ãã¿¬½ÀÀå µé¾
             if(su !=1) {
             System.out.println(e.getKeyCode()+ " Ã¹¹øÂ° È®ÀÎ¿ë ");
 
-            //a = answer1.getText();
             int num = 0;
 
             if(e.getKeyCode() == KeyEvent.VK_LEFT) {
@@ -117,7 +110,6 @@ public class MiniGameDance2 extends JPanel  { // ¹Ì´Ï°ÔÀÓ ¿¬°áÈ­¸é (Ãã¿¬½ÀÀå µé¾
          int num = new Random().nextInt(4) + 1;
          arrNo[i] = num;
          ImageIcon arrow = new ImageIcon("src/miniproject/Images/SJH/"+num+"-blue.png");
-         //URL url = getClass().getClassLoader().getResource(num+"-blue.png");
 
          arrows[i] = new JLabel(new ImageIcon(arrow.getImage().getScaledInstance(150, 150, 0)));
          arrows[i].setBounds(x, 100, 150, 150);
@@ -126,7 +118,6 @@ public class MiniGameDance2 extends JPanel  { // ¹Ì´Ï°ÔÀÓ ¿¬°áÈ­¸é (Ãã¿¬½ÀÀå µé¾
          System.out.println("µÎ¹ø¤Š È®ÀÎ¿ë");
          System.out.println("µÎ ¹øÂ° È­»ìÇ¥ À§Ä¡ : " + arrows[i].getX() + ", " + arrows[i].getY());
 
-         //this.revalidate();
 
       }
       this.repaint();
@@ -149,16 +140,12 @@ public class MiniGameDance2 extends JPanel  { // ¹Ì´Ï°ÔÀÓ ¿¬°áÈ­¸é (Ãã¿¬½ÀÀå µé¾
    // µÎ¹øÂ° È­»ìÇ¥ Ãâ·Â(Á¤´ä)
    public void addButton(int num) { 
 
-      //this.num = num;
-      //this.addButton(num);
-      //this.add(panel2);
 
       System.out.println("¼¼¹øÂ°È®ÀÎ¿ë :" + num);
 //0628//if(point <21) {
       
       if(index >= 7){
          reset();
-         //index = 0;
       }else{
          System.out.println("³×¹øÂ°È®ÀÎ¿ë : " + index);
 
@@ -168,13 +155,11 @@ public class MiniGameDance2 extends JPanel  { // ¹Ì´Ï°ÔÀÓ ¿¬°áÈ­¸é (Ãã¿¬½ÀÀå µé¾
             color = "blue";
             ImageIcon arrows = new ImageIcon("src/miniproject/images/SJH/"+num+"-"+color+".png");
 
-            //URL url = getClass().getClassLoader().getResource("pororo-"+num+".png");
 
             //point-----------------------------------------------------------------------
             point += 1;
             System.out.println("°³¼öÈ®ÀÎ : " + point);
 
-            //JLabel label = new JLabel("¸ÂÃá°³¼ö : ");
 
 
             if(point >=14) {
@@ -194,20 +179,17 @@ public class MiniGameDance2 extends JPanel  { // ¹Ì´Ï°ÔÀÓ ¿¬°áÈ­¸é (Ãã¿¬½ÀÀå µé¾
             }else {
                System.out.println("¾Æ½±°Ô ½ºÅ³È¹µæÀ» ¸øÇß³×¿°...¤¾.¤¾....");
                //-------------------            
-               //keygamelose();
                
                
                
                
                this.addMouseListener(new MyMouseAdapter());
 
-               //MiniGameDance3_Lose lose = new MiniGameDance();
 
             }
 
 
             System.out.println("´Ù¼¸¹øÂ°È®ÀÎ¿ë : " + index);
-            //this.back.getImage();      
 
             //---------------------------------------------------------------------------À§ ÄÚµå Ãâ·Â ¾ÈµÊ.»èÁ¦¿¹Á¤.->¿Ï
          }else {
@@ -216,12 +198,10 @@ public class MiniGameDance2 extends JPanel  { // ¹Ì´Ï°ÔÀÓ ¿¬°áÈ­¸é (Ãã¿¬½ÀÀå µé¾
             ImageIcon arrow = new ImageIcon("src/miniproject/images/SJH/"+num+"-"+color+".png");
 
             System.out.println("¿©¼¸¹øÂ°È®ÀÎ¿ë :" + index);
-            //this.back.getImage();
 
          }
 
          ImageIcon arrow = new ImageIcon("src/miniproject/images/SJH/"+num+"-"+color+".png");
-         //URL url = getClass().getClassLoader().getResource(num + "-" + color + ".png");
 
          JLabel input = new JLabel(new ImageIcon(arrow.getImage().getScaledInstance(150, 150, 0)));
          input.setBounds(x2, 350, 150, 150);
@@ -231,25 +211,13 @@ public class MiniGameDance2 extends JPanel  { // ¹Ì´Ï°ÔÀÓ ¿¬°áÈ­¸é (Ãã¿¬½ÀÀå µé¾
 
          System.out.println("ÀÏ°ö¹øÂ° È®ÀÎ¿ë");
          this.repaint();
-         //this.revalidate();
          index++;
 
       }
 
 
-   //}
    }
 
-   //point----------------------------------------
-   /*   public void keyScore() {
-      keyScore = new JTextField("¸ÂÃá°³¼ö : " + point);
-      keyScore.setFont(new Font("Sanscerif", Font.BOLD, 20));
-      keyScore.setBorder(BorderFactory.createEmptyBorder());
-      this.setComponentZOrder(keyScore, 0);
-      keyScore.setBounds(500, 0, 500, 500);
-      panel.add(keyScore);
-
-   }*/
 
    //--------------------------------------   
 
@@ -307,38 +275,19 @@ public class MiniGameDance2 extends JPanel  { // ¹Ì´Ï°ÔÀÓ ¿¬°áÈ­¸é (Ãã¿¬½ÀÀå µé¾
    }
 
 
-   /*public void keygamelose() {
-      MiniGamePanel3_Lose lose = new MiniGamePanel3_Lose(mf);
-      ChangePanel.changePanel(mf, panel, lose);
-
-   }*/
 
    public void keygamewin() {
 
       MiniGameDance3_Win win = new MiniGameDance3_Win(mf,player); //°ÔÀÓ ÀÌ±â¸é ÀÌ±â´Â È­¸éÀ¸·Î ³Ñ¾î°¨.
 
       win.keyjumsu(su);  //¸îÁ¡ ¾ò¾ú´ÂÁö(Ãã½ºÅ³+1)
+      player.setDanceScore(player.getDanceScore() + su);
 
       ChangePanel.changePanel(mf, panel, win);
 
 
 
    }
-
-   /*   public void keygamelose() {
-
-      MiniGameDance3_Lose lose = new MiniGameDance3_Lose(mf);
-
-      ChangePanel.changePanel(mf, panel, lose);
-
-
-
-}
-    */
-
-
-
-
 
 
    public void paintComponent(Graphics g) {

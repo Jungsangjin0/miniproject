@@ -25,7 +25,7 @@ public class FirstPage extends JPanel {
 		setOpaque(false); 
 		super.paintComponent(g);
 		try {
-			Thread.sleep(400);
+			Thread.sleep(500);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

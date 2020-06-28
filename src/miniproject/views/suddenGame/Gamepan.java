@@ -37,9 +37,9 @@ public class Gamepan extends JPanel {
 	private int clicks = 0;
 	private int num = 0;
 	
-	 MainFrame mf;
-	 Player123 player;
-	
+	private MainFrame mf;
+	private Player123 player;
+	private int score = 150;
 	
 	Timer timer;
 	private int t = 60;
@@ -47,7 +47,7 @@ public class Gamepan extends JPanel {
 	private Set set1 = new LinkedHashSet();
 	private Set set2 =  new LinkedHashSet();
 	
-	JPanel panel;
+	private JPanel panel;
 	private JButton [] btns = new JButton[9];
 	private JLabel [] ans = new JLabel[9];
 	private int [] locs = new int [3];
@@ -735,6 +735,7 @@ public class Gamepan extends JPanel {
 				public void mouseClicked(MouseEvent e) {
 					if(CheckAnswer.checkAnswer(answer,submit)==true) {
 						timer.stop();
+						player.setTotalScore(player.getTotalScore() + score);
 						pass.setVisible(true);
 						
 								
