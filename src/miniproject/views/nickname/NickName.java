@@ -55,8 +55,10 @@ public class NickName extends JPanel {
          }
       };
       
+      
 
       Font neo = new Font("NeoµÕ±Ù¸ð",Font.BOLD,30);
+      get_nickname.setDocument(new JTextFieldLimit(3));
       get_nickname.setLayout(null);
       get_nickname.setBorder(null);
       get_nickname.setHorizontalAlignment(JTextField.CENTER);

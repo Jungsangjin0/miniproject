@@ -27,7 +27,6 @@ public class EndingBack01 extends JPanel { //0~50% - 방구석스타(남캐릭터)
 		g.drawImage(image, 0, 0, this.getWidth(), this.getHeight(), this);
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Neo둥근모",Font.BOLD,30));
-		g.drawString("총점은~", 50, 50);
 		
 	}
 	
