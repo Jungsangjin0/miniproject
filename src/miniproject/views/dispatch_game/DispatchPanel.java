@@ -87,6 +87,7 @@ public class DispatchPanel extends JPanel implements KeyListener{
 
 
 	public DispatchPanel (MainFrame mf, Player123 player) {
+		System.out.println(player.getUserId());
 		this.mf = mf;
 		panel = this;
 		this.player = player;
@@ -110,7 +111,7 @@ public class DispatchPanel extends JPanel implements KeyListener{
 		//전체 배경화면 이미지
 		bg_img = new ImageIcon("src/miniproject/images/dispatch_images/miniGame/background.png").getImage().getScaledInstance(SCREEN_WIDTH, SCREEN_HEIGHT, 0);
 
-		game_Score = 400;          //게임 스코어 초기화
+		game_Score = 0;          //게임 스코어 초기화
 
 		player_Speed = 10;    //유저 케릭터 움직이는 속도 설정
 		score_Speed = 5;    //점수가 날라오는 속도 설정, 높을 수록 빨라짐
