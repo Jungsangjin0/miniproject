@@ -8,6 +8,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import miniproject.model.vo.Player123;
 import miniproject.views.ChangePanel;
 import miniproject.views.MainFrame;
 
@@ -18,11 +19,14 @@ public class Park extends JPanel {
 	private ImageIcon talk;
 	private ImageIcon Mark;
 	private ImageIcon charac01;
-
-	public Park(MainFrame mf) {
+	private Player123 player;
+	
+	public Park(MainFrame mf, Player123 player) {
 		this.mf = mf;
-		this.setLayout(null);
 		panel = this;
+		this.player = player;
+		
+		this.setLayout(null);
 		//배경
 		icon = new ImageIcon("src/miniproject/images/park/park.png");
 		//대화창
@@ -32,7 +36,7 @@ public class Park extends JPanel {
 		
 		this.addMouseListener(new clickPanel());
 
-	
+
 	}
 	public void paintComponent(Graphics g) {
 		g.drawImage(icon.getImage(), 0, 0, null);
@@ -50,7 +54,7 @@ public class Park extends JPanel {
 	class clickPanel extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			ChangePanel.changePanel(mf, panel, new Park2(mf));
+			ChangePanel.changePanel(mf, panel, new Park2(mf,player));
 			mf.revalidate();
 		}
 

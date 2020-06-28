@@ -1,4 +1,4 @@
-package dongyub;
+package miniproject.model.vo;
 
 import java.io.Serializable;
 

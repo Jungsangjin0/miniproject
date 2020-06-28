@@ -7,6 +7,9 @@ import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import miniproject.model.vo.Player123;
+import miniproject.views.ChangePanel;
 import miniproject.views.MainFrame;
 
 public class Timer2 extends Thread{
@@ -14,6 +17,9 @@ public class Timer2 extends Thread{
 	private JPanel panel;
 	private boolean isStop = false;
 	MouseEvent e;
+	
+	private Player123 player;
+	private int jum;
 	
 	public Timer2() {
 		
@@ -25,7 +31,7 @@ public class Timer2 extends Thread{
 	}
 	
 	
-	
+
 	@Override
 	public void run() {
 		int i  = 20;
@@ -33,48 +39,35 @@ public class Timer2 extends Thread{
 		label.setBounds(0,0,150,50);
 		label.setFont(new Font("Sanscerif",Font.BOLD,20));
 		panel.add(label);
-		//while(i >= 0 && (!isStop)) {
 		while(i >= 0 && !Thread.currentThread().isInterrupted()) {	
 			try {
 				System.out.println(i);
 				this.sleep(1000);
-				label.setText("ì œí•œì‹œê°„ : " + i);
+				label.setText("Á¦ÇÑ½Ã°£ : " + i);
 			}catch(InterruptedException e) {
-				//e.printStackTrace();
 				
 			}
 			i--;
-			
-//			if(Thread.interrupted()) {
-//				//ssingNext_lose();
-//				break;
-//			}
 		}
+		ssingNext_lose();
 		
-		System.out.println("ì¢…ë£Œ");
+		System.out.println("Á¾·á");
 
 		
 	}//--run 
 	
-	public void setStop(boolean isStop) {
-		this.isStop = isStop;
+	public void ssingNext_lose() {
+		// Åë°úÀÌ¸é(cnt 2ÀÌ»óÀÌ°í 3ÀÌµÇ¸é) ³ë·¡Á¡¼ö+1
+		// Å¸ÀÌ¸Ó stopÇÏ°í ´ÙÀ½ È­¸é ³Ñ¾î°¡±â
+		MiniGameSsing_lose gp = new MiniGameSsing_lose(mf,player,jum);
+		ChangePanel.changePanel(mf, panel, gp);
+		this.stop();
 	}
 	
 	
-//	class clickPanel extends MouseAdapter {
-//		@Override
-//		public void mouseClicked(MouseEvent e) {
-//
-//			SsingNext_lose gp = new SsingNext_lose(mf);
-//
-//			ChangePanel.replacePanel(mf, panel, gp);
-//
-//		}
-//	}
-	
-
-
-
+	public void setStop(boolean isStop) {
+		this.isStop = isStop;
+	}
 	
 	public class Test1{
 		

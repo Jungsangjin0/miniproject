@@ -1,5 +1,7 @@
 package miniproject.views.suddenGame;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Image;
@@ -16,8 +18,16 @@ import java.util.Set;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.Timer;
+
+import miniproject.model.vo.Player123;
+import miniproject.views.ChangePanel;
+import miniproject.views.MainFrame;
+import miniproject.views.ending.EndingBackSudden;
+import miniproject.views.mainMap.MainMapdispatch;
 
 public class Gamepan extends JPanel {
 	private int x1 = 0;
@@ -25,21 +35,39 @@ public class Gamepan extends JPanel {
 	private int x2 = 0;
 	private int y2 = 0;
 	private int clicks = 0;
-
-	private JButton temp1 ;
-
+	private int num = 0;
+	
+	 MainFrame mf;
+	 Player123 player;
+	
+	
+	Timer timer;
+	private int t = 60;
+	
 	private Set set1 = new LinkedHashSet();
 	private Set set2 =  new LinkedHashSet();
-	private JPanel panel = this;
+	
+	JPanel panel;
 	private JButton [] btns = new JButton[9];
 	private JLabel [] ans = new JLabel[9];
 	private int [] locs = new int [3];
+	public void paintComponent(Graphics g) {
+		
+		ImageIcon bground = new ImageIcon("src/miniproject/images/suddenGame/bground_0.jpg");
+		g.drawImage(bground.getImage(), 0, 0, 1400, 900, null);
+		setOpaque(false); 
+		super.paintComponent(g);
+		mf.revalidate();
+	}
+	
 
-
-	public Gamepan() {
-		this.setSize(700,700);
+	public Gamepan(MainFrame mf,  Player123 player) {
+		this.setSize(1400,900);
 		this.setLayout(null);
-
+		this.mf = mf;
+		this.player = player;
+		this.panel = this;
+		
 
 		Image no1 = new ImageIcon("src/miniproject/images/suddenGame/1.jpg").getImage().getScaledInstance(150, 150, 0);
 		Image no2 = new ImageIcon("src/miniproject/images/suddenGame/2.jpg").getImage().getScaledInstance(150, 150, 0);
@@ -126,9 +154,11 @@ public class Gamepan extends JPanel {
 		ans[7].setLocation(loca3,loca2);
 		ans[8].setLocation(loca3,loca3);
 		
-		int answer [] = {loca1,loca1,loca1,loca2,loca1,loca3,loca2,loca1,loca2,loca2,loca2,loca3,loca3,loca1,loca3,loca2,
+		int answer [] = {loca1,loca1,loca2,loca1,loca3,loca1,loca1,loca2,loca2,loca2,loca3,loca2,loca1,loca3,loca2,loca3,
 				loca3,loca3};
 		int submit [] = new int[18];
+		
+		
 
 		this.setOpaque(false);
 
@@ -141,409 +171,596 @@ public class Gamepan extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(CheckAnswer.checkAnswer(answer,submit)==false) {
+				
+				if(CheckAnswer.checkAnswer(submit,answer)==false) {
 
 					if (clicks ==0) {
-						temp1 = btns[0];
-						x1 = btns[0].getX();
-						y1 = btns[0].getY();
-						panel.remove(btns[0]);
+						num = 0;
+						x1 = btns[num].getX();
+						y1 = btns[num].getY();
+						btns[num].setVisible(false);
+						btns[num].setLayout(null);
 						panel.repaint();
-						clicks += 1;
+						clicks += 1;	
 					}
-					else if (clicks ==1 && temp1 != btns[0]) {
+					else if (clicks ==1 && btns[num] != btns[0]) {
 						x2=btns[0].getX();
 						y2=btns[0].getY();
-						panel.remove(btns[0]);
-						temp1.setLayout(null);
-						temp1.setLocation(x2,y2);
-						panel.add(temp1);
+						btns[num].setLocation(x2,y2);
+						btns[num].setVisible(true);
 						btns[0].setLayout(null);
 						btns[0].setLocation(x1,y1);
-						panel.add(btns[0]);
+						btns[0].setVisible(true);
 						panel.repaint();
-						clicks -= 1;
+						clicks -= 1;	
 					}
-					submit[0]= btns[0].getX();
-					submit[1] = btns[0].getY();
-		System.out.println("btn1위치: " + btns[1].getX()+ ","+ btns[1].getY());
-		System.out.println("btn2위치: " + btns[2].getX()+ ","+ btns[2].getY());
-		System.out.println("btn3위치: " + btns[3].getX()+ ","+ btns[3].getY());
-		System.out.println("btn4위치: " + btns[4].getX()+ ","+ btns[4].getY());
-		System.out.println("btn5위치: " + btns[5].getX()+ ","+ btns[5].getY());
-		System.out.println("btn6위치: " + btns[6].getX()+ ","+ btns[6].getY());
-		System.out.println("btn7위치: " + btns[7].getX()+ ","+ btns[7].getY());
-		System.out.println("btn8위치: " + btns[8].getX()+ ","+ btns[8].getY());
-		System.out.println(Arrays.toString(submit));
-		System.out.println(Arrays.toString(answer));
+					
+					for ( int i = 0; i < (submit.length/2); i++) {
+						submit[i*2] = btns[i].getX();
+						submit[(i*2)+1] = btns[i].getY();
+					}
+					System.out.println("btn0위치: " + btns[0].getX()+ ","+ btns[1].getY());
+					System.out.println("btn1위치: " + btns[1].getX()+ ","+ btns[1].getY());
+					System.out.println("btn2위치: " + btns[2].getX()+ ","+ btns[2].getY());
+					System.out.println("btn3위치: " + btns[3].getX()+ ","+ btns[3].getY());
+					System.out.println("btn4위치: " + btns[4].getX()+ ","+ btns[4].getY());
+					System.out.println("btn5위치: " + btns[5].getX()+ ","+ btns[5].getY());
+					System.out.println("btn6위치: " + btns[6].getX()+ ","+ btns[6].getY());
+					System.out.println("btn7위치: " + btns[7].getX()+ ","+ btns[7].getY());
+					System.out.println("btn8위치: " + btns[8].getX()+ ","+ btns[8].getY());
+					System.out.println(Arrays.toString(submit));
+					System.out.println(Arrays.toString(answer));
 
 
-
-				}}
+				}
+				panel.repaint();
+				}		
 		});
 
 		btns[1].addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(CheckAnswer.checkAnswer(answer,submit)==false) {
+				
+				if(CheckAnswer.checkAnswer(submit,answer)==false) {
+
 					if (clicks ==0) {
-						temp1 = btns[1];
-						x1 = btns[1].getX();
-						y1 = btns[1].getY();
-						
-						panel.remove(btns[1]);
+						num = 1;
+						x1 = btns[num].getX();
+						y1 = btns[num].getY();
+						btns[num].setVisible(false);
+						btns[num].setLayout(null);
 						panel.repaint();
 						clicks += 1;	
 					}
-					else if (clicks ==1 && temp1 != btns[1]) {
+					else if (clicks ==1 && btns[num] != btns[1]) {
 						x2=btns[1].getX();
 						y2=btns[1].getY();
-						panel.remove(btns[1]);
-						temp1.setLayout(null);
-						temp1.setLocation(x2,y2);
-						panel.add(temp1);
+						btns[num].setLocation(x2,y2);
+						btns[num].setVisible(true);
 						btns[1].setLayout(null);
 						btns[1].setLocation(x1,y1);
-						System.out.println("btn0위치: " + btns[0].getX()+ ","+ btns[0].getY());
-						System.out.println("btn1위치: " + btns[1].getX()+ ","+ btns[1].getY());
-						System.out.println("btn2위치: " + btns[2].getX()+ ","+ btns[2].getY());
-						System.out.println("btn3위치: " + btns[3].getX()+ ","+ btns[3].getY());
-						System.out.println("btn4위치: " + btns[4].getX()+ ","+ btns[4].getY());
-						System.out.println("btn5위치: " + btns[5].getX()+ ","+ btns[5].getY());
-						System.out.println("btn6위치: " + btns[6].getX()+ ","+ btns[6].getY());
-						System.out.println("btn7위치: " + btns[7].getX()+ ","+ btns[7].getY());
-						System.out.println("btn8위치: " + btns[8].getX()+ ","+ btns[8].getY());
-						System.out.println(Arrays.toString(submit));
-						System.out.println(Arrays.toString(answer));
-						panel.add(btns[1]);
+						btns[1].setVisible(true);
 						panel.repaint();
-						clicks -= 1;
+						clicks -= 1;	
 					}
+					
+					for ( int i = 0; i < (submit.length/2); i++) {
+						submit[i*2] = btns[i].getX();
+						submit[(i*2)+1] = btns[i].getY();
+					}
+					System.out.println("btn0위치: " + btns[0].getX()+ ","+ btns[1].getY());
+					System.out.println("btn1위치: " + btns[1].getX()+ ","+ btns[1].getY());
+					System.out.println("btn2위치: " + btns[2].getX()+ ","+ btns[2].getY());
+					System.out.println("btn3위치: " + btns[3].getX()+ ","+ btns[3].getY());
+					System.out.println("btn4위치: " + btns[4].getX()+ ","+ btns[4].getY());
+					System.out.println("btn5위치: " + btns[5].getX()+ ","+ btns[5].getY());
+					System.out.println("btn6위치: " + btns[6].getX()+ ","+ btns[6].getY());
+					System.out.println("btn7위치: " + btns[7].getX()+ ","+ btns[7].getY());
+					System.out.println("btn8위치: " + btns[8].getX()+ ","+ btns[8].getY());
+					System.out.println(Arrays.toString(submit));
+					System.out.println(Arrays.toString(answer));
 
 
-
-				}}
+				}
+				panel.repaint();
+				}		
 		});
+
 		btns[2].addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(CheckAnswer.checkAnswer(answer,submit)==false) {
+				
+				if(CheckAnswer.checkAnswer(submit,answer)==false) {
+
 					if (clicks ==0) {
-						temp1 = btns[2];
-						x1 = btns[2].getX();
-						y1 = btns[2].getY();
-						
-						panel.remove(btns[2]);
+						num = 2;
+						x1 = btns[num].getX();
+						y1 = btns[num].getY();
+						btns[num].setVisible(false);
+						btns[num].setLayout(null);
 						panel.repaint();
 						clicks += 1;	
 					}
-					else if (clicks ==1 && temp1 != btns[2]) {
+					else if (clicks ==1 && btns[num] != btns[2]) {
 						x2=btns[2].getX();
 						y2=btns[2].getY();
-						panel.remove(btns[2]);
-						temp1.setLayout(null);
-						temp1.setLocation(x2,y2);
-						panel.add(temp1);
+						btns[num].setLocation(x2,y2);
+						btns[num].setVisible(true);
 						btns[2].setLayout(null);
 						btns[2].setLocation(x1,y1);
-						System.out.println("btn0위치: " + btns[0].getX()+ ","+ btns[0].getY());
-						System.out.println("btn1위치: " + btns[1].getX()+ ","+ btns[1].getY());
-						System.out.println("btn2위치: " + btns[2].getX()+ ","+ btns[2].getY());
-						System.out.println("btn3위치: " + btns[3].getX()+ ","+ btns[3].getY());
-						System.out.println("btn4위치: " + btns[4].getX()+ ","+ btns[4].getY());
-						System.out.println("btn5위치: " + btns[5].getX()+ ","+ btns[5].getY());
-						System.out.println("btn6위치: " + btns[6].getX()+ ","+ btns[6].getY());
-						System.out.println("btn7위치: " + btns[7].getX()+ ","+ btns[7].getY());
-						System.out.println("btn8위치: " + btns[8].getX()+ ","+ btns[8].getY());
-						System.out.println(Arrays.toString(submit));
-						System.out.println(Arrays.toString(answer));
-						panel.add(btns[2]);
+						btns[2].setVisible(true);
 						panel.repaint();
-						clicks -= 1;
+						clicks -= 1;	
 					}
+					
+					for ( int i = 0; i < (submit.length/2); i++) {
+						submit[i*2] = btns[i].getX();
+						submit[(i*2)+1] = btns[i].getY();
+					}
+					System.out.println("btn0위치: " + btns[0].getX()+ ","+ btns[1].getY());
+					System.out.println("btn1위치: " + btns[1].getX()+ ","+ btns[1].getY());
+					System.out.println("btn2위치: " + btns[2].getX()+ ","+ btns[2].getY());
+					System.out.println("btn3위치: " + btns[3].getX()+ ","+ btns[3].getY());
+					System.out.println("btn4위치: " + btns[4].getX()+ ","+ btns[4].getY());
+					System.out.println("btn5위치: " + btns[5].getX()+ ","+ btns[5].getY());
+					System.out.println("btn6위치: " + btns[6].getX()+ ","+ btns[6].getY());
+					System.out.println("btn7위치: " + btns[7].getX()+ ","+ btns[7].getY());
+					System.out.println("btn8위치: " + btns[8].getX()+ ","+ btns[8].getY());
+					System.out.println(Arrays.toString(submit));
+					System.out.println(Arrays.toString(answer));
 
 
-
-				}}
+				}
+				panel.repaint();
+				}		
 		});
+
 		btns[3].addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(CheckAnswer.checkAnswer(answer,submit)==false) {
+				if(CheckAnswer.checkAnswer(submit,answer)==false) {
+
 					if (clicks ==0) {
-						temp1 = btns[3];
-						x1 = btns[3].getX();
-						y1 = btns[3].getY();
-						
-						panel.remove(btns[3]);
+						num = 3;
+						x1 = btns[num].getX();
+						y1 = btns[num].getY();
+						btns[num].setVisible(false);
+						btns[num].setLayout(null);
 						panel.repaint();
 						clicks += 1;	
 					}
-					else if (clicks ==1 && temp1 != btns[3]) {
+					else if (clicks ==1 && btns[num] != btns[3]) {
 						x2=btns[3].getX();
 						y2=btns[3].getY();
-						panel.remove(btns[3]);
-						temp1.setLayout(null);
-						temp1.setLocation(x2,y2);
-						panel.add(temp1);
+						btns[num].setLocation(x2,y2);
+						btns[num].setVisible(true);
 						btns[3].setLayout(null);
 						btns[3].setLocation(x1,y1);
-						System.out.println("btn0위치: " + btns[0].getX()+ ","+ btns[0].getY());
-						System.out.println("btn1위치: " + btns[1].getX()+ ","+ btns[1].getY());
-						System.out.println("btn2위치: " + btns[2].getX()+ ","+ btns[2].getY());
-						System.out.println("btn3위치: " + btns[3].getX()+ ","+ btns[3].getY());
-						System.out.println("btn4위치: " + btns[4].getX()+ ","+ btns[4].getY());
-						System.out.println("btn5위치: " + btns[5].getX()+ ","+ btns[5].getY());
-						System.out.println("btn6위치: " + btns[6].getX()+ ","+ btns[6].getY());
-						System.out.println("btn7위치: " + btns[7].getX()+ ","+ btns[7].getY());
-						System.out.println("btn8위치: " + btns[8].getX()+ ","+ btns[8].getY());
-						
-						System.out.println(Arrays.toString(submit));
-						System.out.println(Arrays.toString(answer));
-						panel.add(btns[3]);
+						btns[3].setVisible(true);
 						panel.repaint();
 						clicks -= 1;
+						
 					}
+					for ( int i = 0; i < (submit.length/2); i++) {
+						submit[i*2] = btns[i].getX();
+						submit[(i*2)+1] = btns[i].getY();
+					}
+					System.out.println("btn0위치: " + btns[0].getX()+ ","+ btns[1].getY());
+					System.out.println("btn1위치: " + btns[1].getX()+ ","+ btns[1].getY());
+					System.out.println("btn2위치: " + btns[2].getX()+ ","+ btns[2].getY());
+					System.out.println("btn3위치: " + btns[3].getX()+ ","+ btns[3].getY());
+					System.out.println("btn4위치: " + btns[4].getX()+ ","+ btns[4].getY());
+					System.out.println("btn5위치: " + btns[5].getX()+ ","+ btns[5].getY());
+					System.out.println("btn6위치: " + btns[6].getX()+ ","+ btns[6].getY());
+					System.out.println("btn7위치: " + btns[7].getX()+ ","+ btns[7].getY());
+					System.out.println("btn8위치: " + btns[8].getX()+ ","+ btns[8].getY());
+					System.out.println(Arrays.toString(submit));
+					System.out.println(Arrays.toString(answer));
 
 
-
-				}}
+				}
+				panel.repaint();
+				}		
 		});
+
 		btns[4].addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(CheckAnswer.checkAnswer(answer,submit)==false) {
+				if(CheckAnswer.checkAnswer(submit,answer)==false) {
+
 					if (clicks ==0) {
-						temp1 = btns[4];
-						x1 = btns[4].getX();
-						y1 = btns[4].getY();
-						
-						panel.remove(btns[4]);
+						num = 4;
+						x1 = btns[num].getX();
+						y1 = btns[num].getY();
+						btns[num].setVisible(false);
+						btns[num].setLayout(null);
 						panel.repaint();
 						clicks += 1;	
 					}
-					else if (clicks ==1 && temp1 != btns[4]) {
+					else if (clicks ==1 && btns[num] != btns[4]) {
 						x2=btns[4].getX();
 						y2=btns[4].getY();
-						panel.remove(btns[4]);
-						temp1.setLayout(null);
-						temp1.setLocation(x2,y2);
-						panel.add(temp1);
+						btns[num].setLocation(x2,y2);
+						btns[num].setVisible(true);
 						btns[4].setLayout(null);
 						btns[4].setLocation(x1,y1);
-						
-						System.out.println("btn0위치: " + btns[0].getX()+ ","+ btns[0].getY());
-						System.out.println("btn1위치: " + btns[1].getX()+ ","+ btns[1].getY());
-						System.out.println("btn2위치: " + btns[2].getX()+ ","+ btns[2].getY());
-						System.out.println("btn3위치: " + btns[3].getX()+ ","+ btns[3].getY());
-						System.out.println("btn4위치: " + btns[4].getX()+ ","+ btns[4].getY());
-						System.out.println("btn5위치: " + btns[5].getX()+ ","+ btns[5].getY());
-						System.out.println("btn6위치: " + btns[6].getX()+ ","+ btns[6].getY());
-						System.out.println("btn7위치: " + btns[7].getX()+ ","+ btns[7].getY());
-						System.out.println("btn8위치: " + btns[8].getX()+ ","+ btns[8].getY());
-						System.out.println(Arrays.toString(submit));
-						System.out.println(Arrays.toString(answer));
-						panel.add(btns[4]);
+						btns[4].setVisible(true);
 						panel.repaint();
 						clicks -= 1;
+						
 					}
+					for ( int i = 0; i < (submit.length/2); i++) {
+						submit[i*2] = btns[i].getX();
+						submit[(i*2)+1] = btns[i].getY();
+					}
+					System.out.println("btn0위치: " + btns[0].getX()+ ","+ btns[1].getY());
+					System.out.println("btn1위치: " + btns[1].getX()+ ","+ btns[1].getY());
+					System.out.println("btn2위치: " + btns[2].getX()+ ","+ btns[2].getY());
+					System.out.println("btn3위치: " + btns[3].getX()+ ","+ btns[3].getY());
+					System.out.println("btn4위치: " + btns[4].getX()+ ","+ btns[4].getY());
+					System.out.println("btn5위치: " + btns[5].getX()+ ","+ btns[5].getY());
+					System.out.println("btn6위치: " + btns[6].getX()+ ","+ btns[6].getY());
+					System.out.println("btn7위치: " + btns[7].getX()+ ","+ btns[7].getY());
+					System.out.println("btn8위치: " + btns[8].getX()+ ","+ btns[8].getY());
+					System.out.println(Arrays.toString(submit));
+					System.out.println(Arrays.toString(answer));
 
 
-
-				}}
+				}
+				panel.repaint();
+				}		
 		});
+
 		btns[5].addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(CheckAnswer.checkAnswer(answer,submit)==false) {
+				if(CheckAnswer.checkAnswer(submit,answer)==false) {
+
 					if (clicks ==0) {
-						temp1 = btns[5];
-						x1 = btns[5].getX();
-						y1 = btns[5].getY();	
-						
-						panel.remove(btns[5]);
+						num = 5;
+						x1 = btns[num].getX();
+						y1 = btns[num].getY();
+						btns[num].setVisible(false);
+						btns[num].setLayout(null);
 						panel.repaint();
 						clicks += 1;	
 					}
-					else if (clicks ==1 && temp1 != btns[5]) {
+					else if (clicks ==1 && btns[num] != btns[5]) {
 						x2=btns[5].getX();
 						y2=btns[5].getY();
-						panel.remove(btns[5]);
-						temp1.setLayout(null);
-						temp1.setLocation(x2,y2);
-						panel.add(temp1);
+						btns[num].setLocation(x2,y2);
+						btns[num].setVisible(true);
 						btns[5].setLayout(null);
 						btns[5].setLocation(x1,y1);
-					
-						System.out.println("btn0위치: " + btns[0].getX()+ ","+ btns[0].getY());
-						System.out.println("btn1위치: " + btns[1].getX()+ ","+ btns[1].getY());
-						System.out.println("btn2위치: " + btns[2].getX()+ ","+ btns[2].getY());
-						System.out.println("btn3위치: " + btns[3].getX()+ ","+ btns[3].getY());
-						System.out.println("btn4위치: " + btns[4].getX()+ ","+ btns[4].getY());
-						System.out.println("btn5위치: " + btns[5].getX()+ ","+ btns[5].getY());
-						System.out.println("btn6위치: " + btns[6].getX()+ ","+ btns[6].getY());
-						System.out.println("btn7위치: " + btns[7].getX()+ ","+ btns[7].getY());
-						System.out.println("btn8위치: " + btns[8].getX()+ ","+ btns[8].getY());
-						System.out.println(Arrays.toString(submit));
-						System.out.println(Arrays.toString(answer));
-						panel.add(btns[5]);
+						btns[5].setVisible(true);
 						panel.repaint();
 						clicks -= 1;
+						
 					}
+					for ( int i = 0; i < (submit.length/2); i++) {
+						submit[i*2] = btns[i].getX();
+						submit[(i*2)+1] = btns[i].getY();
+					}
+					System.out.println("btn0위치: " + btns[0].getX()+ ","+ btns[1].getY());
+					System.out.println("btn1위치: " + btns[1].getX()+ ","+ btns[1].getY());
+					System.out.println("btn2위치: " + btns[2].getX()+ ","+ btns[2].getY());
+					System.out.println("btn3위치: " + btns[3].getX()+ ","+ btns[3].getY());
+					System.out.println("btn4위치: " + btns[4].getX()+ ","+ btns[4].getY());
+					System.out.println("btn5위치: " + btns[5].getX()+ ","+ btns[5].getY());
+					System.out.println("btn6위치: " + btns[6].getX()+ ","+ btns[6].getY());
+					System.out.println("btn7위치: " + btns[7].getX()+ ","+ btns[7].getY());
+					System.out.println("btn8위치: " + btns[8].getX()+ ","+ btns[8].getY());
+					System.out.println(Arrays.toString(submit));
+					System.out.println(Arrays.toString(answer));
 
 
-
-				}}
+				}
+				panel.repaint();
+				}		
 		});
+
 		btns[6].addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(CheckAnswer.checkAnswer(answer,submit)==false) {
+				if(CheckAnswer.checkAnswer(submit,answer)==false) {
+
 					if (clicks ==0) {
-						temp1 = btns[6];
-						x1 = btns[6].getX();
-						y1 = btns[6].getY();
-						panel.remove(btns[6]);
+						num = 6;
+						x1 = btns[num].getX();
+						y1 = btns[num].getY();
+						btns[num].setVisible(false);
+						btns[num].setLayout(null);
 						panel.repaint();
 						clicks += 1;	
 					}
-					else if (clicks ==1 && temp1 != btns[2]) {
+					else if (clicks ==1 && btns[num] != btns[6]) {
 						x2=btns[6].getX();
 						y2=btns[6].getY();
-
-						x2=btns[6].getX();
-						y2=btns[6].getY();
-						panel.remove(btns[6]);
-						temp1.setLayout(null);
-						temp1.setLocation(x2,y2);
-						panel.add(temp1);
+						btns[num].setLocation(x2,y2);
+						btns[num].setVisible(true);
 						btns[6].setLayout(null);
 						btns[6].setLocation(x1,y1);
-						
-						System.out.println("btn0위치: " + btns[0].getX()+ ","+ btns[0].getY());
-						System.out.println("btn1위치: " + btns[1].getX()+ ","+ btns[1].getY());
-						System.out.println("btn2위치: " + btns[2].getX()+ ","+ btns[2].getY());
-						System.out.println("btn3위치: " + btns[3].getX()+ ","+ btns[3].getY());
-						System.out.println("btn4위치: " + btns[4].getX()+ ","+ btns[4].getY());
-						System.out.println("btn5위치: " + btns[5].getX()+ ","+ btns[5].getY());
-						System.out.println("btn6위치: " + btns[6].getX()+ ","+ btns[6].getY());
-						System.out.println("btn7위치: " + btns[7].getX()+ ","+ btns[7].getY());
-						System.out.println("btn8위치: " + btns[8].getX()+ ","+ btns[8].getY());
-						System.out.println(Arrays.toString(submit));
-						System.out.println(Arrays.toString(answer));
-						panel.add(btns[6]);
+						btns[6].setVisible(true);
 						panel.repaint();
 						clicks -= 1;
+						
 					}
+					for ( int i = 0; i < (submit.length/2); i++) {
+						submit[i*2] = btns[i].getX();
+						submit[(i*2)+1] = btns[i].getY();
+					}
+					System.out.println("btn0위치: " + btns[0].getX()+ ","+ btns[1].getY());
+					System.out.println("btn1위치: " + btns[1].getX()+ ","+ btns[1].getY());
+					System.out.println("btn2위치: " + btns[2].getX()+ ","+ btns[2].getY());
+					System.out.println("btn3위치: " + btns[3].getX()+ ","+ btns[3].getY());
+					System.out.println("btn4위치: " + btns[4].getX()+ ","+ btns[4].getY());
+					System.out.println("btn5위치: " + btns[5].getX()+ ","+ btns[5].getY());
+					System.out.println("btn6위치: " + btns[6].getX()+ ","+ btns[6].getY());
+					System.out.println("btn7위치: " + btns[7].getX()+ ","+ btns[7].getY());
+					System.out.println("btn8위치: " + btns[8].getX()+ ","+ btns[8].getY());
+					System.out.println(Arrays.toString(submit));
+					System.out.println(Arrays.toString(answer));
 
 
-
-				}}
+				}
+				panel.repaint();
+				}		
 		});
+
 
 		btns[7].addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(CheckAnswer.checkAnswer(answer,submit)==false) {
+				if(CheckAnswer.checkAnswer(submit,answer)==false) {
+
 					if (clicks ==0) {
-						temp1 = btns[7];
-						x1 = btns[7].getX();
-						y1 = btns[7].getY();	
-						panel.remove(btns[7]);
+						num = 7;
+						x1 = btns[num].getX();
+						y1 = btns[num].getY();
+						btns[num].setVisible(false);
+						btns[num].setLayout(null);
 						panel.repaint();
 						clicks += 1;	
 					}
-					else if (clicks ==1 && temp1 != btns[7]) {
+					else if (clicks ==1 && btns[num] != btns[7]) {
 						x2=btns[7].getX();
 						y2=btns[7].getY();
-						panel.remove(btns[7]);
-						temp1.setLayout(null);
-						temp1.setLocation(x2,y2);
-						panel.add(temp1);
+						btns[num].setLocation(x2,y2);
+						btns[num].setVisible(true);
 						btns[7].setLayout(null);
 						btns[7].setLocation(x1,y1);
-						
-						System.out.println("btn0위치: " + btns[0].getX()+ ","+ btns[0].getY());
-						System.out.println("btn1위치: " + btns[1].getX()+ ","+ btns[1].getY());
-						System.out.println("btn2위치: " + btns[2].getX()+ ","+ btns[2].getY());
-						System.out.println("btn3위치: " + btns[3].getX()+ ","+ btns[3].getY());
-						System.out.println("btn4위치: " + btns[4].getX()+ ","+ btns[4].getY());
-						System.out.println("btn5위치: " + btns[5].getX()+ ","+ btns[5].getY());
-						System.out.println("btn6위치: " + btns[6].getX()+ ","+ btns[6].getY());
-						System.out.println("btn7위치: " + btns[7].getX()+ ","+ btns[7].getY());
-						System.out.println("btn8위치: " + btns[8].getX()+ ","+ btns[8].getY());
-						System.out.println(Arrays.toString(submit));
-						System.out.println(Arrays.toString(answer));
-						panel.add(btns[7]);
+						btns[7].setVisible(true);
 						panel.repaint();
 						clicks -= 1;
+						
 					}
+					for ( int i = 0; i < (submit.length/2); i++) {
+						submit[i*2] = btns[i].getX();
+						submit[(i*2)+1] = btns[i].getY();
+					}
+					System.out.println("btn0위치: " + btns[0].getX()+ ","+ btns[1].getY());
+					System.out.println("btn1위치: " + btns[1].getX()+ ","+ btns[1].getY());
+					System.out.println("btn2위치: " + btns[2].getX()+ ","+ btns[2].getY());
+					System.out.println("btn3위치: " + btns[3].getX()+ ","+ btns[3].getY());
+					System.out.println("btn4위치: " + btns[4].getX()+ ","+ btns[4].getY());
+					System.out.println("btn5위치: " + btns[5].getX()+ ","+ btns[5].getY());
+					System.out.println("btn6위치: " + btns[6].getX()+ ","+ btns[6].getY());
+					System.out.println("btn7위치: " + btns[7].getX()+ ","+ btns[7].getY());
+					System.out.println("btn8위치: " + btns[8].getX()+ ","+ btns[8].getY());
+					System.out.println(Arrays.toString(submit));
+					System.out.println(Arrays.toString(answer));
 
 
-
-				}}
+				}
+				panel.repaint();
+				}		
 		});
+
 
 		btns[8].addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(CheckAnswer.checkAnswer(answer,submit)==false) {
+				if(CheckAnswer.checkAnswer(submit,answer)==false) {
+
 					if (clicks ==0) {
-						temp1 = btns[8];
-						x1 = btns[8].getX();
-						y1 = btns[8].getY();
-						panel.remove(btns[8]);
+						num = 8;
+						x1 = btns[num].getX();
+						y1 = btns[num].getY();
+						btns[num].setVisible(false);
+						btns[num].setLayout(null);
 						panel.repaint();
 						clicks += 1;	
 					}
-					else if (clicks ==1 && temp1 != btns[8]) {
+					else if (clicks ==1 && btns[num] != btns[8]) {
 						x2=btns[8].getX();
 						y2=btns[8].getY();
-						panel.remove(btns[8]);
+						btns[num].setLocation(x2,y2);
+						btns[num].setVisible(true);
 						btns[8].setLayout(null);
 						btns[8].setLocation(x1,y1);
-						temp1.setLayout(null);
-						temp1.setLocation(x2,y2);
-						panel.add(temp1);
-						panel.add(btns[8]);
-						System.out.println("btn0위치: " + btns[0].getX()+ ","+ btns[0].getY());
-						System.out.println("btn1위치: " + btns[1].getX()+ ","+ btns[1].getY());
-						System.out.println("btn2위치: " + btns[2].getX()+ ","+ btns[2].getY());
-						System.out.println("btn3위치: " + btns[3].getX()+ ","+ btns[3].getY());
-						System.out.println("btn4위치: " + btns[4].getX()+ ","+ btns[4].getY());
-						System.out.println("btn5위치: " + btns[5].getX()+ ","+ btns[5].getY());
-						System.out.println("btn6위치: " + btns[6].getX()+ ","+ btns[6].getY());
-						System.out.println("btn7위치: " + btns[7].getX()+ ","+ btns[7].getY());
-						System.out.println("btn8위치: " + btns[8].getX()+ ","+ btns[8].getY());
-						System.out.println(Arrays.toString(submit));
-						System.out.println(Arrays.toString(answer));
+						btns[8].setVisible(true);
 						panel.repaint();
 						clicks -= 1;
+						
 					}
+					for ( int i = 0; i < (submit.length/2); i++) {
+						submit[i*2] = btns[i].getX();
+						submit[(i*2)+1] = btns[i].getY();
+					}
+					System.out.println("btn0위치: " + btns[0].getX()+ ","+ btns[1].getY());
+					System.out.println("btn1위치: " + btns[1].getX()+ ","+ btns[1].getY());
+					System.out.println("btn2위치: " + btns[2].getX()+ ","+ btns[2].getY());
+					System.out.println("btn3위치: " + btns[3].getX()+ ","+ btns[3].getY());
+					System.out.println("btn4위치: " + btns[4].getX()+ ","+ btns[4].getY());
+					System.out.println("btn5위치: " + btns[5].getX()+ ","+ btns[5].getY());
+					System.out.println("btn6위치: " + btns[6].getX()+ ","+ btns[6].getY());
+					System.out.println("btn7위치: " + btns[7].getX()+ ","+ btns[7].getY());
+					System.out.println("btn8위치: " + btns[8].getX()+ ","+ btns[8].getY());
+					System.out.println(Arrays.toString(submit));
+					System.out.println(Arrays.toString(answer));
 
 
-
-				}}
+				}
+				panel.repaint();
+				}		
 		});
+		
 
+//실패 시 나오는 레이블
+		JButton fail = new JButton() {
+			public void paintComponent(Graphics g) {
+				ImageIcon pass = new ImageIcon("src/miniproject/images/suddenGame/fail.png");
+				g.drawImage(pass.getImage(), 0, 0, 1350, 220, null);
+				setOpaque(false); 
+				super.paintComponent(g);
+			}
+		}; 
+		fail.setLayout(null);
+		fail.setBorderPainted(false);
+		fail.setContentAreaFilled(false);
+		fail.setFocusPainted(false);
+		fail.setBounds(20,630,1350,220);
+		fail.setVisible(false);
+		fail.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				ChangePanel.changePanel(mf, panel,new EndingBackSudden(mf,player));
+				mf.revalidate();
+			}
+		});
+		panel.add(fail);
+		
+		
+		Font neo = new Font("휴먼엑스포",Font.BOLD,20);
+		JLabel tIndi = new JLabel("남은 시간");
+		
+		
+		
+		
+		//성공 시 나오는 레이블	
+		
+		JButton pass = new JButton() {
+			public void paintComponent(Graphics g) {
+				ImageIcon pass = new ImageIcon("src/miniproject/images/suddenGame/pass1.png");
+				g.drawImage(pass.getImage(), 0, 0, 1350, 220, null);
+				setOpaque(false); 
+				super.paintComponent(g);
+			}
+		}; 
+		pass.setLayout(null);
+		pass.setBorderPainted(false);
+		pass.setContentAreaFilled(false);
+		pass.setFocusPainted(false);
+		pass.setBounds(20,630,1350,220);
+		pass.setVisible(false);
+		pass.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+			
+				ChangePanel.changePanel(mf, panel, new MainMapdispatch(mf,player));
+				mf.revalidate();
+			}
+		});
+		this.add(pass);
+		
+		
+		
+		
+		
+		
+		timer = new Timer(1000, new ActionListener() {
 
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				tIndi.setText("남은 시간 " + (t-1));
+				t--;
+				if ((t)==0) {
+					timer.stop();
+					fail.setVisible(true);
+					
+					}
+				}
+		}	
+				);
+		tIndi.setFont(neo);
+		tIndi.setForeground(Color.white);
+		tIndi.setLayout(null);
+		tIndi.setBounds(1000,20,300,200);
+		panel.add(tIndi);
+		timer.start();
+		
+		
+		
+		
+		
+		
+		
+			
+			JButton submission = new JButton() {
+				public void paintComponent(Graphics g) {
+					ImageIcon pass = new ImageIcon("src/miniproject/images/suddenGame/submit.png");
+					g.drawImage(pass.getImage(), 0, 0, 150, 50, null);
+					setOpaque(false); 
+					super.paintComponent(g);
+				}
+				
+			};
+			
 
+			submission.setLayout(null);
+			submission.setBorderPainted(false);
+			submission.setContentAreaFilled(false);
+			submission.setFocusPainted(false);
+			submission.setBounds(800,50,150,50);
+			
+			
+			//정답확인 버튼!
+			
+			panel.add(submission);
+			
+			submission.addMouseListener(new MouseAdapter() {
+				
+				@Override 
+				public void mouseClicked(MouseEvent e) {
+					if(CheckAnswer.checkAnswer(answer,submit)==true) {
+						timer.stop();
+						pass.setVisible(true);
+						
+								
+							
+					}
+					else {//정답이 아니면
+						timer.stop();
+						fail.setVisible(true);
+						fail.addActionListener(new ActionListener() {
+							
+							@Override
+							public void actionPerformed(ActionEvent e) {
+								ChangePanel.changePanel(mf, panel, new EndingBackSudden(mf,player));
+								mf.revalidate();
+								
+							}
+						});
+					}
+				}
 
-
-
-
-
-
+				
+			});
+			
 
 
 	}
 
+	
 }

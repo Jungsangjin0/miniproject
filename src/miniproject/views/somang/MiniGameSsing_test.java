@@ -8,68 +8,62 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import miniproject.model.vo.Player123;
 import miniproject.views.ChangePanel;
 import miniproject.views.MainFrame;
-
-//import miniProject4.com.kh.model.vo.UserAnswer;
 
 public class MiniGameSsing_test {
 	private MainFrame mf;
 	private JPanel panel;
-	int num;
-	JTextField input; // ì €ì¥í• ê³µê°„ íƒ€ì… ì„ ì–¸
-	JTextField input2;
-	JTextField input3;
+	private JTextField input; // ÀúÀåÇÒ°ø°£ Å¸ÀÔ ¼±¾ğ
+	private JTextField input2;
+	private JTextField input3;
+	
 	private int cnt = 0;
-	String one = "";
-	String two = "";
-	String three = "";
-	boolean fone = false;
-	boolean ftwo = false;
-	boolean fthree = false;
-	Thread thread;
-	boolean isStop;
-	Timer2 timer = new Timer2(mf,panel);
-	MouseEvent e;
+	private int num;
+	
+	private String one = "";
+	private String two = "";
+	private String three = "";
+	
+	private boolean fone = false;
+	private boolean ftwo = false;
+	private boolean fthree = false;
+	private boolean isStop;
+	
+	private Thread thread;
+	private Timer2 timer = new Timer2(mf,panel);
+		
+	private Player123 player;
+	
+	private int jum = 0;
+	
+	private Thread t1= timer;
 
-	public MiniGameSsing_test(MainFrame mf, JPanel panel, int num, JTextField input, JTextField input2, JTextField input3) {
+	public MiniGameSsing_test(MainFrame mf, JPanel panel, int num, JTextField input, JTextField input2, JTextField input3, Player123 player) {
 		this.mf = mf;
 		this.panel = panel;
 		this.num = num;
 		this.input = input;
 		this.input2 = input2;
 		this.input3 = input3;
+		this.player = player;
 
+		
+		//t1.start();
+		 
+		
 	}
 
-//	class clickPanel extends MouseAdapter {
-//		@Override
-//		public void mouseClicked(MouseEvent e) {
-//
-//			SsingNext_lose gp = new SsingNext_lose(mf);
-//
-//			ChangePanel.replacePanel(mf, panel, gp);
-//
-//		}
-//	}
-
-	public void cancel() {
-
-		// Timer timer = new Timer(mf,panel);
-		// boolean status = Thread.interrupted();
-		// if(status) {
-		// return;
-		// }
-		// if(!tStop) {
-
+	//Á¡¼ö
+	public MiniGameSsing_test(int jum) {
+		this.jum = jum;		
+	}
 	
-
+	public void cancel() {
 		
 		thread.start();
 		try {
-			// if(!tStop) {
-			// e.getSource()).stop();
-			// }
 			Thread.sleep(1);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
@@ -78,25 +72,15 @@ public class MiniGameSsing_test {
 
 		timer.interrupt();
 		System.out.println(timer);
-		// if(tStop) {
-
-		// }
-
-		// }
-
-		// new clickPanel();
-		// click.mouseClicked();
-		// ssingNext_lose();
-
 	}
 
 	
 
 	public void ssingNext() {
-		// í†µê³¼ì´ë©´(cnt 2ì´ìƒì´ê³  3ì´ë˜ë©´) ë…¸ë˜ì ìˆ˜+1
-		// íƒ€ì´ë¨¸ stopí•˜ê³  ë‹¤ìŒ í™”ë©´ ë„˜ì–´ê°€ê¸°
-		MiniGameSsing_Win gp = new MiniGameSsing_Win(mf);
-
+		// Åë°úÀÌ¸é(cnt 2ÀÌ»óÀÌ°í 3ÀÌµÇ¸é) ³ë·¡Á¡¼ö+1
+		// Å¸ÀÌ¸Ó stopÇÏ°í ´ÙÀ½ È­¸é ³Ñ¾î°¡±â
+		MiniGameSsing_Win gp = new MiniGameSsing_Win(mf, player);
+		gp.jumsu(jum);
 		ChangePanel.changePanel(mf, panel, gp);
 		stop();
 	}
@@ -119,14 +103,13 @@ public class MiniGameSsing_test {
 		
 		timer.interrupt();
 
-//		timer.setStop(true);
 
 	}
 	public void ssingNext_lose() {
-		// í†µê³¼ì´ë©´(cnt 2ì´ìƒì´ê³  3ì´ë˜ë©´) ë…¸ë˜ì ìˆ˜+1
-		// íƒ€ì´ë¨¸ stopí•˜ê³  ë‹¤ìŒ í™”ë©´ ë„˜ì–´ê°€ê¸°
-		MiniGameSsing_lose gp = new MiniGameSsing_lose(mf);
-
+		// Åë°úÀÌ¸é(cnt 2ÀÌ»óÀÌ°í 3ÀÌµÇ¸é) ³ë·¡Á¡¼ö+1
+		// Å¸ÀÌ¸Ó stopÇÏ°í ´ÙÀ½ È­¸é ³Ñ¾î°¡±â
+		MiniGameSsing_lose gp = new MiniGameSsing_lose(mf,player,jum);
+		gp.jumsu(jum);
 		ChangePanel.changePanel(mf, panel, gp);
 		stop();
 	}
@@ -137,32 +120,27 @@ public class MiniGameSsing_test {
 		timer.interrupt();
 	}
 	
-	
-	//
-
-	// í…ŒìŠ¤íŠ¸ í†µê³¼ ì—¬ë¶€
+	// Å×½ºÆ® Åë°ú ¿©ºÎ
 	public void StestPass(String[] inputArr) {
-		String[][] answers = {{"ì–¼êµ´", "ëª¸ë§¤", "ëª¨ë“ ê²ƒì´"}, 
-							{"ë‹¹ì‹ ","ë‚˜ëŠ”","ë°°í„°ë¦¬"},
-							{"ë‹¹ì‹ ", "ë™ë°˜ì", "ì„ ë¬¼"},
-							{"ê°€ì¸","ê°€ì¸","ê°€ì¸"},
-							{"ë­ì•¼ë­ì•¼","ë­ì•¼","ë‚´ë²„ë ¤"},
-							{"ìœ í–‰ê°€","ë‚˜ë„","ì¿µì¿µ"},
-							{"ìˆ«ì","ì§„ì§œ","ê°€ìŠ´"},
-							{"ë•¡ë²Œ","ê¸°ë‹¤ë¦¬ë‹¤","ì¶”ì›Œìš”"},
-							{"ë§Œë“œë ˆ","ë‚˜ëŠ”","í–¥ê¸°ì†ì—"},
-							{"ì˜¤ëŠ˜","ì‚¬ë‘","í—¤ì–´ì§€ë©´"}		
+		String[][] answers = {{"¾ó±¼", "¸ö¸Å", "¸ğµç°ÍÀÌ"}, 
+							{"´ç½Å","³ª´Â","¹èÅÍ¸®"},
+							{"´ç½Å", "µ¿¹İÀÚ", "¼±¹°"},
+							{"°¡ÀÎ","°¡ÀÎ","°¡ÀÎ"},
+							{"¹¹¾ß¹¹¾ß","¹¹¾ß","³»¹ö·Á"},
+							{"À¯Çà°¡","³ªµµ","ÄôÄô"},
+							{"¼ıÀÚ","ÁøÂ¥","°¡½¿"},
+							{"¶¯¹ú","±â´Ù¸®´Ù","Ãß¿ö¿ä"},
+							{"¸¸µå·¹","³ª´Â","Çâ±â¼Ó¿¡"},
+							{"¿À´Ã","»ç¶û","Çì¾îÁö¸é"}		
 		};
 		
-	//public void StestPass(UserAnswer user) {
-		//clickPanel cp = new clickPanel();
+		
 
-		// numê°’ì— ë”°ë¥¸ ì •ë‹µ ë¹„êµ
+		// num°ª¿¡ µû¸¥ Á¤´ä ºñ±³
 		switch (num) {
 		case 1:
-			//if (tf == input && "ë‹¹ì‹ ".equals(input.getText())) {
 			if (answers[0][0].equals(inputArr[0])) {
-				// ê°’ í•œê°œì”© ë¹„êµ í›„ ì •ë‹µì´ë©´ cnt++ -> cntê°€ 2ì´ìƒì´ë©´ í†µê³¼ -> ë‹¤ìŒ ì¥ë©´ìœ¼ë¡œ ë„˜ì–´ê°€ê¸°?
+				// °ª ÇÑ°³¾¿ ºñ±³ ÈÄ Á¤´äÀÌ¸é cnt++ -> cnt°¡ 2ÀÌ»óÀÌ¸é Åë°ú -> ´ÙÀ½ Àå¸éÀ¸·Î ³Ñ¾î°¡±â?
 				System.out.println(input.getText());
 				if (!fone) {
 					cnt++;
@@ -185,16 +163,14 @@ public class MiniGameSsing_test {
 					cnt++;
 					fthree = true;
 				}
-				// ((Timer2) timer).rre();
 			}
 			System.out.println(cnt);
 
-			// ssingNext_lose();
 			break;
 
 		case 2:
 			if (answers[1][0].equals(inputArr[0])) {
-				// ê°’ í•œê°œì”© ë¹„êµ í›„ ì •ë‹µì´ë©´ cnt++ -> cntê°€ 2ì´ìƒì´ë©´ í†µê³¼ -> ë‹¤ìŒ ì¥ë©´ìœ¼ë¡œ ë„˜ì–´ê°€ê¸°?
+				// °ª ÇÑ°³¾¿ ºñ±³ ÈÄ Á¤´äÀÌ¸é cnt++ -> cnt°¡ 2ÀÌ»óÀÌ¸é Åë°ú -> ´ÙÀ½ Àå¸éÀ¸·Î ³Ñ¾î°¡±â?
 				System.out.println(input.getText());
 				if (!fone) {
 					cnt++;
@@ -219,12 +195,11 @@ public class MiniGameSsing_test {
 			}
 			System.out.println(cnt);
 
-			// ssingNext_lose();
 			break;
 
 		case 3:
 			if (answers[2][0].equals(inputArr[0])) {
-				// ê°’ í•œê°œì”© ë¹„êµ í›„ ì •ë‹µì´ë©´ cnt++ -> cntê°€ 2ì´ìƒì´ë©´ í†µê³¼ -> ë‹¤ìŒ ì¥ë©´ìœ¼ë¡œ ë„˜ì–´ê°€ê¸°?
+				// °ª ÇÑ°³¾¿ ºñ±³ ÈÄ Á¤´äÀÌ¸é cnt++ -> cnt°¡ 2ÀÌ»óÀÌ¸é Åë°ú -> ´ÙÀ½ Àå¸éÀ¸·Î ³Ñ¾î°¡±â?
 				System.out.println(input.getText());
 				if (!fone) {
 					cnt++;
@@ -249,12 +224,11 @@ public class MiniGameSsing_test {
 			}
 			System.out.println(cnt);
 
-			// ssingNext_lose();
 			break;
 
 		case 4:
 			if (answers[3][0].equals(inputArr[0])) {
-				// ê°’ í•œê°œì”© ë¹„êµ í›„ ì •ë‹µì´ë©´ cnt++ -> cntê°€ 2ì´ìƒì´ë©´ í†µê³¼ -> ë‹¤ìŒ ì¥ë©´ìœ¼ë¡œ ë„˜ì–´ê°€ê¸°?
+				// °ª ÇÑ°³¾¿ ºñ±³ ÈÄ Á¤´äÀÌ¸é cnt++ -> cnt°¡ 2ÀÌ»óÀÌ¸é Åë°ú -> ´ÙÀ½ Àå¸éÀ¸·Î ³Ñ¾î°¡±â?
 				System.out.println(input.getText());
 				if (!fone) {
 					cnt++;
@@ -279,12 +253,11 @@ public class MiniGameSsing_test {
 			}
 			System.out.println(cnt);
 
-			// ssingNext_lose();
 			break;
 
 		case 5:
 			if (answers[4][0].equals(inputArr[0])) {
-				// ê°’ í•œê°œì”© ë¹„êµ í›„ ì •ë‹µì´ë©´ cnt++ -> cntê°€ 2ì´ìƒì´ë©´ í†µê³¼ -> ë‹¤ìŒ ì¥ë©´ìœ¼ë¡œ ë„˜ì–´ê°€ê¸°?
+				// °ª ÇÑ°³¾¿ ºñ±³ ÈÄ Á¤´äÀÌ¸é cnt++ -> cnt°¡ 2ÀÌ»óÀÌ¸é Åë°ú -> ´ÙÀ½ Àå¸éÀ¸·Î ³Ñ¾î°¡±â?
 				System.out.println(input.getText());
 				if (!fone) {
 					cnt++;
@@ -309,12 +282,11 @@ public class MiniGameSsing_test {
 			}
 			System.out.println(cnt);
 
-			// ssingNext_lose();
 			break;
 
 		case 6:
 			if (answers[5][0].equals(inputArr[0])) {
-				// ê°’ í•œê°œì”© ë¹„êµ í›„ ì •ë‹µì´ë©´ cnt++ -> cntê°€ 2ì´ìƒì´ë©´ í†µê³¼ -> ë‹¤ìŒ ì¥ë©´ìœ¼ë¡œ ë„˜ì–´ê°€ê¸°?
+				// °ª ÇÑ°³¾¿ ºñ±³ ÈÄ Á¤´äÀÌ¸é cnt++ -> cnt°¡ 2ÀÌ»óÀÌ¸é Åë°ú -> ´ÙÀ½ Àå¸éÀ¸·Î ³Ñ¾î°¡±â?
 				System.out.println(input.getText());
 				if (!fone) {
 					cnt++;
@@ -339,12 +311,11 @@ public class MiniGameSsing_test {
 			}
 			System.out.println(cnt);
 
-			// ssingNext_lose();
 			break;
 
 		case 7:
 			if (answers[6][0].equals(inputArr[0])) {
-				// ê°’ í•œê°œì”© ë¹„êµ í›„ ì •ë‹µì´ë©´ cnt++ -> cntê°€ 2ì´ìƒì´ë©´ í†µê³¼ -> ë‹¤ìŒ ì¥ë©´ìœ¼ë¡œ ë„˜ì–´ê°€ê¸°?
+				// °ª ÇÑ°³¾¿ ºñ±³ ÈÄ Á¤´äÀÌ¸é cnt++ -> cnt°¡ 2ÀÌ»óÀÌ¸é Åë°ú -> ´ÙÀ½ Àå¸éÀ¸·Î ³Ñ¾î°¡±â?
 				System.out.println(input.getText());
 				if (!fone) {
 					cnt++;
@@ -369,12 +340,11 @@ public class MiniGameSsing_test {
 			}
 			System.out.println(cnt);
 
-			// ssingNext_lose();
 			break;
 
 		case 8:
 			if (answers[7][0].equals(inputArr[0])) {
-				// ê°’ í•œê°œì”© ë¹„êµ í›„ ì •ë‹µì´ë©´ cnt++ -> cntê°€ 2ì´ìƒì´ë©´ í†µê³¼ -> ë‹¤ìŒ ì¥ë©´ìœ¼ë¡œ ë„˜ì–´ê°€ê¸°?
+				// °ª ÇÑ°³¾¿ ºñ±³ ÈÄ Á¤´äÀÌ¸é cnt++ -> cnt°¡ 2ÀÌ»óÀÌ¸é Åë°ú -> ´ÙÀ½ Àå¸éÀ¸·Î ³Ñ¾î°¡±â?
 				System.out.println(input.getText());
 				if (!fone) {
 					cnt++;
@@ -399,12 +369,11 @@ public class MiniGameSsing_test {
 			}
 			System.out.println(cnt);
 
-			// ssingNext_lose();
 			break;
 
 		case 9:
 			if(answers[8][0].equals(inputArr[0])) {
-				// ê°’ í•œê°œì”© ë¹„êµ í›„ ì •ë‹µì´ë©´ cnt++ -> cntê°€ 2ì´ìƒì´ë©´ í†µê³¼ -> ë‹¤ìŒ ì¥ë©´ìœ¼ë¡œ ë„˜ì–´ê°€ê¸°?
+				// °ª ÇÑ°³¾¿ ºñ±³ ÈÄ Á¤´äÀÌ¸é cnt++ -> cnt°¡ 2ÀÌ»óÀÌ¸é Åë°ú -> ´ÙÀ½ Àå¸éÀ¸·Î ³Ñ¾î°¡±â?
 				System.out.println(input.getText());
 				if (!fone) {
 					cnt++;
@@ -429,12 +398,11 @@ public class MiniGameSsing_test {
 			}
 			System.out.println(cnt);
 
-			// ssingNext_lose();
 			break;
 
 		case 10:
 			if (answers[9][0].equals(inputArr[0])) {
-				// ê°’ í•œê°œì”© ë¹„êµ í›„ ì •ë‹µì´ë©´ cnt++ -> cntê°€ 2ì´ìƒì´ë©´ í†µê³¼ -> ë‹¤ìŒ ì¥ë©´ìœ¼ë¡œ ë„˜ì–´ê°€ê¸°?
+				// °ª ÇÑ°³¾¿ ºñ±³ ÈÄ Á¤´äÀÌ¸é cnt++ -> cnt°¡ 2ÀÌ»óÀÌ¸é Åë°ú -> ´ÙÀ½ Àå¸éÀ¸·Î ³Ñ¾î°¡±â?
 				System.out.println(input.getText());
 				if (!fone) {
 					cnt++;
@@ -459,7 +427,6 @@ public class MiniGameSsing_test {
 			}
 			System.out.println(cnt);
 
-			// ssingNext_lose();
 			break;
 		}
 		
@@ -469,42 +436,25 @@ public class MiniGameSsing_test {
 	
 	public void ifTest() {
 		if (cnt >= 2) {
-			// ì ìˆ˜ íšë“ +1
-			System.out.println("í†µê³¼");
+			// Á¡¼ö È¹µæ +1
+			jum += 1;
+			
+			System.out.println("Åë°ú");
 			System.out.println("cnt_pass : " + cnt);
 			ssingNext();
-			//cancel();
-
-		} //else if(Thread.interrupted()){
-			//System.out.println("ì‹¤íŒ¨!");
+			t1.stop();
+		} 
 		else if (cnt < 2 ) {
 				ssingNext_lose();
 				System.out.println("cnt" + cnt);
 
-					// ì ìˆ˜ íšë“ ì—†ìŒ
+					// Á¡¼ö È¹µæ ¾øÀ½
 					
 					cancel2();
-					// cp.mouseClicked(e);
 				
-					System.out.println("ì‹¤íŒ¨!");
+					System.out.println("½ÇÆĞ!");
 			}
 			
-		//}*/
 	}
-	/*
-	 * class clickPanel extends MouseAdapter {
-	 * 
-	 * @Override public void mouseClicked(MouseEvent e) { SsingNext gp = new
-	 * SsingNext(mf); Timer timer = new Timer(mf,gp); Thread t1 = timer;
-	 * t1.interrupt();
-	 * 
-	 * 
-	 * 
-	 * ChangePanel.replacePanel(mf, panel, gp);
-	 * 
-	 * }
-	 * 
-	 * }
-	 */
 
 }

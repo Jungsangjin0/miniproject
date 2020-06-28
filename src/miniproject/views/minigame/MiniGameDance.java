@@ -1,5 +1,6 @@
 package miniproject.views.minigame;
 
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -7,6 +8,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import miniproject.model.vo.Player123;
 import miniproject.views.ChangePanel;
 import miniproject.views.MainFrame;
 
@@ -17,14 +19,19 @@ public class MiniGameDance extends JPanel { // ¹Ì´Ï°ÔÀÓ ¿¬°áÈ­¸é (Ãã¿¬½ÀÀå µé¾î°
 	private ImageIcon back;
 	private ImageIcon talk;
 	private ImageIcon characters;
+	
 	private MiniGameDance panel = this;
+	
 	private MainFrame mf;
+	
+	private Player123 player;
 
-
-	public MiniGameDance(MainFrame mf) {
+	public MiniGameDance(MainFrame mf, Player123 player) {
 
 		this.mf = mf;
-		this.panel = this;
+		panel = this;
+		this.player = player;
+		
 		this.setLayout(null);
 		back = new ImageIcon("src/miniproject/images/SJH/minigamekey.PNG"); //¹è°æ
 		talk = new ImageIcon("src/miniproject/images/SJH/conv.PNG"); //´ëÈ­Ã¢
@@ -33,18 +40,20 @@ public class MiniGameDance extends JPanel { // ¹Ì´Ï°ÔÀÓ ¿¬°áÈ­¸é (Ãã¿¬½ÀÀå µé¾î°
 
 		this.addMouseListener(new MyMouseAdapter()); 
 	}
+	
 
 	public void paintComponent(Graphics g) {
 
-		super.paintComponent(g);
 		g.drawImage(back.getImage(), 0, 0, this.getWidth(),this.getHeight(),null);
 		g.drawImage(talk.getImage(), 0, 600, 1400, 250,null); //¿ø·¡ À§Ä¡ : 0,600,1400,250
+		g.drawImage(characters.getImage(), 520, 200, 398, 398, this);//¿ø·¡Å©±â : 398,398
+		g.setFont(new Font("NeoµÕ±Ù¸ð", Font.BOLD, 30));
 		g.drawString("¡Ø Å¬¸¯ÇÏ¿© °ÔÀÓÀ» ÁøÇàÇÏ¼¼¿ä ¡Ø ", 100, 660);
 		g.drawString("¿À´Ãµµ Ãã¿¬½ÀÀ» ÇØº¸ÀÚ ¢Ü", 100, 710); //±Û¾¾ À§Ä¡ Á¶Àý ÇÊ¿ä    //700->700
 		g.drawString("Yeah ´Ù½Ã µ¹¾Æ¿ÔÁö ³» ÀÌ¸§ ·¹ÀÎ ½ºÀ¡À» »Ë³» WHOO ~ ¢Ý  ", 100, 760);   //780->750
 		g.drawString("They call it ¿ÕÀÇ ±ÍÈ¯ ~ ¢Ú ", 100, 810);  //850->800
-		g.drawImage(characters.getImage(), 520, 200, 398, 398, this);//¿ø·¡Å©±â : 398,398
 		setOpaque(false);
+		super.paintComponent(g);
 	}
 
 
@@ -53,7 +62,7 @@ public class MiniGameDance extends JPanel { // ¹Ì´Ï°ÔÀÓ ¿¬°áÈ­¸é (Ãã¿¬½ÀÀå µé¾î°
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			ChangePanel.changePanel(mf, panel, new MiniGameDance2(mf));		
+			ChangePanel.changePanel(mf, panel, new MiniGameDance2(mf,player));      //Ãã°ÔÀÓ2È­¸éÀ¸·Î ³Ñ¾î°¨.
 			mf.revalidate();
 		}
 
@@ -61,7 +70,6 @@ public class MiniGameDance extends JPanel { // ¹Ì´Ï°ÔÀÓ ¿¬°áÈ­¸é (Ãã¿¬½ÀÀå µé¾î°
 
 	}
 }
-
 
 
 
