@@ -46,7 +46,7 @@ public class MiniGameSsing_lose extends JPanel{
 	
 	public void jumsu(int jum) {
 		int jum2 = jum;
-		JLabel jlabel = new JLabel(jum2+"Á¡! ´É·ÂÄ¡¸¦ ¿Ã¸®Ä¡ ¸øÇß´Ù!!");
+		JLabel jlabel = new JLabel(jum2+"ì ! ëŠ¥ë ¥ì¹˜ë¥¼ ì˜¬ë¦¬ì¹˜ ëª»í–ˆë‹¤!!");
 		jlabel.setBounds(5,5,300,50);
 		jlabel.setFont(new Font("Sanscerif",Font.BOLD,20));
 		jlabel.setForeground(Color.BLACK);
@@ -63,8 +63,8 @@ public class MiniGameSsing_lose extends JPanel{
 		if (charac01 != null) {
 			g.drawImage(charac01.getImage(), 500, 250, 398, 398, this);
 		}
-		g.setFont(new Font("NeoµÕ±Ù¸ğ", Font.BOLD, 40));
-		g.drawString("¾Æ½±°Ô ³ë·¡ Á¡¼ö¸¦ ¾òÁö ¸øÇß´Ù..!", 70, 750);
+		g.setFont(new Font("Neoë‘¥ê·¼ëª¨", Font.BOLD, 40));
+		g.drawString("ì•„ì‰½ê²Œ ë…¸ë˜ ì ìˆ˜ë¥¼ ì–»ì§€ ëª»í–ˆë‹¤..!", 70, 750);
 		
 		setOpaque(false);
 		super.paintComponent(g);

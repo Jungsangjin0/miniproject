@@ -17,18 +17,18 @@ import miniproject.views.MainFrame;
 import miniproject.views.Pyosi;
 import miniproject.views.mainMap.MainMapJunguk;
 
-public class Sosok_junguk extends JPanel { //¼Ò¼Ó»ç Ã¹È­¸é
+public class Sosok_junguk extends JPanel { //ì†Œì†ì‚¬ ì²«í™”ë©´
 
 	private MainFrame mf;
 	private JPanel panel;
 
-	private ImageIcon back; //¹è°æ
-	private ImageIcon talk; //´ëÈ­»óÀÚ
+	private ImageIcon back; //ë°°ê²½
+	private ImageIcon talk; //ëŒ€í™”ìƒì
 	private ImageIcon characters =new ImageIcon("src/miniproject/images/SJH/Characters_5.png");
 	private ImageIcon sajang = new ImageIcon("src/miniproject/images/sosok/sajang.PNG");
 
 	private ImageIcon doorMain;
-	private JLabel door;//¹®
+	private JLabel door;//ë¬¸
 
 	private Player123 player;
 	private Pyosi pyosi;
@@ -43,14 +43,14 @@ public class Sosok_junguk extends JPanel { //¼Ò¼Ó»ç Ã¹È­¸é
 		pyosi = new Pyosi(player);
 		pyosi.setLayout(null);
 		pyosi.setBounds(600,0,500,200);
-		pyosi.setFont(new Font("¸¼Àº°íµñ", Font.BOLD, 25));
+		pyosi.setFont(new Font("ë§‘ì€ê³ ë”•", Font.BOLD, 25));
 		pyosi.setForeground(Color.WHITE);
 		panel.add(pyosi);
 
 		this.setLayout(null);
 
-		back = new ImageIcon("src/miniproject/images/SJH/minibackgroundfinish.PNG"); //¹è°æ-¼Ò¼Ó»ç
-		talk = new ImageIcon("src/miniproject/images/SJH/conv.PNG"); //´ëÈ­Ã¢
+		back = new ImageIcon("src/miniproject/images/SJH/minibackgroundfinish.PNG"); //ë°°ê²½-ì†Œì†ì‚¬
+		talk = new ImageIcon("src/miniproject/images/SJH/conv.PNG"); //ëŒ€í™”ì°½
 		Image cimage = characters.getImage().getScaledInstance(100, 100, 0);
 		Image simage  = sajang.getImage().getScaledInstance(100, 100, 0);
 		ImageIcon cIcon = new ImageIcon(cimage);
@@ -58,7 +58,7 @@ public class Sosok_junguk extends JPanel { //¼Ò¼Ó»ç Ã¹È­¸é
 
 
 		doorMain = new ImageIcon("src/miniproject/images/SJH/outdoor.png");
-		//¹® 
+		//ë¬¸ 
 		door = new JLabel(doorMain);
 		door.setLayout(null);
 		door.setBounds(0, 300, 40, 250);
@@ -86,16 +86,16 @@ public class Sosok_junguk extends JPanel { //¼Ò¼Ó»ç Ã¹È­¸é
 		super.paintComponent(g);
 
 		g.drawImage(back.getImage(), 0, 0, this.getWidth(),this.getHeight(),null);
-		g.drawImage(talk.getImage(), 0, 600, 1400, 250,null); //¿ø·¡ À§Ä¡ : 0,600,1400,250
+		g.drawImage(talk.getImage(), 0, 600, 1400, 250,null); //ì›ë˜ ìœ„ì¹˜ : 0,600,1400,250
 		g.drawImage(sajang.getImage(), 300, 300, 250, 250, this);
 		g.drawImage(characters.getImage(), 10, 300, 250, 250, this);
 
 
 
 
-		g.setFont(new Font("NeoµÕ±Ù¸ğ", Font.BOLD, 30));
-		g.drawString("»çÀå´Ô: Èá¸¢ÇÏ±º...! ÀÌ·¸°Ô »¡¸® ½ºÅ³À» È¹µæÇÏ´Ù´Ï...³ª°¡¼­ ÀÚ³×ÀÇ ²ŞÀ» ÆîÄ¡°Ô", 100, 710);
-		g.drawString("¹ÛÀº Àú±âÀÖ´Â ÆÄ¶õ»ö ¹®À» ÅëÇØ ³ª°¥ ¼ö ÀÖ´Ù³× ", 140, 750);
+		g.setFont(new Font("Neoë‘¥ê·¼ëª¨", Font.BOLD, 30));
+		g.drawString("ì‚¬ì¥ë‹˜: íœ¼ë¥­í•˜êµ°...! ì´ë ‡ê²Œ ë¹¨ë¦¬ ìŠ¤í‚¬ì„ íšë“í•˜ë‹¤ë‹ˆ...ë‚˜ê°€ì„œ ìë„¤ì˜ ê¿ˆì„ í¼ì¹˜ê²Œ", 100, 710);
+		g.drawString("ë°–ì€ ì €ê¸°ìˆëŠ” íŒŒë€ìƒ‰ ë¬¸ì„ í†µí•´ ë‚˜ê°ˆ ìˆ˜ ìˆë‹¤ë„¤ ", 140, 750);
 
 
 	}

@@ -78,10 +78,10 @@ public class TrotGame extends JPanel{
 
 		this.setLayout(null);
 
-		lbScore = new JLabel("Á¡¼ö : 0");
+		lbScore = new JLabel("ì ìˆ˜ : 0");
 		lbScore.setHorizontalAlignment(SwingConstants.TRAILING);
 		lbScore.setForeground(Color.WHITE);
-		lbScore.setFont(new Font("ÈŞ¸Õ¿¢½ºÆ÷", Font.BOLD, 30));
+		lbScore.setFont(new Font("íœ´ë¨¼ì—‘ìŠ¤í¬", Font.BOLD, 30));
 		lbScore.setBounds(400,20,300,200);
 		panel.add(lbScore);
 		
@@ -92,16 +92,16 @@ public class TrotGame extends JPanel{
 		totalScore.setVisible(false);
 		panel.add(totalScore);
 
-		lbTimeLeft = new JLabel("½Ã°£ : ");
+		lbTimeLeft = new JLabel("ì‹œê°„ : ");
 		lbTimeLeft.setHorizontalAlignment(SwingConstants.CENTER);
-		lbTimeLeft.setFont(new Font("ÈŞ¸Õ¿¢½ºÆ÷", Font.BOLD, 30));
+		lbTimeLeft.setFont(new Font("íœ´ë¨¼ì—‘ìŠ¤í¬", Font.BOLD, 30));
 		lbTimeLeft.setForeground(Color.WHITE);
 		lbTimeLeft.setBounds(100,20,250,200);
 		panel.add(lbTimeLeft);
 		
 		
 		lbCount = new JLabel();
-		lbCount.setFont(new Font("ÈŞ¸Õ¿¢½ºÆ÷", Font.BOLD, 400));
+		lbCount.setFont(new Font("íœ´ë¨¼ì—‘ìŠ¤í¬", Font.BOLD, 400));
 		lbCount.setForeground(Color.white);
 		lbCount.setBounds(600,100,600,600);
 		panel.add(lbCount);
@@ -215,19 +215,19 @@ public class TrotGame extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(timeLeft == 0) {
-					lbTimeLeft.setText("³²Àº½Ã°£  : ");
+					lbTimeLeft.setText("ë‚¨ì€ì‹œê°„  : ");
 					timer.stop();
 					programStart = true;
 					offAll();
 					totalScore.setVisible(true);
 					player.setTotalScore(player.getTotalScore() + score);
-					printText = new JTextField(score + "Á¡À» È¹µæÇÏ¼Ì½À´Ï´Ù.") {
+					printText = new JTextField(score + "ì ì„ íšë“í•˜ì…¨ìŠµë‹ˆë‹¤.") {
 						@Override
 						public void setBorder(Border boder) {
 							
 						}
 					};
-					printText.setFont(new Font("ÈŞ¸Õ¿¢½ºÆ÷", Font.BOLD, 50));
+					printText.setFont(new Font("íœ´ë¨¼ì—‘ìŠ¤í¬", Font.BOLD, 50));
 					printText.setForeground(Color.BLACK);
 					printText.setBounds(80,400,700,200);
 					printText.addMouseListener(new MouseAdapter() {
@@ -242,7 +242,7 @@ public class TrotGame extends JPanel{
 					totalScore.add(printText);
 
 				}
-				lbTimeLeft.setText("³²Àº½Ã°£ : " + timeLeft);
+				lbTimeLeft.setText("ë‚¨ì€ì‹œê°„ : " + timeLeft);
 				timeLeft--;
 
 			}
@@ -259,20 +259,20 @@ public class TrotGame extends JPanel{
 		if(!(programStart)) {
 			if("ON".equals(val)) {
 				score += 5;
-				lbScore.setText("Á¡¼ö : " + score);
+				lbScore.setText("ì ìˆ˜ : " + score);
 				lbl.setIcon(new ImageIcon(off));
 				lbl.setText(coff);
 				repaint();
 			}else if("OFF".equals(val)){
 				if(score <= 0) {
 					score = 0;
-					lbScore.setText("Á¡¼ö : " + score);
+					lbScore.setText("ì ìˆ˜ : " + score);
 				} else {
 					score -= 5;
 				}
 			}
 		}
-		lbScore.setText("Á¡¼ö : " + score);
+		lbScore.setText("ì ìˆ˜ : " + score);
 	}
 
 	
@@ -291,7 +291,7 @@ public class TrotGame extends JPanel{
 	
 	
 	public class DThread implements Runnable{
-		int index = 0; //µÎ´õÁö¹øÈ£
+		int index = 0; //ë‘ë”ì§€ë²ˆí˜¸
 
 		public DThread(int index) {
 			this.index = index;

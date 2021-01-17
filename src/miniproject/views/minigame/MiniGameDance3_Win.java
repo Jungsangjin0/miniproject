@@ -15,7 +15,7 @@ import miniproject.views.MainFrame;
 import miniproject.views.minipublic.Sosok_junguk;
 
 
-public class MiniGameDance3_Win extends JPanel{ // ¹Ì´Ï°ÔÀÓ ÀÌ±â¸é ³ª¿À´Â È­¸é
+public class MiniGameDance3_Win extends JPanel{ // ë¯¸ë‹ˆê²Œì„ ì´ê¸°ë©´ ë‚˜ì˜¤ëŠ” í™”ë©´
 
 	private MainFrame mf;
 	private JPanel panel;
@@ -49,7 +49,7 @@ public class MiniGameDance3_Win extends JPanel{ // ¹Ì´Ï°ÔÀÓ ÀÌ±â¸é ³ª¿À´Â È­¸é
 
 	public void keyjumsu(int su) {
 		int susu = su;
-		JLabel jlabel = new JLabel("´É·ÂÄ¡°¡"+susu+"Á¡ »ó½ÂÇß½À´Ï´ç!");
+		JLabel jlabel = new JLabel("ëŠ¥ë ¥ì¹˜ê°€"+susu+"ì  ìƒìŠ¹í–ˆìŠµë‹ˆë‹¹!");
 		jlabel.setBounds(5,5,300,50);
 		jlabel.setFont(new Font("Sanscerif",Font.BOLD,20));
 		panel.add(jlabel);
@@ -62,8 +62,8 @@ public class MiniGameDance3_Win extends JPanel{ // ¹Ì´Ï°ÔÀÓ ÀÌ±â¸é ³ª¿À´Â È­¸é
 		g.drawImage(talk.getImage(), 5, 620, 1400, 250, null);
 		g.drawImage(win.getImage(),350,50,700,170,null);
 		g.drawImage(characters.getImage(), 500, 250, 398, 398, this);      
-		g.setFont(new Font("NeoµÕ±Ù¸ğ", Font.BOLD, 40));
-		g.drawString("±øÃãÇÑ¹ø ´õ Ãçº¼±î~ Ãã´É·ÂÄ¡ +1 !!!", 70, 750);
+		g.setFont(new Font("Neoë‘¥ê·¼ëª¨", Font.BOLD, 40));
+		g.drawString("ê¹¡ì¶¤í•œë²ˆ ë” ì¶°ë³¼ê¹Œ~ ì¶¤ëŠ¥ë ¥ì¹˜ +1 !!!", 70, 750);
 
 		setOpaque(false);
 		super.paintComponent(g);
@@ -77,7 +77,7 @@ public class MiniGameDance3_Win extends JPanel{ // ¹Ì´Ï°ÔÀÓ ÀÌ±â¸é ³ª¿À´Â È­¸é
 		@Override
 		public void mouseClicked(MouseEvent e) {
 
-			ChangePanel.changePanel(mf, panel, new Sosok_junguk(mf,player));   //¼Ò¼Ó»ç ¹ÛÀ¸·Î ³ª°¡´Â ¹®ÀÌ È°¼ºÈ­µÇ¾îÀÖ´Â °÷À¸·Î ³ª°¡¾ßÇÔ.
+			ChangePanel.changePanel(mf, panel, new Sosok_junguk(mf,player));   //ì†Œì†ì‚¬ ë°–ìœ¼ë¡œ ë‚˜ê°€ëŠ” ë¬¸ì´ í™œì„±í™”ë˜ì–´ìˆëŠ” ê³³ìœ¼ë¡œ ë‚˜ê°€ì•¼í•¨.
 			mf.revalidate();
 		}
 

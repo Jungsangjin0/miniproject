@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import miniproject.model.vo.Player123;
 import miniproject.views.MainFrame;
 
-public class EndingBack02 extends JPanel { //51~75% ¹«¸í½ºÅ¸(³²Ä³¸¯ÅÍ)
+public class EndingBack02 extends JPanel { //51~75% ë¬´ëª…ìŠ¤íƒ€(ë‚¨ìºë¦­í„°)
 	
 	private MainFrame mf;
 	private EndingBack02 panel = this;
@@ -31,7 +31,7 @@ public class EndingBack02 extends JPanel { //51~75% ¹«¸í½ºÅ¸(³²Ä³¸¯ÅÍ)
 		super.paintComponent(g);
 		g.drawImage(image, 0, 0, this.getWidth(), this.getHeight(), this);
 		g.setColor(Color.WHITE);
-		g.setFont(new Font("NeoµÕ±Ù¸ğ",Font.BOLD,30));
+		g.setFont(new Font("Neoë‘¥ê·¼ëª¨",Font.BOLD,30));
 
 	}
 }

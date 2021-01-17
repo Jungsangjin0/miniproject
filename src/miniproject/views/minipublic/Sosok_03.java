@@ -15,20 +15,20 @@ import miniproject.views.MainFrame;
 import miniproject.views.minipublic.Sosok_02.clickButton;
 import miniproject.views.somang.MiniGameSsing;
 
-public class Sosok_03 extends JPanel { //»çÀå´ÔÇÑÅ× ¹Ì¼Ç¹Ş´Â Àå¸é(Ä³¸¯ÅÍ°¡ ´Ù°¡°¡¼­
+public class Sosok_03 extends JPanel { //ì‚¬ì¥ë‹˜í•œí…Œ ë¯¸ì…˜ë°›ëŠ” ì¥ë©´(ìºë¦­í„°ê°€ ë‹¤ê°€ê°€ì„œ
 
    private MainFrame mf;
    private JPanel panel;
 
-   private ImageIcon back; //¹è°æ
-   private ImageIcon talk; //´ëÈ­»óÀÚ
+   private ImageIcon back; //ë°°ê²½
+   private ImageIcon talk; //ëŒ€í™”ìƒì
    private ImageIcon characters =new ImageIcon("src/miniproject/images/SJH/Characters_5.png");
    private ImageIcon sajang = new ImageIcon("src/miniproject/images/sosok/sajang.PNG");
 
    private Player123 player;
    
-   private Image doorR; //¼Ò¼Ó»ç ¹®(¹Ì´Ï°ÔÀÓ Ãã)
-   private Image doorL; //¼Ò¼Ó»ç ¹®(¹Ì´Ï°ÔÀÓ ³ë·¡)
+   private Image doorR; //ì†Œì†ì‚¬ ë¬¸(ë¯¸ë‹ˆê²Œì„ ì¶¤)
+   private Image doorL; //ì†Œì†ì‚¬ ë¬¸(ë¯¸ë‹ˆê²Œì„ ë…¸ë˜)
 
    public Sosok_03(MainFrame mf, Player123 player) {
 
@@ -38,8 +38,8 @@ public class Sosok_03 extends JPanel { //»çÀå´ÔÇÑÅ× ¹Ì¼Ç¹Ş´Â Àå¸é(Ä³¸¯ÅÍ°¡ ´Ù°¡°
       
       this.setLayout(null);
 
-      back = new ImageIcon("src/miniproject/images/SJH/minibackgroundfinish.PNG"); //¹è°æ-¼Ò¼Ó»ç
-      talk = new ImageIcon("src/miniproject/images/SJH/conv.PNG"); //´ëÈ­Ã¢
+      back = new ImageIcon("src/miniproject/images/SJH/minibackgroundfinish.PNG"); //ë°°ê²½-ì†Œì†ì‚¬
+      talk = new ImageIcon("src/miniproject/images/SJH/conv.PNG"); //ëŒ€í™”ì°½
       
       Image cimage = characters.getImage().getScaledInstance(100, 100, 0);
       Image simage  = sajang.getImage().getScaledInstance(100, 100, 0);
@@ -58,12 +58,12 @@ public class Sosok_03 extends JPanel { //»çÀå´ÔÇÑÅ× ¹Ì¼Ç¹Ş´Â Àå¸é(Ä³¸¯ÅÍ°¡ ´Ù°¡°
       super.paintComponent(g);
 
       g.drawImage(back.getImage(), 0, 0, this.getWidth(),this.getHeight(),null);
-      g.drawImage(talk.getImage(), 0, 600, 1400, 250,null); //¿ø·¡ À§Ä¡ : 0,600,1400,250
+      g.drawImage(talk.getImage(), 0, 600, 1400, 250,null); //ì›ë˜ ìœ„ì¹˜ : 0,600,1400,250
       g.drawImage(sajang.getImage(), 300, 300, 250, 250, this);
       g.drawImage(characters.getImage(), 10, 300, 250, 250, this);
-      g.setFont(new Font("NeoµÕ±Ù¸ğ", Font.BOLD, 30));
-      g.drawString("»çÀå´Ô : Àü±¹³ë·¡ÀÚ¶û¿¡ ³ª°¡·Á¸é ³ë·¡¿Í Ãã ´É·ÂÄ¡¸¦ 1¾¿ ¿Ã·Á¿À½Ã°Ô³ª", 100, 700);
-      g.drawString("³ë·¡¿¬½ÀÀåÀº ¿ŞÂÊ¹®ÀÌ°í, Ãã¿¬½ÀÀåÀº ¿À¸¥ÂÊ¹®ÀÌ´Ï ¼ø¼­´ë·Î ´É·ÂÄ¡¸¦ ¿Ã·Áº¸°Ô", 100, 750);
+      g.setFont(new Font("Neoë‘¥ê·¼ëª¨", Font.BOLD, 30));
+      g.drawString("ì‚¬ì¥ë‹˜ : ì „êµ­ë…¸ë˜ìë‘ì— ë‚˜ê°€ë ¤ë©´ ë…¸ë˜ì™€ ì¶¤ ëŠ¥ë ¥ì¹˜ë¥¼ 1ì”© ì˜¬ë ¤ì˜¤ì‹œê²Œë‚˜", 100, 700);
+      g.drawString("ë…¸ë˜ì—°ìŠµì¥ì€ ì™¼ìª½ë¬¸ì´ê³ , ì¶¤ì—°ìŠµì¥ì€ ì˜¤ë¥¸ìª½ë¬¸ì´ë‹ˆ ìˆœì„œëŒ€ë¡œ ëŠ¥ë ¥ì¹˜ë¥¼ ì˜¬ë ¤ë³´ê²Œ", 100, 750);
    
    }
 

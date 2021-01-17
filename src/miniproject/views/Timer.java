@@ -17,7 +17,7 @@ public class Timer extends Thread{
 
 	@Override
 	public void run() {
-		JTextField label = new JTextField("³²Àº½Ã°£ : ");
+		JTextField label = new JTextField("ë‚¨ì€ì‹œê°„ : ");
 		label.setBounds(100, 380, 300, 100);
 		label.setFont(new Font("Sanscerif", Font.BOLD, 40));
 		panel.add(label);
@@ -25,7 +25,7 @@ public class Timer extends Thread{
 			try {
 				System.out.println(i);
 				this.sleep(1000);
-				label.setText("  ³²Àº½Ã°£ : " + i);
+				label.setText("  ë‚¨ì€ì‹œê°„ : " + i);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

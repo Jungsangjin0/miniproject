@@ -54,7 +54,7 @@ public class SubPage extends JPanel {
          private GamePanel gp;
 
          public void mouseClicked(MouseEvent e) {
-            System.out.println("´ÙÀ½ÆäÀÌÁö");
+            System.out.println("ë‹¤ìŒí˜ì´ì§€");
             ChangePanel.changePanel(mf, panel, new GamePanel(mf,player));
             mf.revalidate();
          }

@@ -42,7 +42,7 @@ public class MiniGameSsing_Win extends JPanel{
 	
 	public void jumsu(int jum) {
 		int jum2 = jum;
-		JLabel jlabel = new JLabel("´É·ÂÄ¡°¡"+jum2+"Á¡ »ó½ÂÇß´Ù!");
+		JLabel jlabel = new JLabel("ëŠ¥ë ¥ì¹˜ê°€"+jum2+"ì  ìƒìŠ¹í–ˆë‹¤!");
 		player.setSingScore(player.getSingScore() + jum2);
 		jlabel.setBounds(5,5,300,50);
 		jlabel.setFont(new Font("Sanscerif",Font.BOLD,20));
@@ -59,8 +59,8 @@ public class MiniGameSsing_Win extends JPanel{
 		if (charac01 != null) {
 			g.drawImage(charac01.getImage(), 500, 250, 398, 398, this);
 		}
-		g.setFont(new Font("NeoµÕ±Ù¸ğ", Font.BOLD, 40));
-		g.drawString("¸¸¼¼~! ³ë·¡ ´É·ÂÄ¡°¡ ¿Ã¶ú´Ù!!", 70, 750);
+		g.setFont(new Font("Neoë‘¥ê·¼ëª¨", Font.BOLD, 40));
+		g.drawString("ë§Œì„¸~! ë…¸ë˜ ëŠ¥ë ¥ì¹˜ê°€ ì˜¬ëë‹¤!!", 70, 750);
 		
 		setOpaque(false);
 		super.paintComponent(g);
@@ -71,7 +71,7 @@ public class MiniGameSsing_Win extends JPanel{
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			
-			ChangePanel.changePanel(mf, panel, new Sosok_dancebutton(mf,player));  //Ãã ¹® ¹öÆ° ÀÖ´Â °÷À¸·Î ³ª°¡¾ßÇÔ.
+			ChangePanel.changePanel(mf, panel, new Sosok_dancebutton(mf,player));  //ì¶¤ ë¬¸ ë²„íŠ¼ ìˆëŠ” ê³³ìœ¼ë¡œ ë‚˜ê°€ì•¼í•¨.
 			mf.revalidate();
 			
 		}

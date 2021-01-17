@@ -12,7 +12,7 @@ public class GameInfo extends JLabel  implements Serializable{
 		g.drawImage(info.getImage(), 0, 0, 1000, 700, null);
 		//			Point p = scrollPane.getViewport().getViewPosition();
 		//g.drawImage(bground.getImage(), p.x, p.y, null);
-		setOpaque(false); //±×¸²À» Ç¥½ÃÇÏ°Ô ¼³Á¤,Åõ¸íÇÏ°Ô Á¶Àı
+		setOpaque(false); //ê·¸ë¦¼ì„ í‘œì‹œí•˜ê²Œ ì„¤ì •,íˆ¬ëª…í•˜ê²Œ ì¡°ì ˆ
 		super.paintComponent(g);
 	}
 }

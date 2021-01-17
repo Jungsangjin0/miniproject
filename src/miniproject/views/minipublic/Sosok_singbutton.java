@@ -29,7 +29,7 @@ public class Sosok_singbutton extends JPanel{
       private ImageIcon talk;
       private ImageIcon charac01 =new ImageIcon("src/miniproject/images/SJH/Characters_5.png");
       private ImageIcon sajang = new ImageIcon("src/miniproject/images/sosok/sajang.PNG");
-      private ImageIcon sDoorL; //³ë·¡
+      private ImageIcon sDoorL; //ë…¸ë˜
       private ImageIcon doorMain;
       
       private Player123 player;
@@ -42,7 +42,7 @@ public class Sosok_singbutton extends JPanel{
          pyosi = new Pyosi(player);
  		 pyosi.setLayout(null);
  		 pyosi.setBounds(600,0,500,200);
- 		 pyosi.setFont(new Font("¸¼Àº°íµñ", Font.BOLD, 25));
+ 		 pyosi.setFont(new Font("ë§‘ì€ê³ ë”•", Font.BOLD, 25));
  		 pyosi.setForeground(Color.WHITE);
  		 panel.add(pyosi);
          
@@ -56,7 +56,7 @@ public class Sosok_singbutton extends JPanel{
         
          doorMain = new ImageIcon("src/miniproject/images/SJH/outdoor.png");
          
-         //¹® 
+         //ë¬¸ 
          door = new JLabel(doorMain);
          door.setLayout(null);
          door.setBounds(0, 300, 40, 250);
@@ -71,7 +71,7 @@ public class Sosok_singbutton extends JPanel{
                
             }
          });
-         //Ä³¸¯ÅÍµé
+         //ìºë¦­í„°ë“¤
          JLabel cLabel = new JLabel(cIcon);
          JLabel sLabel = new JLabel(sIcon);
          cLabel.setBounds(30, 250, 398, 398);
@@ -85,7 +85,7 @@ public class Sosok_singbutton extends JPanel{
          panel.add(cLabel);
          panel.add(sajangButton);
          
-         //¹®
+         //ë¬¸
          JLabel labelL = new JLabel(sDoorL);
          JButton doorL = new JButton();
          doorL.setBounds(149,134,171,280);
@@ -99,7 +99,7 @@ public class Sosok_singbutton extends JPanel{
          
          
          
-         //³ë·¡
+         //ë…¸ë˜
          doorL.addMouseListener(new clickButtonL());
          
       }
@@ -107,18 +107,18 @@ public class Sosok_singbutton extends JPanel{
       public void paintComponent(Graphics g) {
          g.drawImage(back.getImage(), 0, 0, null);
          g.drawImage(talk.getImage(), 5, 600, 1390, 250, null);
-         g.setFont(new Font("NeoµÕ±Ù¸ğ", Font.BOLD, 30));
-         g.drawString("³ë·¡¿¬½À½Ç·Î µé¾î°¡¶ó",100,730);
+         g.setFont(new Font("Neoë‘¥ê·¼ëª¨", Font.BOLD, 30));
+         g.drawString("ë…¸ë˜ì—°ìŠµì‹¤ë¡œ ë“¤ì–´ê°€ë¼",100,730);
          
          setOpaque(false);
          super.paintComponent(g);
       }
       
-      //³ë·¡
+      //ë…¸ë˜
       class clickButtonL extends MouseAdapter {
          @Override
          public void mouseClicked(MouseEvent e) {
-            ChangePanel.changePanel(mf, panel, new MiniGameSsing(mf,player)); //¹öÆ°´­·¯¼­ ³ë·¡ °ÔÀÓÀ¸·Î ³Ñ¾î°¨.
+            ChangePanel.changePanel(mf, panel, new MiniGameSsing(mf,player)); //ë²„íŠ¼ëˆŒëŸ¬ì„œ ë…¸ë˜ ê²Œì„ìœ¼ë¡œ ë„˜ì–´ê°.
             mf.revalidate();
          }
       }

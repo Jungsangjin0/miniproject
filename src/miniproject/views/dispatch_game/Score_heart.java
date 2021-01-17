@@ -1,12 +1,12 @@
 package miniproject.views.dispatch_game;
 
 public class Score_heart {
-   int x;      // ÇÏÆ® ¸Ô¾î¾ßÇÏ´Â Àå¾Ö¹°ÀÇ x ÁÂÇ¥
-   int y;      // ÇÏÆ® ¸Ô¾î¾ßÇÏ´Â Àå¾Ö¹°ÀÇ y ÁÂÇ¥
-   int speed;   // ÇÏÆ® ¸Ô¾î¾ßÇÏ´Â Àå¾Ö¹°ÀÇ ¼Óµµ
+   int x;      // í•˜íŠ¸ ë¨¹ì–´ì•¼í•˜ëŠ” ì¥ì• ë¬¼ì˜ x ì¢Œí‘œ
+   int y;      // í•˜íŠ¸ ë¨¹ì–´ì•¼í•˜ëŠ” ì¥ì• ë¬¼ì˜ y ì¢Œí‘œ
+   int speed;   // í•˜íŠ¸ ë¨¹ì–´ì•¼í•˜ëŠ” ì¥ì• ë¬¼ì˜ ì†ë„
    
-   int score;   // Á¡¼ö
-   int total; // ÃÑÁ¡
+   int score;   // ì ìˆ˜
+   int total; // ì´ì 
    
    public Score_heart(int x, int y, int speed) {
       this.x = x;
@@ -15,6 +15,6 @@ public class Score_heart {
    }
    
    public void move() {
-      x -= speed ;      // ¹Ì»çÀÏ ¼Óµµ ¸¸Å­ ÀÌµ¿
+      x -= speed ;      // ë¯¸ì‚¬ì¼ ì†ë„ ë§Œí¼ ì´ë™
    }
 }

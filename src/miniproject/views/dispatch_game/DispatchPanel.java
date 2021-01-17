@@ -26,64 +26,64 @@ import miniproject.views.ending.EndingBack03;
 public class DispatchPanel extends JPanel implements KeyListener{
 	private static final int SCREEN_WIDTH = 1400;
 	private static final int SCREEN_HEIGHT = 900;
-	MainFrame mf;         //MainFrame ¿¡¼­ ÇÁ·¹ÀÓ ³Ñ°Ü¹Ş´Â º¯¼ö
-	JPanel panel;      //ÆĞ³ÎÀÇ Å¸ÀÔ ¼±Á¤
+	MainFrame mf;         //MainFrame ì—ì„œ í”„ë ˆì„ ë„˜ê²¨ë°›ëŠ” ë³€ìˆ˜
+	JPanel panel;      //íŒ¨ë„ì˜ íƒ€ì… ì„ ì •
 	Player123 player;
 
-	int x = 100 ;      // playerÀÇ ÃÊ±â x ÁÂÇ¥ À§Ä¡
-	int y = 100 ;       // playerÀÇ ÃÊ±â y ÁÂÇ¥ À§Ä¡
+	int x = 100 ;      // playerì˜ ì´ˆê¸° x ì¢Œí‘œ ìœ„ì¹˜
+	int y = 100 ;       // playerì˜ ì´ˆê¸° y ì¢Œí‘œ ìœ„ì¹˜
 
-	int bx = 0;             //ÀüÃ¼ ¹è°æ ½ºÅ©·Ñ ¿ë º¯¼ö
+	int bx = 0;             //ì „ì²´ ë°°ê²½ ìŠ¤í¬ë¡¤ ìš© ë³€ìˆ˜
 
-	boolean KeyUp = false;      //Å°¸®½º³Ê °áÁ¤ º¯¼ö (À§)
-	boolean KeyDown = false;   //Å°¸®½º³Ê °áÁ¤ º¯¼ö (¾Æ·¡)
-	boolean KeyLeft = false;   //Å°¸®½º³Ê °áÁ¤ º¯¼ö (¿ŞÂÊ)
-	boolean KeyRight = false;   //Å°¸®½º³Ê °áÁ¤ º¯¼ö (¿À¸¥ÂÊ)
-	boolean KeySpace = false;   //ÄÉ¸¯ÅÍ ÇöÀç ÁÂÇ¥ À§Ä¡ È®ÀÎ º¯¼ö
+	boolean KeyUp = false;      //í‚¤ë¦¬ìŠ¤ë„ˆ ê²°ì • ë³€ìˆ˜ (ìœ„)
+	boolean KeyDown = false;   //í‚¤ë¦¬ìŠ¤ë„ˆ ê²°ì • ë³€ìˆ˜ (ì•„ë˜)
+	boolean KeyLeft = false;   //í‚¤ë¦¬ìŠ¤ë„ˆ ê²°ì • ë³€ìˆ˜ (ì™¼ìª½)
+	boolean KeyRight = false;   //í‚¤ë¦¬ìŠ¤ë„ˆ ê²°ì • ë³€ìˆ˜ (ì˜¤ë¥¸ìª½)
+	boolean KeySpace = false;   //ì¼€ë¦­í„° í˜„ì¬ ì¢Œí‘œ ìœ„ì¹˜ í™•ì¸ ë³€ìˆ˜
 	
 	boolean stopAll = false;
 
-	int cnt = 0;            //ÇÃ·¹ÀÌ¾î ¹ß»ı½ÃÅ°´Â Ä«¿îÅÍ º¯¼ö
-	int cnt2 = 0;            //ÇÏÆ® ¹ß»ı½ÃÅ°´Â Ä«¿îÅÍ º¯¼ö
-	int cnt3 = 0;            //º° ¹ß»ı½ÃÅ°´Â Ä«¿îÅÍ º¯¼ö
+	int cnt = 0;            //í”Œë ˆì´ì–´ ë°œìƒì‹œí‚¤ëŠ” ì¹´ìš´í„° ë³€ìˆ˜
+	int cnt2 = 0;            //í•˜íŠ¸ ë°œìƒì‹œí‚¤ëŠ” ì¹´ìš´í„° ë³€ìˆ˜
+	int cnt3 = 0;            //ë³„ ë°œìƒì‹œí‚¤ëŠ” ì¹´ìš´í„° ë³€ìˆ˜
 
-	int player_Speed;         // À¯ÀúÀÇ ÄÉ¸¯ÅÍ°¡ ¿òÁ÷ÀÌ´Â ¼Óµµ¸¦ Á¶ÀıÇÒ º¯¼ö
-	int score_Speed;         // Á¡¼ö°¡ ³¯¶ó°¡´Â ¼Óµµ Á¶ÀıÇÒ º¯¼ö
-	int dispatch_Speed;      // µğ½ºÆĞÄ¡°¡ ³¯¶ó¿À´Â ¼Óµµ Á¶ÀıÇÒ º¯¼ö   
-	int star_Speed;         // º°ÀÌ ³¯¶ó¿À´Â ¼Óµµ Á¶ÀıÇÒ º¯¼ö
-	int heart_Speed;      // ÇÏÆ®°¡ ³¯¶ó¿À´Â ¼Óµµ Á¶ÀıÇÒ º¯¼ö
-	int player_Status = 0;      // À¯Àú Ä³¸¯ÅÍ »óÅÂ Ã¼Å© º¯¼ö 0: Æò»ó½Ã, 1: Ãæµ¹
-	int game_Score = 0;          // °ÔÀÓ Á¡¼ö °è»ê
+	int player_Speed;         // ìœ ì €ì˜ ì¼€ë¦­í„°ê°€ ì›€ì§ì´ëŠ” ì†ë„ë¥¼ ì¡°ì ˆí•  ë³€ìˆ˜
+	int score_Speed;         // ì ìˆ˜ê°€ ë‚ ë¼ê°€ëŠ” ì†ë„ ì¡°ì ˆí•  ë³€ìˆ˜
+	int dispatch_Speed;      // ë””ìŠ¤íŒ¨ì¹˜ê°€ ë‚ ë¼ì˜¤ëŠ” ì†ë„ ì¡°ì ˆí•  ë³€ìˆ˜   
+	int star_Speed;         // ë³„ì´ ë‚ ë¼ì˜¤ëŠ” ì†ë„ ì¡°ì ˆí•  ë³€ìˆ˜
+	int heart_Speed;      // í•˜íŠ¸ê°€ ë‚ ë¼ì˜¤ëŠ” ì†ë„ ì¡°ì ˆí•  ë³€ìˆ˜
+	int player_Status = 0;      // ìœ ì € ìºë¦­í„° ìƒíƒœ ì²´í¬ ë³€ìˆ˜ 0: í‰ìƒì‹œ, 1: ì¶©ëŒ
+	int game_Score = 0;          // ê²Œì„ ì ìˆ˜ ê³„ì‚°
 
 	Timer timer;
-	private int timeLeft = 30;      //³²Àº ½Ã°£ 30ÃÊ·Î ¼³Á¤
-	private JLabel lbTimeLeft;      //"³²Àº ½Ã°£ : " ÀÌ¶ó´Â ¹®ÀÚ¿­ Ãâ·Â ¶óº§
-	private JLabel totalScore;      //ÃÑ Á¡¼ö ¶óº§¿¡ ºÙÀÏ¶§ ¾²´Â º¯¼ö
-	private JTextField printText;   //ÃÑ Á¡¼ö Ãâ·ÂÃ¢
+	private int timeLeft = 30;      //ë‚¨ì€ ì‹œê°„ 30ì´ˆë¡œ ì„¤ì •
+	private JLabel lbTimeLeft;      //"ë‚¨ì€ ì‹œê°„ : " ì´ë¼ëŠ” ë¬¸ìì—´ ì¶œë ¥ ë¼ë²¨
+	private JLabel totalScore;      //ì´ ì ìˆ˜ ë¼ë²¨ì— ë¶™ì¼ë•Œ ì“°ëŠ” ë³€ìˆ˜
+	private JTextField printText;   //ì´ ì ìˆ˜ ì¶œë ¥ì°½
 
-	Thread thPlayer;            //ÇÃ·¹ÀÌ¾î ½º·¹µå
-	Thread thStar;               //º° ½º·¹µå
-	Thread thHeart;               //ÇÏÆ® ½º·¹µå
+	Thread thPlayer;            //í”Œë ˆì´ì–´ ìŠ¤ë ˆë“œ
+	Thread thStar;               //ë³„ ìŠ¤ë ˆë“œ
+	Thread thHeart;               //í•˜íŠ¸ ìŠ¤ë ˆë“œ
 
 
-	Image bg_img;            // ¹è°æÈ­¸é ÀÌ¹ÌÁö
-	Image player_img;         // ÇÃ·¹ÀÌ¾î ÀÌ¹ÌÁö
+	Image bg_img;            // ë°°ê²½í™”ë©´ ì´ë¯¸ì§€
+	Image player_img;         // í”Œë ˆì´ì–´ ì´ë¯¸ì§€
 
-	Image dispatch_img;         // ÇÇÇØ¾ß ÇÒ µğ½ºÆĞÄ¡ ÀÌ¹ÌÁö
-	Image heart_img;         // ¸Ô¾î¾ß ÇÒ ¼±¹°ÇÏÆ® ÀÌ¹ÌÁö
-	Image star_img;            // ¸Ô¾î¾ß ÇÒ ¼±¹°½ºÅ¸ ÀÌ¹ÌÁö
+	Image dispatch_img;         // í”¼í•´ì•¼ í•  ë””ìŠ¤íŒ¨ì¹˜ ì´ë¯¸ì§€
+	Image heart_img;         // ë¨¹ì–´ì•¼ í•  ì„ ë¬¼í•˜íŠ¸ ì´ë¯¸ì§€
+	Image star_img;            // ë¨¹ì–´ì•¼ í•  ì„ ë¬¼ìŠ¤íƒ€ ì´ë¯¸ì§€
 
-	ArrayList<Score> Score_List = new ArrayList<Score>();               //µğ½ºÆĞÄ¡ ¼Óµµ, x¿Í y ÁÂÇ¥¸¦ ³Ö¾îµÎ°í ¹Ş¾Æ¿À´Â list
-	ArrayList<Score_heart> Scoreh_List = new ArrayList<Score_heart>();      //ÇÏÆ® ¼Óµµ, x¿Í y ÁÂÇ¥¸¦ ³Ö¾îµÎ°í ¹Ş¾Æ¿À´Â list
-	ArrayList<Score_star> Scores_List = new ArrayList<Score_star>();      //º° ¼Óµµ, x¿Í y ÁÂÇ¥¸¦ ³Ö¾îµÎ°í ¹Ş¾Æ¿À´Â list
+	ArrayList<Score> Score_List = new ArrayList<Score>();               //ë””ìŠ¤íŒ¨ì¹˜ ì†ë„, xì™€ y ì¢Œí‘œë¥¼ ë„£ì–´ë‘ê³  ë°›ì•„ì˜¤ëŠ” list
+	ArrayList<Score_heart> Scoreh_List = new ArrayList<Score_heart>();      //í•˜íŠ¸ ì†ë„, xì™€ y ì¢Œí‘œë¥¼ ë„£ì–´ë‘ê³  ë°›ì•„ì˜¤ëŠ” list
+	ArrayList<Score_star> Scores_List = new ArrayList<Score_star>();      //ë³„ ì†ë„, xì™€ y ì¢Œí‘œë¥¼ ë„£ì–´ë‘ê³  ë°›ì•„ì˜¤ëŠ” list
 
-	Image buffImage;      //ÀÌÁß ¹öÆÛ »ı¼º
-	Graphics buffg;         //ÀÌÁß ¹öÆÛ ÀÌ¹ÌÁö¸¦ ±×¸®±â À§ÇÑ ±×·¡ÇÈ °´Ã¼ »ı¼º
+	Image buffImage;      //ì´ì¤‘ ë²„í¼ ìƒì„±
+	Graphics buffg;         //ì´ì¤‘ ë²„í¼ ì´ë¯¸ì§€ë¥¼ ê·¸ë¦¬ê¸° ìœ„í•œ ê·¸ë˜í”½ ê°ì²´ ìƒì„±
 
-	//Á¡¼öº° Å¬·¡½º Á¢±ÙÅ°
-	Score sc;            //µğ½ºÆĞÄ¡ Å¬·¡½º¿¡ Á¢±Ù º¯¼ö
-	Score_heart sc_heart;   //ÇÏÆ® Å¬·¡½º¿¡ Á¢±Ù º¯¼ö
-	Score_star sc_star;      //º° Å¬·¡½º¿¡ Á¢±Ù º¯¼ö
+	//ì ìˆ˜ë³„ í´ë˜ìŠ¤ ì ‘ê·¼í‚¤
+	Score sc;            //ë””ìŠ¤íŒ¨ì¹˜ í´ë˜ìŠ¤ì— ì ‘ê·¼ ë³€ìˆ˜
+	Score_heart sc_heart;   //í•˜íŠ¸ í´ë˜ìŠ¤ì— ì ‘ê·¼ ë³€ìˆ˜
+	Score_star sc_star;      //ë³„ í´ë˜ìŠ¤ì— ì ‘ê·¼ ë³€ìˆ˜
 
 
 	public DispatchPanel (MainFrame mf, Player123 player) {
@@ -92,33 +92,33 @@ public class DispatchPanel extends JPanel implements KeyListener{
 		panel = this;
 		this.player = player;
 
-		init();            //ÀÌ¹ÌÁö ¼³Á¤°ú °ÔÀÓ ½ºÄÚ¾î ÃÊ±âÈ­ ¹× ¼Óµµ ¼³Á¤
-		start();         //½º·¹µå ½ÇÇà ¹× Å¸ÀÌ¸Ó¿Í paint ±×¸®±â ¸Ş¼Òµå ½ÇÇà
-		setFocusable(true);   //Æ÷Ä¿½º¸¦ ÇÁ·¹ÀÓÀÌ ¾Æ´Ñ ÆĞ³Î¿¡´Ù ÁÖ±â
-		KeyProcess();      //Å°¸®½º³Ê ÀÛµ¿ ºÎºĞ
+		init();            //ì´ë¯¸ì§€ ì„¤ì •ê³¼ ê²Œì„ ìŠ¤ì½”ì–´ ì´ˆê¸°í™” ë° ì†ë„ ì„¤ì •
+		start();         //ìŠ¤ë ˆë“œ ì‹¤í–‰ ë° íƒ€ì´ë¨¸ì™€ paint ê·¸ë¦¬ê¸° ë©”ì†Œë“œ ì‹¤í–‰
+		setFocusable(true);   //í¬ì»¤ìŠ¤ë¥¼ í”„ë ˆì„ì´ ì•„ë‹Œ íŒ¨ë„ì—ë‹¤ ì£¼ê¸°
+		KeyProcess();      //í‚¤ë¦¬ìŠ¤ë„ˆ ì‘ë™ ë¶€ë¶„
 	}
 
 	public void init() {
-		//ÀÌ¹ÌÁö ³Ö¾îÁÖ°í °ÔÀÓ ½ºÄÚ¾î ÃÊ±âÈ­ , ¼Óµµ ¼³Á¤
+		//ì´ë¯¸ì§€ ë„£ì–´ì£¼ê³  ê²Œì„ ìŠ¤ì½”ì–´ ì´ˆê¸°í™” , ì†ë„ ì„¤ì •
 
-		//ÇÃ·¹ÀÌ¾î ÀÌ¹ÌÁö
+		//í”Œë ˆì´ì–´ ì´ë¯¸ì§€
 		player_img = new ImageIcon("src/miniproject/images/dispatch_images/chracter/CharactersM.gif"
 				+ "").getImage().getScaledInstance(80, 80, 0);
-		//Á¡¼ö ÀÌ¹ÌÁö, getScaledInstance ÀÇ ¸¶Áö¸· ÀÎÀÚ·Î java.awt.Image.SCALE_SMOOTH ¸¦ ½áº¸ÀÚ( ¼±ÅÃ )
+		//ì ìˆ˜ ì´ë¯¸ì§€, getScaledInstance ì˜ ë§ˆì§€ë§‰ ì¸ìë¡œ java.awt.Image.SCALE_SMOOTH ë¥¼ ì¨ë³´ì( ì„ íƒ )
 		dispatch_img = new ImageIcon("src/miniproject/images/dispatch_images/miniGame/score_avoid.png").getImage().getScaledInstance(80, 80, 0);
 		heart_img = new ImageIcon("src/miniproject/images/dispatch_images/miniGame/score_heart.png").getImage().getScaledInstance(80, 80, 0);
 		star_img = new ImageIcon("src/miniproject/images/dispatch_images/miniGame/score_star.png").getImage().getScaledInstance(80, 80, 0);
-		//ÀüÃ¼ ¹è°æÈ­¸é ÀÌ¹ÌÁö
+		//ì „ì²´ ë°°ê²½í™”ë©´ ì´ë¯¸ì§€
 		bg_img = new ImageIcon("src/miniproject/images/dispatch_images/miniGame/background.png").getImage().getScaledInstance(SCREEN_WIDTH, SCREEN_HEIGHT, 0);
 
-		game_Score = player.getTotalScore();          //°ÔÀÓ ½ºÄÚ¾î ÃÊ±âÈ­
+		game_Score = player.getTotalScore();          //ê²Œì„ ìŠ¤ì½”ì–´ ì´ˆê¸°í™”
 
-		player_Speed = 10;    //À¯Àú ÄÉ¸¯ÅÍ ¿òÁ÷ÀÌ´Â ¼Óµµ ¼³Á¤
-		score_Speed = 5;    //Á¡¼ö°¡ ³¯¶ó¿À´Â ¼Óµµ ¼³Á¤, ³ôÀ» ¼ö·Ï »¡¶óÁü
+		player_Speed = 10;    //ìœ ì € ì¼€ë¦­í„° ì›€ì§ì´ëŠ” ì†ë„ ì„¤ì •
+		score_Speed = 5;    //ì ìˆ˜ê°€ ë‚ ë¼ì˜¤ëŠ” ì†ë„ ì„¤ì •, ë†’ì„ ìˆ˜ë¡ ë¹¨ë¼ì§
 
-		dispatch_Speed = 2;   //µğ½ºÆĞÄ¡ ¼Óµµ ¼³Á¤
-		heart_Speed= 2;      //ÇÏÆ® ¼Óµµ ¼³Á¤
-		star_Speed = 2;      //º° ¼Óµµ ¼³Á¤
+		dispatch_Speed = 2;   //ë””ìŠ¤íŒ¨ì¹˜ ì†ë„ ì„¤ì •
+		heart_Speed= 2;      //í•˜íŠ¸ ì†ë„ ì„¤ì •
+		star_Speed = 2;      //ë³„ ì†ë„ ì„¤ì •
 
 		Image talk = new ImageIcon("src/miniproject/images/ssing/talkframe.png")
 				.getImage().getScaledInstance(800, 400,java.awt.Image.SCALE_SMOOTH );
@@ -132,9 +132,9 @@ public class DispatchPanel extends JPanel implements KeyListener{
 		revalidate();
 
 
-		lbTimeLeft = new JLabel("½Ã°£ : ");
+		lbTimeLeft = new JLabel("ì‹œê°„ : ");
 		lbTimeLeft.setHorizontalAlignment(SwingConstants.CENTER);
-		lbTimeLeft.setFont(new Font("ÈŞ¸Õ¿¢½ºÆ÷", Font.BOLD, 30));
+		lbTimeLeft.setFont(new Font("íœ´ë¨¼ì—‘ìŠ¤í¬", Font.BOLD, 30));
 		lbTimeLeft.setForeground(Color.WHITE);
 		lbTimeLeft.setBounds(100,20,250,200);
 		this.add(lbTimeLeft);
@@ -146,7 +146,7 @@ public class DispatchPanel extends JPanel implements KeyListener{
 	public void start() {
 
 		addKeyListener(this);
-		KeyProcess();      //Å° µ¿ÀÛ
+		KeyProcess();      //í‚¤ ë™ì‘
 
 
 		thPlayer = new playerThread();
@@ -167,9 +167,9 @@ public class DispatchPanel extends JPanel implements KeyListener{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(timeLeft == 0) {
-					lbTimeLeft.setText("³²Àº½Ã°£  : ");
+					lbTimeLeft.setText("ë‚¨ì€ì‹œê°„  : ");
 					timer.stop();
-					stopAll = true;			//½º·¹µå ¸ØÃâ flag
+					stopAll = true;			//ìŠ¤ë ˆë“œ ë©ˆì¶œ flag
 					if(game_Score >= 500) {
 						ChangePanel.changePanel(mf, panel, new EndingBack03(mf, player));
 						mf.revalidate();
@@ -185,7 +185,7 @@ public class DispatchPanel extends JPanel implements KeyListener{
 					
 
 				}
-				lbTimeLeft.setText("³²Àº½Ã°£ : " + timeLeft);
+				lbTimeLeft.setText("ë‚¨ì€ì‹œê°„ : " + timeLeft);
 				timeLeft--;
 
 			}
@@ -195,7 +195,7 @@ public class DispatchPanel extends JPanel implements KeyListener{
 
 		if(game_Score < 0 || timeLeft == 0) {
 			timer.stop();
-			stopAll = true;			//½º·¹µå ¸ØÃâ flag
+			stopAll = true;			//ìŠ¤ë ˆë“œ ë©ˆì¶œ flag
 			
 		}
 
@@ -223,13 +223,13 @@ public class DispatchPanel extends JPanel implements KeyListener{
 				}
 
 			} catch(Exception e) {
-				System.out.println("starThread ¿À·ù");
+				System.out.println("starThread ì˜¤ë¥˜");
 				e.printStackTrace();
 			}
 		}
 
 		public void starProcess() {
-			//º° Ãæµ¹ ÆÇÁ¤
+			//ë³„ ì¶©ëŒ íŒì •
 			for(int i = 0; i < Scores_List.size(); ++i) {
 				sc_star = (Score_star) (Scores_List.get(i));
 				sc_star.move();
@@ -239,8 +239,8 @@ public class DispatchPanel extends JPanel implements KeyListener{
 
 				if(Crash(x,y, sc_star.x, sc_star.y, player_img, star_img)) {
 
-					Scores_List.remove(i);   //º° Á¦°Å
-					game_Score += 30;      //º°À» ¸ÔÀ¸¸é +30Á¡
+					Scores_List.remove(i);   //ë³„ ì œê±°
+					game_Score += 30;      //ë³„ì„ ë¨¹ìœ¼ë©´ +30ì 
 					System.out.println("game_score : " + game_Score);
 				}
 
@@ -249,9 +249,9 @@ public class DispatchPanel extends JPanel implements KeyListener{
 
 				}
 			}
-			//Á¡¼ö »ı¼º
+			//ì ìˆ˜ ìƒì„±
 			if(cnt % 200 == 0) {
-				//º° »ı¼º
+				//ë³„ ìƒì„±
 
 				for(int m = (int)(Math.random()*900 + 1); m < (SCREEN_HEIGHT -80); m+=500) {
 					sc_star = new Score_star(SCREEN_WIDTH + 
@@ -282,12 +282,12 @@ public class DispatchPanel extends JPanel implements KeyListener{
 				}
 
 			} catch(Exception e) {
-				System.out.println("heartThread ¿À·ù");
+				System.out.println("heartThread ì˜¤ë¥˜");
 				e.printStackTrace();
 			}
 		}
 		public void heartProcess() {
-			//ÇÏÆ® Ãæµ¹ ÆÇÁ¤
+			//í•˜íŠ¸ ì¶©ëŒ íŒì •
 			for(int i = 0; i < Scoreh_List.size(); ++i) {
 				sc_heart = (Score_heart) (Scoreh_List.get(i));
 				sc_heart.move();
@@ -297,8 +297,8 @@ public class DispatchPanel extends JPanel implements KeyListener{
 
 				if(Crash(x,y, sc_heart.x, sc_heart.y, player_img, heart_img)) {
 
-					Scoreh_List.remove(i);   //º° Á¦°Å
-					game_Score += 30;      //º°À» ¸ÔÀ¸¸é +30Á¡
+					Scoreh_List.remove(i);   //ë³„ ì œê±°
+					game_Score += 30;      //ë³„ì„ ë¨¹ìœ¼ë©´ +30ì 
 					System.out.println("game_score : " + game_Score);
 				}
 
@@ -309,7 +309,7 @@ public class DispatchPanel extends JPanel implements KeyListener{
 			}
 			if(cnt2 % 200 == 0) {
 
-				//ÇÏÆ® »ı¼º , x ÁÂÇ¥  & ¼Óµµ Á¦¾î °ª Àü´Ş
+				//í•˜íŠ¸ ìƒì„± , x ì¢Œí‘œ  & ì†ë„ ì œì–´ ê°’ ì „ë‹¬
 				for(int k = (int)(Math.random()*720+ 1); k < (SCREEN_HEIGHT -80); k+=(int)(Math.random()*720+ 1)) {
 					sc_heart = new Score_heart(SCREEN_WIDTH + 
 							(int)(Math.random()*70 + 1),(int)(Math.random()*780+ 1), heart_Speed + (int)(Math.random()*7+ 3));
@@ -331,7 +331,7 @@ public class DispatchPanel extends JPanel implements KeyListener{
 			try{
 				while(true) {
 					if(!(stopAll)) {
-					KeyProcess();      //Å° µ¿ÀÛ
+					KeyProcess();      //í‚¤ ë™ì‘
 					repaint();
 					cnt3++;
 					Thread.sleep(30);
@@ -339,7 +339,7 @@ public class DispatchPanel extends JPanel implements KeyListener{
 					}
 				}
 			} catch(Exception e) {
-				System.out.println("run() ¿À·ù");
+				System.out.println("run() ì˜¤ë¥˜");
 				e.printStackTrace();
 			}
 		}
@@ -353,28 +353,28 @@ public class DispatchPanel extends JPanel implements KeyListener{
 					Score_List.remove(i);
 				}
 
-				//µğ½ºÆĞÄ¡ Ãæµ¹ ÆÇÁ¤
+				//ë””ìŠ¤íŒ¨ì¹˜ ì¶©ëŒ íŒì •
 				if (Crash(x, y, sc.x, sc.y, player_img, dispatch_img)) {
-					//ÇÃ·¹ÀÌ¾î¿Í ÀûÀÇ Ãæµ¹À» ÆÇÁ¤ÇÏ¿© check°ªÀ» ¸®ÅÏ ¹Ş¾Æ true¸é ¾Æ·¡¸¦ ½ÇÇà
-					Score_List.remove(i);   //ÀûÀ» Á¦°Å
-					game_Score -= 10;      //µğ½º ÆĞÄ¡¸¦ ¸ÔÀ¸¸é -20Á¡
+					//í”Œë ˆì´ì–´ì™€ ì ì˜ ì¶©ëŒì„ íŒì •í•˜ì—¬ checkê°’ì„ ë¦¬í„´ ë°›ì•„ trueë©´ ì•„ë˜ë¥¼ ì‹¤í–‰
+					Score_List.remove(i);   //ì ì„ ì œê±°
+					game_Score -= 10;      //ë””ìŠ¤ íŒ¨ì¹˜ë¥¼ ë¨¹ìœ¼ë©´ -20ì 
 					System.out.println("game_score : " + game_Score);
 
 				}
 
 				if(game_Score < 0) {
-					stopAll = true;			//½º·¹µå ¸ØÃâ flag
+					stopAll = true;			//ìŠ¤ë ˆë“œ ë©ˆì¶œ flag
 					thPlayer.interrupt();
 					timer.stop();
-					System.out.println("¹æ±¸¼® ¿£µù");
+					System.out.println("ë°©êµ¬ì„ ì—”ë”©");
 					ChangePanel.changePanel(mf, panel, new EndingBack01(mf, player));
 				}            
 			}
 
 			if(cnt3 % 100 == 0) {
 
-				//i ´Â À§Ä¡°ª, Áõ°¨°ª¿¡ µû¶ó ¹èÄ¡ Á¶Àı °¡´É,  
-				//µğ½ºÆĞÄ¡ »ı¼º, xÁÂÇ¥ & ¼Óµµ Á¦¾î °ª Àü´Ş
+				//i ëŠ” ìœ„ì¹˜ê°’, ì¦ê°ê°’ì— ë”°ë¼ ë°°ì¹˜ ì¡°ì ˆ ê°€ëŠ¥,  
+				//ë””ìŠ¤íŒ¨ì¹˜ ìƒì„±, xì¢Œí‘œ & ì†ë„ ì œì–´ ê°’ ì „ë‹¬
 				for(int j = (int)(Math.random()*720+ 1); j < (SCREEN_HEIGHT -20); j+=45) {
 					sc = new Score(SCREEN_WIDTH + 
 							(int)(Math.random()*500 + 1), (int)(Math.random()*720+ 1), dispatch_Speed +(int)(Math.random()*7+ 3));
@@ -386,23 +386,23 @@ public class DispatchPanel extends JPanel implements KeyListener{
 
 	}
 
-	public void Crash() {}       //À§Ä¡ ÀÌµ¿¿ë
+	public void Crash() {}       //ìœ„ì¹˜ ì´ë™ìš©
 	public boolean Crash(int x1, int y1, int x2, int y2, Image player_img, Image dispatch_img) {
-		//ÇØ´ç ÀÌ¹ÌÁöÀÇ ³ĞÀÌ, ³ôÀÌ°ªÀ» °è»ê
+		//í•´ë‹¹ ì´ë¯¸ì§€ì˜ ë„“ì´, ë†’ì´ê°’ì„ ê³„ì‚°
 		boolean check = false;
 
 		if(Math.abs((x1 + player_img.getWidth(null) / 2) - (x2 + dispatch_img.getWidth(null) / 2)) <
 				(dispatch_img.getWidth(null) / 2 + player_img.getWidth(null) / 2) 
 				&& Math.abs((y1 + player_img.getHeight(null) / 2)  - (y2 + dispatch_img.getHeight(null) /2)) <
 				(dispatch_img.getHeight(null) / 2 + player_img.getHeight(null) /2 )) {
-			//ÀÌ¹ÌÁö ³ĞÀÌ, ³ôÀÌ°ªÀ» ¹Ù·Î ¹Ş¾Æ °è»ê
+			//ì´ë¯¸ì§€ ë„“ì´, ë†’ì´ê°’ì„ ë°”ë¡œ ë°›ì•„ ê³„ì‚°
 
-			check = true;   //À§ °ªÀÌ true¸é check¿¡ true¸¦ Àü´Ş
+			check = true;   //ìœ„ ê°’ì´ trueë©´ checkì— trueë¥¼ ì „ë‹¬
 		} else {
 			check = false;
 		}
 
-		return check;      //checkÀÇ °ªÀ» ¸Ş¼Òµå¿¡ ¸®ÅÏ ½ÃÅ´
+		return check;      //checkì˜ ê°’ì„ ë©”ì†Œë“œì— ë¦¬í„´ ì‹œí‚´
 	}
 
 	public void paint() {}
@@ -416,22 +416,22 @@ public class DispatchPanel extends JPanel implements KeyListener{
 
 	public void update() {}
 	public void update(Graphics g) {
-		Draw_Background(); // ¹è°æ ÀÌ¹ÌÁö ±×¸®±â ¸Ş¼Òµå ½ÇÇà
-		Draw_Player(); // ÇÃ·¹ÀÌ¾î¸¦ ±×¸®´Â ¸Ş¼Òµå ÀÌ¸§ º¯°æ
+		Draw_Background(); // ë°°ê²½ ì´ë¯¸ì§€ ê·¸ë¦¬ê¸° ë©”ì†Œë“œ ì‹¤í–‰
+		Draw_Player(); // í”Œë ˆì´ì–´ë¥¼ ê·¸ë¦¬ëŠ” ë©”ì†Œë“œ ì´ë¦„ ë³€ê²½
 
-		Draw_Score();   // Àû±â ±×¸®±â
+		Draw_Score();   // ì ê¸° ê·¸ë¦¬ê¸°
 
-		Draw_StatusText();   // »óÅÂ Ç¥½Ã ÅØ½ºÆ®¸¦ ±×¸®´Â ¸Ş¼Òµå ½ÇÇà
+		Draw_StatusText();   // ìƒíƒœ í‘œì‹œ í…ìŠ¤íŠ¸ë¥¼ ê·¸ë¦¬ëŠ” ë©”ì†Œë“œ ì‹¤í–‰
 
-		Draw_Ending();      //¿£µù ±×¸®´Â ºÎºĞ
+		Draw_Ending();      //ì—”ë”© ê·¸ë¦¬ëŠ” ë¶€ë¶„
 
-		Draw_Timer();      //Å¸ÀÌ¸Ó ±×¸®´Â ºÎºĞ
+		Draw_Timer();      //íƒ€ì´ë¨¸ ê·¸ë¦¬ëŠ” ë¶€ë¶„
 
-		g.drawImage(buffImage, 0, 0, this);      //Áö¿ìÁö ¸»±â ÀÌÁß ¹öÆÛ ¼³Á¤ºÎºĞ
+		g.drawImage(buffImage, 0, 0, this);      //ì§€ìš°ì§€ ë§ê¸° ì´ì¤‘ ë²„í¼ ì„¤ì •ë¶€ë¶„
 	}
 
 	public void Draw_Timer() {
-		buffg.drawString("³²Àº ½Ã°£Àº : " + timeLeft +"ÀÔ´Ï´Ù.",700, 70);
+		buffg.drawString("ë‚¨ì€ ì‹œê°„ì€ : " + timeLeft +"ì…ë‹ˆë‹¤.",700, 70);
 	}
 
 	public void Draw_Ending() {
@@ -439,7 +439,7 @@ public class DispatchPanel extends JPanel implements KeyListener{
 
 	public void Draw_Background() {
 		if(game_Score >= 0) {
-			//È­¸é Áö¿ì±â ¸í·É
+			//í™”ë©´ ì§€ìš°ê¸° ëª…ë ¹
 			buffg.clearRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 			if(bx> - 1400) {
 				buffg.drawImage(bg_img, bx, 0, this);
@@ -459,30 +459,30 @@ public class DispatchPanel extends JPanel implements KeyListener{
 	}
 
 	public void Draw_StatusText() {
-		//»ô¾Ö Ã¼Å©¿ë ÅØ½ºÆ®¸¦ ±×¸³´Ï´Ù.
+		//ìƒ…ì•  ì²´í¬ìš© í…ìŠ¤íŠ¸ë¥¼ ê·¸ë¦½ë‹ˆë‹¤.
 		buffg.setFont(new Font("serif", Font.BOLD, 20));
-		//ÆùÆ® ¼³Á¤ : µ¸¿ò, ±½°Ô, »çÀÌÁî 20
+		//í°íŠ¸ ì„¤ì • : ë‹ì›€, êµµê²Œ, ì‚¬ì´ì¦ˆ 20
 
 		buffg.drawString("Score : "  + game_Score, 1000, 70);
-		//ÁÂÇ¥ x : 1000, y : 70 ¿¡ ½ºÄÚ¾î¸¦ Ç¥½Ã
+		//ì¢Œí‘œ x : 1000, y : 70 ì— ìŠ¤ì½”ì–´ë¥¼ í‘œì‹œ
 
 	}   
 
 	public void Draw_Score() {
 
-		//µğ½ºÆĞÄ¡ ±×¸² ±×¸®±â
+		//ë””ìŠ¤íŒ¨ì¹˜ ê·¸ë¦¼ ê·¸ë¦¬ê¸°
 		for (int i = 0; i < Score_List.size(); ++i) {
 			sc = (Score) (Score_List.get(i));
 			buffg.drawImage(dispatch_img, sc.x,   sc.y, this);
 		}
 
-		//ÇÏÆ® ±×¸² ±×¸®±â
+		//í•˜íŠ¸ ê·¸ë¦¼ ê·¸ë¦¬ê¸°
 		for ( int i= 0; i < Scoreh_List.size(); ++i) {
 			sc_heart = (Score_heart) (Scoreh_List.get(i));
 			buffg.drawImage(heart_img, sc_heart.x, sc_heart.y, this);
 		}
 
-		//º° ±×¸² ±×¸®±â
+		//ë³„ ê·¸ë¦¼ ê·¸ë¦¬ê¸°
 		for ( int i= 0; i < Scores_List.size(); ++i) {
 			sc_star = (Score_star) (Scores_List.get(i));
 			buffg.drawImage(star_img, sc_star.x, sc_star.y, this);
@@ -493,33 +493,33 @@ public class DispatchPanel extends JPanel implements KeyListener{
 	public void KeyProcess() {
 		if(KeyUp == true) {
 			if (y > 20)
-				y -= 10;               //ÄÉ¸¯ÅÍ°¡ º¸¿©Áö´Â È­¸é À§·Î ¸ø ³Ñ¾î°¡°Ô ÇÕ´Ï´Ù.
+				y -= 10;               //ì¼€ë¦­í„°ê°€ ë³´ì—¬ì§€ëŠ” í™”ë©´ ìœ„ë¡œ ëª» ë„˜ì–´ê°€ê²Œ í•©ë‹ˆë‹¤.
 		}
 
 		if(KeyDown == true) {
 			if (y + player_img.getHeight(null)+40 < SCREEN_HEIGHT)
-				y += 10;               //ÄÉ¸¯ÅÍ°¡ º¸¿©Áö´Â È­¸é ¾Æ·¡·Î ¸ø ³Ñ¾î°¡°Ô ÇÕ´Ï´Ù.
+				y += 10;               //ì¼€ë¦­í„°ê°€ ë³´ì—¬ì§€ëŠ” í™”ë©´ ì•„ë˜ë¡œ ëª» ë„˜ì–´ê°€ê²Œ í•©ë‹ˆë‹¤.
 		}
 
 		if(KeyLeft == true) {
 			if(x > 0)
-				x -= 10;               //ÄÉ¸¯ÅÍ°¡ º¸¿©Áö´Â È­¸é ¿ŞÂÊÀ¸·Î ¸ø ³Ñ¾î°¡°Ô ÇÕ´Ï´Ù.
+				x -= 10;               //ì¼€ë¦­í„°ê°€ ë³´ì—¬ì§€ëŠ” í™”ë©´ ì™¼ìª½ìœ¼ë¡œ ëª» ë„˜ì–´ê°€ê²Œ í•©ë‹ˆë‹¤.
 		}
 
 		if(KeyRight == true) {
 			if(x + player_img.getWidth(null) < SCREEN_WIDTH)
-				x += 10;               //ÄÉ¸¯ÅÍ°¡ º¸¿©Áö´Â È­¸é ¿À¸¥ÂÊÀ¸·Î ¸ø ³Ñ¾î°¡°Ô ÇÕ´Ï´Ù.
+				x += 10;               //ì¼€ë¦­í„°ê°€ ë³´ì—¬ì§€ëŠ” í™”ë©´ ì˜¤ë¥¸ìª½ìœ¼ë¡œ ëª» ë„˜ì–´ê°€ê²Œ í•©ë‹ˆë‹¤.
 		}
 
 		if(KeySpace == true) {
-			//ÁÂÇ¥ È®ÀÎ¿ë
+			//ì¢Œí‘œ í™•ì¸ìš©
 			System.out.println( x+ ", " + y);
 
 		}
 	}
 
 	@Override
-	public void keyPressed(KeyEvent e) {      //Å°¸¦ ´­·¶À» ¶§ µ¿ÀÛ
+	public void keyPressed(KeyEvent e) {      //í‚¤ë¥¼ ëˆŒë €ì„ ë•Œ ë™ì‘
 		switch(e.getKeyCode()) {
 		case KeyEvent.VK_UP :
 			KeyUp = true;
@@ -544,7 +544,7 @@ public class DispatchPanel extends JPanel implements KeyListener{
 	}
 
 	@Override
-	public void keyReleased(KeyEvent e) {      //Å°¸¦ ¶¼¾úÀ» ¶§ µ¿ÀÛ
+	public void keyReleased(KeyEvent e) {      //í‚¤ë¥¼ ë–¼ì—ˆì„ ë•Œ ë™ì‘
 
 		switch(e.getKeyCode()) {
 		case KeyEvent.VK_UP :

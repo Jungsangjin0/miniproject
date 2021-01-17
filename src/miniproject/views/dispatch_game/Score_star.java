@@ -1,12 +1,12 @@
 package miniproject.views.dispatch_game;
 
 public class Score_star {
-   int x;      // º° ¸Ô¾î¾ßÇÏ´Â Àå¾Ö¹°ÀÇ x ÁÂÇ¥
-   int y;      // º° ¸Ô¾î¾ßÇÏ´Â Àå¾Ö¹°ÀÇ y ÁÂÇ¥
-   int speed;   // º° ¸Ô¾î¾ßÇÏ´Â Àå¾Ö¹°ÀÇ ¼Óµµ
+   int x;      // ë³„ ë¨¹ì–´ì•¼í•˜ëŠ” ì¥ì• ë¬¼ì˜ x ì¢Œí‘œ
+   int y;      // ë³„ ë¨¹ì–´ì•¼í•˜ëŠ” ì¥ì• ë¬¼ì˜ y ì¢Œí‘œ
+   int speed;   // ë³„ ë¨¹ì–´ì•¼í•˜ëŠ” ì¥ì• ë¬¼ì˜ ì†ë„
    
-   int score;   // Á¡¼ö
-   int total; // ÃÑÁ¡
+   int score;   // ì ìˆ˜
+   int total; // ì´ì 
    
    public Score_star(int x, int y, int speed) {
       this.x = x;
@@ -15,6 +15,6 @@ public class Score_star {
    }
    
    public void move() {
-      x -= speed ;      // ¹Ì»çÀÏ ¼Óµµ ¸¸Å­ ÀÌµ¿
+      x -= speed ;      // ë¯¸ì‚¬ì¼ ì†ë„ ë§Œí¼ ì´ë™
    }
 }

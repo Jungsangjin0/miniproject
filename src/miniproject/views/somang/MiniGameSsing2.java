@@ -43,9 +43,9 @@ public class MiniGameSsing2 extends JPanel {
 
 		
 
-		// ÅØ½ºÆ®ÀÔ·Â
-		JLabel label = new JLabel("ºóÄ­¿¡ µé¾î°¥ ¸»Àº? : ");
-		label.setFont(new Font("NeoµÕ±Ù¸ğ", Font.PLAIN, 25));
+		// í…ìŠ¤íŠ¸ì…ë ¥
+		JLabel label = new JLabel("ë¹ˆì¹¸ì— ë“¤ì–´ê°ˆ ë§ì€? : ");
+		label.setFont(new Font("Neoë‘¥ê·¼ëª¨", Font.PLAIN, 25));
 		label.setBounds(70, 740, 250, 50);
 		panel.add(label);
 
@@ -53,13 +53,13 @@ public class MiniGameSsing2 extends JPanel {
 		input2 = new JTextField();
 		input3 = new JTextField();
 
-		input.setFont(new Font("NeoµÕ±Ù¸ğ", Font.BOLD, 30));
+		input.setFont(new Font("Neoë‘¥ê·¼ëª¨", Font.BOLD, 30));
 		input.setBounds(300, 740, 100, 50);
 
-		input2.setFont(new Font("NeoµÕ±Ù¸ğ", Font.BOLD, 30));
+		input2.setFont(new Font("Neoë‘¥ê·¼ëª¨", Font.BOLD, 30));
 		input2.setBounds(410, 740, 100, 50);
 
-		input3.setFont(new Font("NeoµÕ±Ù¸ğ", Font.BOLD, 30));
+		input3.setFont(new Font("Neoë‘¥ê·¼ëª¨", Font.BOLD, 30));
 		input3.setBounds(520, 740, 100, 50);
 
 		panel.add(input);
@@ -72,7 +72,7 @@ public class MiniGameSsing2 extends JPanel {
 			
 		MiniGameSsing_test st = new MiniGameSsing_test(mf, panel, num, input, input2, input3,player);
 
-		//3¹øÂ°¿¡¼­¸¸ ¿£ÅÍ ÀÌº¥Æ® ¹ß»ı  -> ÀüÃ¼ ÀÔ·Â½Ã ÇÑ¹ø¿¡ °ËÅäÈÄ ³Ñ¾î°¡±â
+		//3ë²ˆì§¸ì—ì„œë§Œ ì—”í„° ì´ë²¤íŠ¸ ë°œìƒ  -> ì „ì²´ ì…ë ¥ì‹œ í•œë²ˆì— ê²€í† í›„ ë„˜ì–´ê°€ê¸°
 		input3.addActionListener(new ActionListener() {
 
 			@Override
@@ -106,20 +106,20 @@ public class MiniGameSsing2 extends JPanel {
 
 		super.paintComponent(g);
 
-		// ¹è°æÀÌ¹ÌÁö
+		// ë°°ê²½ì´ë¯¸ì§€
 		g.drawImage(icon.getImage(), 0, 0, null);
-		// ´ëÈ­Ã¢ÀÌ¹ÌÁö
+		// ëŒ€í™”ì°½ì´ë¯¸ì§€
 		g.drawImage(talk.getImage(), 5, 620, 1390, 250, null);
-		// Ä³¸¯ÅÍ ÀÌ¹ÌÁö
+		// ìºë¦­í„° ì´ë¯¸ì§€
 		if (charac01 != null) {
 			g.drawImage(charac01.getImage(), 50, 200, 398, 398, this);
 		}
-		// Å×½ºÆ® ÀÌ¹ÌÁö
+		// í…ŒìŠ¤íŠ¸ ì´ë¯¸ì§€
 
-		sTest = test; // ÀÌ¹ÌÁö 1
-		g.drawImage(sTest.getImage(), 500, 180, 772, 408, null); // ÀÌ¹ÌÁö1
-		g.setFont(new Font("NeoµÕ±Ù¸ğ", Font.BOLD, 36));
-		g.drawString("ºóÄ­¿¡ ¾Ë¸ÂÀº ³ë·¡°¡»ç¸¦ ÀûÀÚ! ¿£ÅÍ¸¦ ´©¸£Áö ¾ÊÀ¸¸é ¹«È¿! \n", 70, 720);
+		sTest = test; // ì´ë¯¸ì§€ 1
+		g.drawImage(sTest.getImage(), 500, 180, 772, 408, null); // ì´ë¯¸ì§€1
+		g.setFont(new Font("Neoë‘¥ê·¼ëª¨", Font.BOLD, 36));
+		g.drawString("ë¹ˆì¹¸ì— ì•Œë§ì€ ë…¸ë˜ê°€ì‚¬ë¥¼ ì ì! ì—”í„°ë¥¼ ëˆ„ë¥´ì§€ ì•Šìœ¼ë©´ ë¬´íš¨! \n", 70, 720);
 		
 		setOpaque(false);
 

@@ -20,9 +20,9 @@ public class Pyosi extends JLabel{
 	}
 
 	public void paintComponent(Graphics g) {
-		String str = "´Ğ³Û : " + player.getUserId() +" "+ "Ãã : "+player.getDanceScore() 
-		+" "+ "³ë·¡ : "+player.getSingScore() 
-		+" " +" " + " ÃÑÁ¡ : " + player.getTotalScore() ;
+		String str = "ë‹‰ë„´ : " + player.getUserId() +" "+ "ì¶¤ : "+player.getDanceScore() 
+		+" "+ "ë…¸ë˜ : "+player.getSingScore() 
+		+" " +" " + " ì´ì  : " + player.getTotalScore() ;
 		g.drawString(str,0 ,30);
 		super.paintComponent(g);
 

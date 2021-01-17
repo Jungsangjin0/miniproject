@@ -43,7 +43,7 @@ public class Timer2 extends Thread{
 			try {
 				System.out.println(i);
 				this.sleep(1000);
-				label.setText("Á¦ÇÑ½Ã°£ : " + i);
+				label.setText("ì œí•œì‹œê°„ : " + i);
 			}catch(InterruptedException e) {
 				
 			}
@@ -51,14 +51,14 @@ public class Timer2 extends Thread{
 		}
 		ssingNext_lose();
 		
-		System.out.println("Á¾·á");
+		System.out.println("ì¢…ë£Œ");
 
 		
 	}//--run 
 	
 	public void ssingNext_lose() {
-		// Åë°úÀÌ¸é(cnt 2ÀÌ»óÀÌ°í 3ÀÌµÇ¸é) ³ë·¡Á¡¼ö+1
-		// Å¸ÀÌ¸Ó stopÇÏ°í ´ÙÀ½ È­¸é ³Ñ¾î°¡±â
+		// í†µê³¼ì´ë©´(cnt 2ì´ìƒì´ê³  3ì´ë˜ë©´) ë…¸ë˜ì ìˆ˜+1
+		// íƒ€ì´ë¨¸ stopí•˜ê³  ë‹¤ìŒ í™”ë©´ ë„˜ì–´ê°€ê¸°
 		MiniGameSsing_lose gp = new MiniGameSsing_lose(mf,player,jum);
 		ChangePanel.changePanel(mf, panel, gp);
 		this.stop();

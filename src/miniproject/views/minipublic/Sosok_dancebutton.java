@@ -30,7 +30,7 @@ public class Sosok_dancebutton extends JPanel{
 	private ImageIcon talk;
 	private ImageIcon charac01 =new ImageIcon("src/miniproject/images/SJH/Characters_5.png");
 	private ImageIcon sajang = new ImageIcon("src/miniproject/images/sosok/sajang.PNG");
-	private ImageIcon sDoorR; //√„
+	private ImageIcon sDoorR; //Ï∂§
 	private ImageIcon doorMain;
 	
 	private Player123 player;
@@ -45,7 +45,7 @@ public class Sosok_dancebutton extends JPanel{
 		pyosi = new Pyosi(player);
 		pyosi.setLayout(null);
 		pyosi.setBounds(600,0,500,200);
-		pyosi.setFont(new Font("∏º¿∫∞ÌµÒ", Font.BOLD, 25));
+		pyosi.setFont(new Font("ÎßëÏùÄÍ≥†Îîï", Font.BOLD, 25));
 		pyosi.setForeground(Color.WHITE);
 		panel.add(pyosi);
 		
@@ -60,7 +60,7 @@ public class Sosok_dancebutton extends JPanel{
 
 		doorMain = new ImageIcon("src/miniproject/images/SJH/outdoor.png");
 
-		//πÆ 
+		//Î¨∏ 
 		door = new JLabel(doorMain);
 		door.setLayout(null);
 		door.setBounds(0, 300, 40, 250);
@@ -79,7 +79,7 @@ public class Sosok_dancebutton extends JPanel{
 
 			}
 		});
-		//ƒ≥∏Ø≈ÕµÈ
+		//Ï∫êÎ¶≠ÌÑ∞Îì§
 		JLabel cLabel = new JLabel(cIcon);
 		JLabel sLabel = new JLabel(sIcon);
 		cLabel.setBounds(30, 250, 398, 398);
@@ -93,7 +93,7 @@ public class Sosok_dancebutton extends JPanel{
 		panel.add(cLabel);
 		panel.add(sajangButton);
 
-		//πÆ
+		//Î¨∏
 		JLabel labelR = new JLabel(sDoorR);
 		JButton doorR = new JButton();
 		doorR.setBounds(504,134,171,280);
@@ -108,25 +108,25 @@ public class Sosok_dancebutton extends JPanel{
 
 
 
-		//√„
+		//Ï∂§
 		doorR.addMouseListener(new clickButtonR());
 	}
 
 	public void paintComponent(Graphics g) {
 		g.drawImage(back.getImage(), 0, 0, null);
 		g.drawImage(talk.getImage(), 5, 620, 1390, 250, null);
-		g.setFont(new Font("Neoµ’±Ÿ∏", Font.BOLD, 30));
-		g.drawString("√„ ø¨Ω¿Ω«∑Œ µÈæÓ∞°∂Û!",100, 750);
+		g.setFont(new Font("NeoÎë•Í∑ºÎ™®", Font.BOLD, 30));
+		g.drawString("Ï∂§ Ïó∞ÏäµÏã§Î°ú Îì§Ïñ¥Í∞ÄÎùº!",100, 750);
 		setOpaque(false);
 		super.paintComponent(g);
 	}
 
 
-	//√„
+	//Ï∂§
 	class clickButtonR extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			ChangePanel.changePanel(mf, panel, new MiniGameDance(mf,player));   //πˆ∆∞ ¥©∏£∏È √„∞‘¿” »≠∏È¿∏∑Œ ≥—æÓ∞®.
+			ChangePanel.changePanel(mf, panel, new MiniGameDance(mf,player));   //Î≤ÑÌäº ÎàÑÎ•¥Î©¥ Ï∂§Í≤åÏûÑ ÌôîÎ©¥ÏúºÎ°ú ÎÑòÏñ¥Í∞ê.
 			mf.revalidate();
 		}
 	}

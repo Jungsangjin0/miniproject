@@ -39,7 +39,7 @@ public class MainMapJunguk extends JPanel {
 		ImageIcon bground = new ImageIcon("src/miniproject/images/mainMap/MainMap.png");
 		
 		g.drawImage(bground.getImage(), 0, 0, 1400, 900, null);
-		setOpaque(false); //±×¸²À» Ç¥½ÃÇÏ°Ô ¼³Á¤,Åõ¸íÇÏ°Ô Á¶Àı
+		setOpaque(false); //ê·¸ë¦¼ì„ í‘œì‹œí•˜ê²Œ ì„¤ì •,íˆ¬ëª…í•˜ê²Œ ì¡°ì ˆ
 		super.paintComponent(g);
 	}
 	
@@ -53,7 +53,7 @@ public class MainMapJunguk extends JPanel {
 		pyosi = new Pyosi(player);
 		pyosi.setLayout(null);
 		pyosi.setBounds(600,0,500,200);
-		pyosi.setFont(new Font("¸¼Àº°íµñ", Font.BOLD, 25));
+		pyosi.setFont(new Font("ë§‘ì€ê³ ë”•", Font.BOLD, 25));
 		pyosi.setForeground(Color.WHITE);
 		panel.add(pyosi);
 		
@@ -63,7 +63,7 @@ public class MainMapJunguk extends JPanel {
 				g.drawImage(que.getImage(),0,0,260,100,null);
 
 				
-				setOpaque(false); //±×¸²À» Ç¥½ÃÇÏ°Ô ¼³Á¤,Åõ¸íÇÏ°Ô Á¶Àı
+				setOpaque(false); //ê·¸ë¦¼ì„ í‘œì‹œí•˜ê²Œ ì„¤ì •,íˆ¬ëª…í•˜ê²Œ ì¡°ì ˆ
 				super.paintComponent(g);
 			}};
 			
@@ -80,7 +80,7 @@ public class MainMapJunguk extends JPanel {
 				g.drawImage(que2.getImage(),0,0,260,100,null);
 				
 				
-				setOpaque(false); //±×¸²À» Ç¥½ÃÇÏ°Ô ¼³Á¤,Åõ¸íÇÏ°Ô Á¶Àı
+				setOpaque(false); //ê·¸ë¦¼ì„ í‘œì‹œí•˜ê²Œ ì„¤ì •,íˆ¬ëª…í•˜ê²Œ ì¡°ì ˆ
 				super.paintComponent(g);
 			}};
 			

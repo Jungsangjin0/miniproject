@@ -6,9 +6,9 @@ import javax.swing.text.PlainDocument;
 
 public class JTextFieldLimit extends PlainDocument{
 	
-	private int limit;	//Á¦ÇÑÇÒ ±æÀÌ
+	private int limit;	//ì œí•œí•  ê¸¸ì´
 	
-	public JTextFieldLimit(int limit) {	//Á¦ÇÑ ÇÒ ±æÀÌ¸¦ ÀÎÀÚ·Î ¹ŞÀ½
+	public JTextFieldLimit(int limit) {	//ì œí•œ í•  ê¸¸ì´ë¥¼ ì¸ìë¡œ ë°›ìŒ
 		
 		this.limit = limit;
 	}

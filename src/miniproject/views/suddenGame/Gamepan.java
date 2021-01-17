@@ -116,7 +116,7 @@ public class Gamepan extends JPanel {
 		locs[1]=num2;
 		locs[2]=num3;
 
-		System.out.println("while¹® ½ÃÀÛ");
+		System.out.println("whileë¬¸ ì‹œìž‘");
 
 		while ((set1.size() <4) && (set2.size() <4)) {
 			set1.add( locs[(int)(Math.random()*3)]);
@@ -127,11 +127,11 @@ public class Gamepan extends JPanel {
 				break;
 			}
 		}
-		System.out.println("while¹® ³¡³²");
+		System.out.println("whileë¬¸ ëë‚¨");
 
 		Object[] obj1 = set1.toArray(); 
 		Object[] obj2 = set2.toArray();
-		//·£´ýÀ¸·Î ±×¸² ¹èÄ¡
+		//ëžœë¤ìœ¼ë¡œ ê·¸ë¦¼ ë°°ì¹˜
 		btns[0].setLocation((int)obj1[0],(int)obj2[0]);
 		btns[1].setLocation((int)obj1[0],(int)obj2[1]);
 		btns[2].setLocation((int)obj1[0],(int)obj2[2]);
@@ -142,7 +142,7 @@ public class Gamepan extends JPanel {
 		btns[7].setLocation((int)obj1[2],(int)obj2[1]);
 		btns[8].setLocation((int)obj1[2],(int)obj2[2]);
 		
-		//Á¤´ä ¶óº§ ¹èÄ¡
+		//ì •ë‹µ ë¼ë²¨ ë°°ì¹˜
 		
 		ans[0].setLocation(loca1,loca1);
 		ans[1].setLocation(loca1,loca2);
@@ -199,15 +199,15 @@ public class Gamepan extends JPanel {
 						submit[i*2] = btns[i].getX();
 						submit[(i*2)+1] = btns[i].getY();
 					}
-					System.out.println("btn0À§Ä¡: " + btns[0].getX()+ ","+ btns[1].getY());
-					System.out.println("btn1À§Ä¡: " + btns[1].getX()+ ","+ btns[1].getY());
-					System.out.println("btn2À§Ä¡: " + btns[2].getX()+ ","+ btns[2].getY());
-					System.out.println("btn3À§Ä¡: " + btns[3].getX()+ ","+ btns[3].getY());
-					System.out.println("btn4À§Ä¡: " + btns[4].getX()+ ","+ btns[4].getY());
-					System.out.println("btn5À§Ä¡: " + btns[5].getX()+ ","+ btns[5].getY());
-					System.out.println("btn6À§Ä¡: " + btns[6].getX()+ ","+ btns[6].getY());
-					System.out.println("btn7À§Ä¡: " + btns[7].getX()+ ","+ btns[7].getY());
-					System.out.println("btn8À§Ä¡: " + btns[8].getX()+ ","+ btns[8].getY());
+					System.out.println("btn0ìœ„ì¹˜: " + btns[0].getX()+ ","+ btns[1].getY());
+					System.out.println("btn1ìœ„ì¹˜: " + btns[1].getX()+ ","+ btns[1].getY());
+					System.out.println("btn2ìœ„ì¹˜: " + btns[2].getX()+ ","+ btns[2].getY());
+					System.out.println("btn3ìœ„ì¹˜: " + btns[3].getX()+ ","+ btns[3].getY());
+					System.out.println("btn4ìœ„ì¹˜: " + btns[4].getX()+ ","+ btns[4].getY());
+					System.out.println("btn5ìœ„ì¹˜: " + btns[5].getX()+ ","+ btns[5].getY());
+					System.out.println("btn6ìœ„ì¹˜: " + btns[6].getX()+ ","+ btns[6].getY());
+					System.out.println("btn7ìœ„ì¹˜: " + btns[7].getX()+ ","+ btns[7].getY());
+					System.out.println("btn8ìœ„ì¹˜: " + btns[8].getX()+ ","+ btns[8].getY());
 					System.out.println(Arrays.toString(submit));
 					System.out.println(Arrays.toString(answer));
 
@@ -249,15 +249,15 @@ public class Gamepan extends JPanel {
 						submit[i*2] = btns[i].getX();
 						submit[(i*2)+1] = btns[i].getY();
 					}
-					System.out.println("btn0À§Ä¡: " + btns[0].getX()+ ","+ btns[1].getY());
-					System.out.println("btn1À§Ä¡: " + btns[1].getX()+ ","+ btns[1].getY());
-					System.out.println("btn2À§Ä¡: " + btns[2].getX()+ ","+ btns[2].getY());
-					System.out.println("btn3À§Ä¡: " + btns[3].getX()+ ","+ btns[3].getY());
-					System.out.println("btn4À§Ä¡: " + btns[4].getX()+ ","+ btns[4].getY());
-					System.out.println("btn5À§Ä¡: " + btns[5].getX()+ ","+ btns[5].getY());
-					System.out.println("btn6À§Ä¡: " + btns[6].getX()+ ","+ btns[6].getY());
-					System.out.println("btn7À§Ä¡: " + btns[7].getX()+ ","+ btns[7].getY());
-					System.out.println("btn8À§Ä¡: " + btns[8].getX()+ ","+ btns[8].getY());
+					System.out.println("btn0ìœ„ì¹˜: " + btns[0].getX()+ ","+ btns[1].getY());
+					System.out.println("btn1ìœ„ì¹˜: " + btns[1].getX()+ ","+ btns[1].getY());
+					System.out.println("btn2ìœ„ì¹˜: " + btns[2].getX()+ ","+ btns[2].getY());
+					System.out.println("btn3ìœ„ì¹˜: " + btns[3].getX()+ ","+ btns[3].getY());
+					System.out.println("btn4ìœ„ì¹˜: " + btns[4].getX()+ ","+ btns[4].getY());
+					System.out.println("btn5ìœ„ì¹˜: " + btns[5].getX()+ ","+ btns[5].getY());
+					System.out.println("btn6ìœ„ì¹˜: " + btns[6].getX()+ ","+ btns[6].getY());
+					System.out.println("btn7ìœ„ì¹˜: " + btns[7].getX()+ ","+ btns[7].getY());
+					System.out.println("btn8ìœ„ì¹˜: " + btns[8].getX()+ ","+ btns[8].getY());
 					System.out.println(Arrays.toString(submit));
 					System.out.println(Arrays.toString(answer));
 
@@ -299,15 +299,15 @@ public class Gamepan extends JPanel {
 						submit[i*2] = btns[i].getX();
 						submit[(i*2)+1] = btns[i].getY();
 					}
-					System.out.println("btn0À§Ä¡: " + btns[0].getX()+ ","+ btns[1].getY());
-					System.out.println("btn1À§Ä¡: " + btns[1].getX()+ ","+ btns[1].getY());
-					System.out.println("btn2À§Ä¡: " + btns[2].getX()+ ","+ btns[2].getY());
-					System.out.println("btn3À§Ä¡: " + btns[3].getX()+ ","+ btns[3].getY());
-					System.out.println("btn4À§Ä¡: " + btns[4].getX()+ ","+ btns[4].getY());
-					System.out.println("btn5À§Ä¡: " + btns[5].getX()+ ","+ btns[5].getY());
-					System.out.println("btn6À§Ä¡: " + btns[6].getX()+ ","+ btns[6].getY());
-					System.out.println("btn7À§Ä¡: " + btns[7].getX()+ ","+ btns[7].getY());
-					System.out.println("btn8À§Ä¡: " + btns[8].getX()+ ","+ btns[8].getY());
+					System.out.println("btn0ìœ„ì¹˜: " + btns[0].getX()+ ","+ btns[1].getY());
+					System.out.println("btn1ìœ„ì¹˜: " + btns[1].getX()+ ","+ btns[1].getY());
+					System.out.println("btn2ìœ„ì¹˜: " + btns[2].getX()+ ","+ btns[2].getY());
+					System.out.println("btn3ìœ„ì¹˜: " + btns[3].getX()+ ","+ btns[3].getY());
+					System.out.println("btn4ìœ„ì¹˜: " + btns[4].getX()+ ","+ btns[4].getY());
+					System.out.println("btn5ìœ„ì¹˜: " + btns[5].getX()+ ","+ btns[5].getY());
+					System.out.println("btn6ìœ„ì¹˜: " + btns[6].getX()+ ","+ btns[6].getY());
+					System.out.println("btn7ìœ„ì¹˜: " + btns[7].getX()+ ","+ btns[7].getY());
+					System.out.println("btn8ìœ„ì¹˜: " + btns[8].getX()+ ","+ btns[8].getY());
 					System.out.println(Arrays.toString(submit));
 					System.out.println(Arrays.toString(answer));
 
@@ -348,15 +348,15 @@ public class Gamepan extends JPanel {
 						submit[i*2] = btns[i].getX();
 						submit[(i*2)+1] = btns[i].getY();
 					}
-					System.out.println("btn0À§Ä¡: " + btns[0].getX()+ ","+ btns[1].getY());
-					System.out.println("btn1À§Ä¡: " + btns[1].getX()+ ","+ btns[1].getY());
-					System.out.println("btn2À§Ä¡: " + btns[2].getX()+ ","+ btns[2].getY());
-					System.out.println("btn3À§Ä¡: " + btns[3].getX()+ ","+ btns[3].getY());
-					System.out.println("btn4À§Ä¡: " + btns[4].getX()+ ","+ btns[4].getY());
-					System.out.println("btn5À§Ä¡: " + btns[5].getX()+ ","+ btns[5].getY());
-					System.out.println("btn6À§Ä¡: " + btns[6].getX()+ ","+ btns[6].getY());
-					System.out.println("btn7À§Ä¡: " + btns[7].getX()+ ","+ btns[7].getY());
-					System.out.println("btn8À§Ä¡: " + btns[8].getX()+ ","+ btns[8].getY());
+					System.out.println("btn0ìœ„ì¹˜: " + btns[0].getX()+ ","+ btns[1].getY());
+					System.out.println("btn1ìœ„ì¹˜: " + btns[1].getX()+ ","+ btns[1].getY());
+					System.out.println("btn2ìœ„ì¹˜: " + btns[2].getX()+ ","+ btns[2].getY());
+					System.out.println("btn3ìœ„ì¹˜: " + btns[3].getX()+ ","+ btns[3].getY());
+					System.out.println("btn4ìœ„ì¹˜: " + btns[4].getX()+ ","+ btns[4].getY());
+					System.out.println("btn5ìœ„ì¹˜: " + btns[5].getX()+ ","+ btns[5].getY());
+					System.out.println("btn6ìœ„ì¹˜: " + btns[6].getX()+ ","+ btns[6].getY());
+					System.out.println("btn7ìœ„ì¹˜: " + btns[7].getX()+ ","+ btns[7].getY());
+					System.out.println("btn8ìœ„ì¹˜: " + btns[8].getX()+ ","+ btns[8].getY());
 					System.out.println(Arrays.toString(submit));
 					System.out.println(Arrays.toString(answer));
 
@@ -397,15 +397,15 @@ public class Gamepan extends JPanel {
 						submit[i*2] = btns[i].getX();
 						submit[(i*2)+1] = btns[i].getY();
 					}
-					System.out.println("btn0À§Ä¡: " + btns[0].getX()+ ","+ btns[1].getY());
-					System.out.println("btn1À§Ä¡: " + btns[1].getX()+ ","+ btns[1].getY());
-					System.out.println("btn2À§Ä¡: " + btns[2].getX()+ ","+ btns[2].getY());
-					System.out.println("btn3À§Ä¡: " + btns[3].getX()+ ","+ btns[3].getY());
-					System.out.println("btn4À§Ä¡: " + btns[4].getX()+ ","+ btns[4].getY());
-					System.out.println("btn5À§Ä¡: " + btns[5].getX()+ ","+ btns[5].getY());
-					System.out.println("btn6À§Ä¡: " + btns[6].getX()+ ","+ btns[6].getY());
-					System.out.println("btn7À§Ä¡: " + btns[7].getX()+ ","+ btns[7].getY());
-					System.out.println("btn8À§Ä¡: " + btns[8].getX()+ ","+ btns[8].getY());
+					System.out.println("btn0ìœ„ì¹˜: " + btns[0].getX()+ ","+ btns[1].getY());
+					System.out.println("btn1ìœ„ì¹˜: " + btns[1].getX()+ ","+ btns[1].getY());
+					System.out.println("btn2ìœ„ì¹˜: " + btns[2].getX()+ ","+ btns[2].getY());
+					System.out.println("btn3ìœ„ì¹˜: " + btns[3].getX()+ ","+ btns[3].getY());
+					System.out.println("btn4ìœ„ì¹˜: " + btns[4].getX()+ ","+ btns[4].getY());
+					System.out.println("btn5ìœ„ì¹˜: " + btns[5].getX()+ ","+ btns[5].getY());
+					System.out.println("btn6ìœ„ì¹˜: " + btns[6].getX()+ ","+ btns[6].getY());
+					System.out.println("btn7ìœ„ì¹˜: " + btns[7].getX()+ ","+ btns[7].getY());
+					System.out.println("btn8ìœ„ì¹˜: " + btns[8].getX()+ ","+ btns[8].getY());
 					System.out.println(Arrays.toString(submit));
 					System.out.println(Arrays.toString(answer));
 
@@ -446,15 +446,15 @@ public class Gamepan extends JPanel {
 						submit[i*2] = btns[i].getX();
 						submit[(i*2)+1] = btns[i].getY();
 					}
-					System.out.println("btn0À§Ä¡: " + btns[0].getX()+ ","+ btns[1].getY());
-					System.out.println("btn1À§Ä¡: " + btns[1].getX()+ ","+ btns[1].getY());
-					System.out.println("btn2À§Ä¡: " + btns[2].getX()+ ","+ btns[2].getY());
-					System.out.println("btn3À§Ä¡: " + btns[3].getX()+ ","+ btns[3].getY());
-					System.out.println("btn4À§Ä¡: " + btns[4].getX()+ ","+ btns[4].getY());
-					System.out.println("btn5À§Ä¡: " + btns[5].getX()+ ","+ btns[5].getY());
-					System.out.println("btn6À§Ä¡: " + btns[6].getX()+ ","+ btns[6].getY());
-					System.out.println("btn7À§Ä¡: " + btns[7].getX()+ ","+ btns[7].getY());
-					System.out.println("btn8À§Ä¡: " + btns[8].getX()+ ","+ btns[8].getY());
+					System.out.println("btn0ìœ„ì¹˜: " + btns[0].getX()+ ","+ btns[1].getY());
+					System.out.println("btn1ìœ„ì¹˜: " + btns[1].getX()+ ","+ btns[1].getY());
+					System.out.println("btn2ìœ„ì¹˜: " + btns[2].getX()+ ","+ btns[2].getY());
+					System.out.println("btn3ìœ„ì¹˜: " + btns[3].getX()+ ","+ btns[3].getY());
+					System.out.println("btn4ìœ„ì¹˜: " + btns[4].getX()+ ","+ btns[4].getY());
+					System.out.println("btn5ìœ„ì¹˜: " + btns[5].getX()+ ","+ btns[5].getY());
+					System.out.println("btn6ìœ„ì¹˜: " + btns[6].getX()+ ","+ btns[6].getY());
+					System.out.println("btn7ìœ„ì¹˜: " + btns[7].getX()+ ","+ btns[7].getY());
+					System.out.println("btn8ìœ„ì¹˜: " + btns[8].getX()+ ","+ btns[8].getY());
 					System.out.println(Arrays.toString(submit));
 					System.out.println(Arrays.toString(answer));
 
@@ -495,15 +495,15 @@ public class Gamepan extends JPanel {
 						submit[i*2] = btns[i].getX();
 						submit[(i*2)+1] = btns[i].getY();
 					}
-					System.out.println("btn0À§Ä¡: " + btns[0].getX()+ ","+ btns[1].getY());
-					System.out.println("btn1À§Ä¡: " + btns[1].getX()+ ","+ btns[1].getY());
-					System.out.println("btn2À§Ä¡: " + btns[2].getX()+ ","+ btns[2].getY());
-					System.out.println("btn3À§Ä¡: " + btns[3].getX()+ ","+ btns[3].getY());
-					System.out.println("btn4À§Ä¡: " + btns[4].getX()+ ","+ btns[4].getY());
-					System.out.println("btn5À§Ä¡: " + btns[5].getX()+ ","+ btns[5].getY());
-					System.out.println("btn6À§Ä¡: " + btns[6].getX()+ ","+ btns[6].getY());
-					System.out.println("btn7À§Ä¡: " + btns[7].getX()+ ","+ btns[7].getY());
-					System.out.println("btn8À§Ä¡: " + btns[8].getX()+ ","+ btns[8].getY());
+					System.out.println("btn0ìœ„ì¹˜: " + btns[0].getX()+ ","+ btns[1].getY());
+					System.out.println("btn1ìœ„ì¹˜: " + btns[1].getX()+ ","+ btns[1].getY());
+					System.out.println("btn2ìœ„ì¹˜: " + btns[2].getX()+ ","+ btns[2].getY());
+					System.out.println("btn3ìœ„ì¹˜: " + btns[3].getX()+ ","+ btns[3].getY());
+					System.out.println("btn4ìœ„ì¹˜: " + btns[4].getX()+ ","+ btns[4].getY());
+					System.out.println("btn5ìœ„ì¹˜: " + btns[5].getX()+ ","+ btns[5].getY());
+					System.out.println("btn6ìœ„ì¹˜: " + btns[6].getX()+ ","+ btns[6].getY());
+					System.out.println("btn7ìœ„ì¹˜: " + btns[7].getX()+ ","+ btns[7].getY());
+					System.out.println("btn8ìœ„ì¹˜: " + btns[8].getX()+ ","+ btns[8].getY());
 					System.out.println(Arrays.toString(submit));
 					System.out.println(Arrays.toString(answer));
 
@@ -545,15 +545,15 @@ public class Gamepan extends JPanel {
 						submit[i*2] = btns[i].getX();
 						submit[(i*2)+1] = btns[i].getY();
 					}
-					System.out.println("btn0À§Ä¡: " + btns[0].getX()+ ","+ btns[1].getY());
-					System.out.println("btn1À§Ä¡: " + btns[1].getX()+ ","+ btns[1].getY());
-					System.out.println("btn2À§Ä¡: " + btns[2].getX()+ ","+ btns[2].getY());
-					System.out.println("btn3À§Ä¡: " + btns[3].getX()+ ","+ btns[3].getY());
-					System.out.println("btn4À§Ä¡: " + btns[4].getX()+ ","+ btns[4].getY());
-					System.out.println("btn5À§Ä¡: " + btns[5].getX()+ ","+ btns[5].getY());
-					System.out.println("btn6À§Ä¡: " + btns[6].getX()+ ","+ btns[6].getY());
-					System.out.println("btn7À§Ä¡: " + btns[7].getX()+ ","+ btns[7].getY());
-					System.out.println("btn8À§Ä¡: " + btns[8].getX()+ ","+ btns[8].getY());
+					System.out.println("btn0ìœ„ì¹˜: " + btns[0].getX()+ ","+ btns[1].getY());
+					System.out.println("btn1ìœ„ì¹˜: " + btns[1].getX()+ ","+ btns[1].getY());
+					System.out.println("btn2ìœ„ì¹˜: " + btns[2].getX()+ ","+ btns[2].getY());
+					System.out.println("btn3ìœ„ì¹˜: " + btns[3].getX()+ ","+ btns[3].getY());
+					System.out.println("btn4ìœ„ì¹˜: " + btns[4].getX()+ ","+ btns[4].getY());
+					System.out.println("btn5ìœ„ì¹˜: " + btns[5].getX()+ ","+ btns[5].getY());
+					System.out.println("btn6ìœ„ì¹˜: " + btns[6].getX()+ ","+ btns[6].getY());
+					System.out.println("btn7ìœ„ì¹˜: " + btns[7].getX()+ ","+ btns[7].getY());
+					System.out.println("btn8ìœ„ì¹˜: " + btns[8].getX()+ ","+ btns[8].getY());
 					System.out.println(Arrays.toString(submit));
 					System.out.println(Arrays.toString(answer));
 
@@ -595,15 +595,15 @@ public class Gamepan extends JPanel {
 						submit[i*2] = btns[i].getX();
 						submit[(i*2)+1] = btns[i].getY();
 					}
-					System.out.println("btn0À§Ä¡: " + btns[0].getX()+ ","+ btns[1].getY());
-					System.out.println("btn1À§Ä¡: " + btns[1].getX()+ ","+ btns[1].getY());
-					System.out.println("btn2À§Ä¡: " + btns[2].getX()+ ","+ btns[2].getY());
-					System.out.println("btn3À§Ä¡: " + btns[3].getX()+ ","+ btns[3].getY());
-					System.out.println("btn4À§Ä¡: " + btns[4].getX()+ ","+ btns[4].getY());
-					System.out.println("btn5À§Ä¡: " + btns[5].getX()+ ","+ btns[5].getY());
-					System.out.println("btn6À§Ä¡: " + btns[6].getX()+ ","+ btns[6].getY());
-					System.out.println("btn7À§Ä¡: " + btns[7].getX()+ ","+ btns[7].getY());
-					System.out.println("btn8À§Ä¡: " + btns[8].getX()+ ","+ btns[8].getY());
+					System.out.println("btn0ìœ„ì¹˜: " + btns[0].getX()+ ","+ btns[1].getY());
+					System.out.println("btn1ìœ„ì¹˜: " + btns[1].getX()+ ","+ btns[1].getY());
+					System.out.println("btn2ìœ„ì¹˜: " + btns[2].getX()+ ","+ btns[2].getY());
+					System.out.println("btn3ìœ„ì¹˜: " + btns[3].getX()+ ","+ btns[3].getY());
+					System.out.println("btn4ìœ„ì¹˜: " + btns[4].getX()+ ","+ btns[4].getY());
+					System.out.println("btn5ìœ„ì¹˜: " + btns[5].getX()+ ","+ btns[5].getY());
+					System.out.println("btn6ìœ„ì¹˜: " + btns[6].getX()+ ","+ btns[6].getY());
+					System.out.println("btn7ìœ„ì¹˜: " + btns[7].getX()+ ","+ btns[7].getY());
+					System.out.println("btn8ìœ„ì¹˜: " + btns[8].getX()+ ","+ btns[8].getY());
 					System.out.println(Arrays.toString(submit));
 					System.out.println(Arrays.toString(answer));
 
@@ -614,7 +614,7 @@ public class Gamepan extends JPanel {
 		});
 		
 
-//½ÇÆÐ ½Ã ³ª¿À´Â ·¹ÀÌºí
+//ì‹¤íŒ¨ ì‹œ ë‚˜ì˜¤ëŠ” ë ˆì´ë¸”
 		JButton fail = new JButton() {
 			public void paintComponent(Graphics g) {
 				ImageIcon pass = new ImageIcon("src/miniproject/images/suddenGame/fail.png");
@@ -641,13 +641,13 @@ public class Gamepan extends JPanel {
 		panel.add(fail);
 		
 		
-		Font neo = new Font("ÈÞ¸Õ¿¢½ºÆ÷",Font.BOLD,20);
-		JLabel tIndi = new JLabel("³²Àº ½Ã°£");
+		Font neo = new Font("íœ´ë¨¼ì—‘ìŠ¤í¬",Font.BOLD,20);
+		JLabel tIndi = new JLabel("ë‚¨ì€ ì‹œê°„");
 		
 		
 		
 		
-		//¼º°ø ½Ã ³ª¿À´Â ·¹ÀÌºí	
+		//ì„±ê³µ ì‹œ ë‚˜ì˜¤ëŠ” ë ˆì´ë¸”	
 		
 		JButton pass = new JButton() {
 			public void paintComponent(Graphics g) {
@@ -683,7 +683,7 @@ public class Gamepan extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				tIndi.setText("³²Àº ½Ã°£ " + (t-1));
+				tIndi.setText("ë‚¨ì€ ì‹œê°„ " + (t-1));
 				t--;
 				if ((t)==0) {
 					timer.stop();
@@ -725,7 +725,7 @@ public class Gamepan extends JPanel {
 			submission.setBounds(800,50,150,50);
 			
 			
-			//Á¤´äÈ®ÀÎ ¹öÆ°!
+			//ì •ë‹µí™•ì¸ ë²„íŠ¼!
 			
 			panel.add(submission);
 			
@@ -741,7 +741,7 @@ public class Gamepan extends JPanel {
 								
 							
 					}
-					else {//Á¤´äÀÌ ¾Æ´Ï¸é
+					else {//ì •ë‹µì´ ì•„ë‹ˆë©´
 						timer.stop();
 						fail.setVisible(true);
 						fail.addActionListener(new ActionListener() {

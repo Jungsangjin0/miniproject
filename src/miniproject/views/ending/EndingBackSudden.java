@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import miniproject.model.vo.Player123;
 import miniproject.views.MainFrame;
 
-public class EndingBackSudden extends JPanel { //µ¹¹ß°ÔÀÓ
+public class EndingBackSudden extends JPanel { //ëŒë°œê²Œì„
 
 	private MainFrame mf;
 	private EndingBackSudden panel = this;

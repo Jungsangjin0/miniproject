@@ -14,7 +14,7 @@ import miniproject.views.MainFrame;
 
 
 
-public class MiniGameDance extends JPanel { // ¹Ì´Ï°ÔÀÓ ¿¬°áÈ­¸é (Ãã¿¬½ÀÀå µé¾î°¡¼­ Ã¹È­¸é)
+public class MiniGameDance extends JPanel { // ë¯¸ë‹ˆê²Œì„ ì—°ê²°í™”ë©´ (ì¶¤ì—°ìŠµì¥ ë“¤ì–´ê°€ì„œ ì²«í™”ë©´)
 
 	private ImageIcon back;
 	private ImageIcon talk;
@@ -33,9 +33,9 @@ public class MiniGameDance extends JPanel { // ¹Ì´Ï°ÔÀÓ ¿¬°áÈ­¸é (Ãã¿¬½ÀÀå µé¾î°
 		this.player = player;
 		
 		this.setLayout(null);
-		back = new ImageIcon("src/miniproject/images/SJH/minigamekey.PNG"); //¹è°æ
-		talk = new ImageIcon("src/miniproject/images/SJH/conv.PNG"); //´ëÈ­Ã¢
-		characters = new ImageIcon("src/miniproject/images/SJH/Characters_1.GIF"); //Ä³¸¯ÅÍ
+		back = new ImageIcon("src/miniproject/images/SJH/minigamekey.PNG"); //ë°°ê²½
+		talk = new ImageIcon("src/miniproject/images/SJH/conv.PNG"); //ëŒ€í™”ì°½
+		characters = new ImageIcon("src/miniproject/images/SJH/Characters_1.GIF"); //ìºë¦­í„°
 
 
 		this.addMouseListener(new MyMouseAdapter()); 
@@ -45,13 +45,13 @@ public class MiniGameDance extends JPanel { // ¹Ì´Ï°ÔÀÓ ¿¬°áÈ­¸é (Ãã¿¬½ÀÀå µé¾î°
 	public void paintComponent(Graphics g) {
 
 		g.drawImage(back.getImage(), 0, 0, this.getWidth(),this.getHeight(),null);
-		g.drawImage(talk.getImage(), 0, 600, 1400, 250,null); //¿ø·¡ À§Ä¡ : 0,600,1400,250
-		g.drawImage(characters.getImage(), 520, 200, 398, 398, this);//¿ø·¡Å©±â : 398,398
-		g.setFont(new Font("NeoµÕ±Ù¸ğ", Font.BOLD, 30));
-		g.drawString("¡Ø Å¬¸¯ÇÏ¿© °ÔÀÓÀ» ÁøÇàÇÏ¼¼¿ä ¡Ø ", 100, 660);
-		g.drawString("¿À´Ãµµ Ãã¿¬½ÀÀ» ÇØº¸ÀÚ ¢Ü", 100, 710); //±Û¾¾ À§Ä¡ Á¶Àı ÇÊ¿ä    //700->700
-		g.drawString("Yeah ´Ù½Ã µ¹¾Æ¿ÔÁö ³» ÀÌ¸§ ·¹ÀÎ ½ºÀ¡À» »Ë³» WHOO ~ ¢İ  ", 100, 760);   //780->750
-		g.drawString("They call it ¿ÕÀÇ ±ÍÈ¯ ~ ¢Ú ", 100, 810);  //850->800
+		g.drawImage(talk.getImage(), 0, 600, 1400, 250,null); //ì›ë˜ ìœ„ì¹˜ : 0,600,1400,250
+		g.drawImage(characters.getImage(), 520, 200, 398, 398, this);//ì›ë˜í¬ê¸° : 398,398
+		g.setFont(new Font("Neoë‘¥ê·¼ëª¨", Font.BOLD, 30));
+		g.drawString("â€» í´ë¦­í•˜ì—¬ ê²Œì„ì„ ì§„í–‰í•˜ì„¸ìš” â€» ", 100, 660);
+		g.drawString("ì˜¤ëŠ˜ë„ ì¶¤ì—°ìŠµì„ í•´ë³´ì â™ª", 100, 710); //ê¸€ì”¨ ìœ„ì¹˜ ì¡°ì ˆ í•„ìš”    //700->700
+		g.drawString("Yeah ë‹¤ì‹œ ëŒì•„ì™”ì§€ ë‚´ ì´ë¦„ ë ˆì¸ ìŠ¤ì›©ì„ ë½ë‚´ WHOO ~ â™¬  ", 100, 760);   //780->750
+		g.drawString("They call it ì™•ì˜ ê·€í™˜ ~ â™­ ", 100, 810);  //850->800
 		setOpaque(false);
 		super.paintComponent(g);
 	}
@@ -62,7 +62,7 @@ public class MiniGameDance extends JPanel { // ¹Ì´Ï°ÔÀÓ ¿¬°áÈ­¸é (Ãã¿¬½ÀÀå µé¾î°
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			ChangePanel.changePanel(mf, panel, new MiniGameDance2(mf,player));      //Ãã°ÔÀÓ2È­¸éÀ¸·Î ³Ñ¾î°¨.
+			ChangePanel.changePanel(mf, panel, new MiniGameDance2(mf,player));      //ì¶¤ê²Œì„2í™”ë©´ìœ¼ë¡œ ë„˜ì–´ê°.
 			mf.revalidate();
 		}
 

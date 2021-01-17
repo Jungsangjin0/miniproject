@@ -40,7 +40,7 @@ public class MainRoom extends JPanel{
 		
 		pyosi.setLayout(null);
 		pyosi.setBounds(600,0,500,200);
-		pyosi.setFont(new Font("¸¼Àº°íµñ", Font.BOLD, 25));
+		pyosi.setFont(new Font("ë§‘ì€ê³ ë”•", Font.BOLD, 25));
 		pyosi.setForeground(Color.WHITE);
 		panel.add(pyosi);
 		
@@ -63,7 +63,7 @@ public class MainRoom extends JPanel{
 		g.drawImage(room,250,120,848,482,null);
 		g.drawImage(talk,5,620,1390,250,null);
 		g.setFont(new Font("gorthic", Font.BOLD,40));
-		g.drawString("°ø¿ø¿¡ °¡°í½ÍÀº ³¯ÀÌ¾ç...", 70, 750);
+		g.drawString("ê³µì›ì— ê°€ê³ ì‹¶ì€ ë‚ ì´ì–‘...", 70, 750);
 		setOpaque(false);
 		
 	}

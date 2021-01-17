@@ -17,18 +17,18 @@ import miniproject.views.MainFrame;
 import miniproject.views.Pyosi;
 import miniproject.views.mainMap.MainMapJunguk;
 
-public class Sosok_01 extends JPanel { //¼Ò¼Ó»ç Ã¹È­¸é
+public class Sosok_01 extends JPanel { //ì†Œì†ì‚¬ ì²«í™”ë©´
 
    private MainFrame mf;
    private JPanel panel;
 
-   private ImageIcon back; //¹è°æ
-   private ImageIcon talk; //´ëÈ­»óÀÚ
+   private ImageIcon back; //ë°°ê²½
+   private ImageIcon talk; //ëŒ€í™”ìƒì
    private ImageIcon characters =new ImageIcon("src/miniproject/images/SJH/Characters_5.png");
    private ImageIcon sajang = new ImageIcon("src/miniproject/images/sosok/sajang.PNG");
 
    private ImageIcon doorMain;
-   private JLabel door;//¹®
+   private JLabel door;//ë¬¸
    private Player123 player;
    private Pyosi pyosi;
    
@@ -44,13 +44,13 @@ public class Sosok_01 extends JPanel { //¼Ò¼Ó»ç Ã¹È­¸é
       pyosi = new Pyosi(player);
       pyosi.setLayout(null);
       pyosi.setBounds(600,0,500,200);
-      pyosi.setFont(new Font("¸¼Àº°íµñ", Font.BOLD, 25));
+      pyosi.setFont(new Font("ë§‘ì€ê³ ë”•", Font.BOLD, 25));
       pyosi.setForeground(Color.WHITE);
       panel.add(pyosi);
       
 
-      back = new ImageIcon("src/miniproject/images/SJH/minibackgroundfinish.PNG"); //¹è°æ-¼Ò¼Ó»ç
-      talk = new ImageIcon("src/miniproject/images/SJH/conv.PNG"); //´ëÈ­Ã¢
+      back = new ImageIcon("src/miniproject/images/SJH/minibackgroundfinish.PNG"); //ë°°ê²½-ì†Œì†ì‚¬
+      talk = new ImageIcon("src/miniproject/images/SJH/conv.PNG"); //ëŒ€í™”ì°½
       Image cimage = characters.getImage().getScaledInstance(100, 100, 0);
       Image simage  = sajang.getImage().getScaledInstance(100, 100, 0);
       ImageIcon cIcon = new ImageIcon(cimage);
@@ -58,7 +58,7 @@ public class Sosok_01 extends JPanel { //¼Ò¼Ó»ç Ã¹È­¸é
       
 
       doorMain = new ImageIcon("src/miniproject/images/SJH/outdoor.png");
-      //¹® 
+      //ë¬¸ 
       door = new JLabel(doorMain);
       door.setLayout(null);
       door.setBounds(0, 300, 40, 250);
@@ -85,11 +85,11 @@ public class Sosok_01 extends JPanel { //¼Ò¼Ó»ç Ã¹È­¸é
       super.paintComponent(g);
 
       g.drawImage(back.getImage(), 0, 0, this.getWidth(),this.getHeight(),null);
-      g.drawImage(talk.getImage(), 0, 600, 1400, 250,null); //¿ø·¡ À§Ä¡ : 0,600,1400,250
+      g.drawImage(talk.getImage(), 0, 600, 1400, 250,null); //ì›ë˜ ìœ„ì¹˜ : 0,600,1400,250
       g.drawImage(sajang.getImage(), 300, 300, 250, 250, this);
       g.drawImage(characters.getImage(), 10, 300, 250, 250, this);
-      g.setFont(new Font("NeoµÕ±Ù¸ğ", Font.BOLD, 30));
-      g.drawString("[¼Ò¼Ó»ç¾È...]", 100, 730);
+      g.setFont(new Font("Neoë‘¥ê·¼ëª¨", Font.BOLD, 30));
+      g.drawString("[ì†Œì†ì‚¬ì•ˆ...]", 100, 730);
    
    }
 

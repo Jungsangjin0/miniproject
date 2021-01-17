@@ -14,7 +14,7 @@ import miniproject.views.MainFrame;
 import miniproject.views.minipublic.Sosok_dancebutton;
 
 
-public class MiniGameDance3_Lose extends JPanel{ // ¹Ì´Ï°ÔÀÓ Áö¸é ³ª¿À´Â È­¸é
+public class MiniGameDance3_Lose extends JPanel{ // ë¯¸ë‹ˆê²Œì„ ì§€ë©´ ë‚˜ì˜¤ëŠ” í™”ë©´
 
    private MainFrame mf;
    private MiniGameDance3_Lose panel;
@@ -52,8 +52,8 @@ public class MiniGameDance3_Lose extends JPanel{ // ¹Ì´Ï°ÔÀÓ Áö¸é ³ª¿À´Â È­¸é
       if (characters != null) {
          g.drawImage(characters.getImage(), 500, 250, 398, 398, this);
       }
-      g.setFont(new Font("NeoµÕ±Ù¸ğ", Font.BOLD, 40));
-      g.drawString("¾Æ½¬¿ö¿ä.. Ãã½ºÅ³À» ¾òÁö ¸øÇß½À´Ï´Ù........", 70, 750);
+      g.setFont(new Font("Neoë‘¥ê·¼ëª¨", Font.BOLD, 40));
+      g.drawString("ì•„ì‰¬ì›Œìš”.. ì¶¤ìŠ¤í‚¬ì„ ì–»ì§€ ëª»í–ˆìŠµë‹ˆë‹¤........", 70, 750);
 
       setOpaque(false);
       super.paintComponent(g);

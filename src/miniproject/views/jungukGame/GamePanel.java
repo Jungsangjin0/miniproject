@@ -125,13 +125,13 @@ public class GamePanel extends JPanel{
 		});
 
 		Font neo = new Font("Sanscerif",Font.BOLD,27);
-		JTextField tm = new JTextField("  ³²Àº ½Ã°£  : ");
+		JTextField tm = new JTextField("  ë‚¨ì€ ì‹œê°„  : ");
 
 		timer = new Timer(1000, new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				tm.setText("  ³²Àº ½Ã°£  :  " + (t));
+				tm.setText("  ë‚¨ì€ ì‹œê°„  :  " + (t));
 				if (t == 0) {
 					timer.stop();
 					try {
@@ -140,7 +140,7 @@ public class GamePanel extends JPanel{
 					} catch (InterruptedException e1) {
 						e1.printStackTrace();
 					}
-					tm.setText("  ½Ã°£ÃÊ°ú!");
+					tm.setText("  ì‹œê°„ì´ˆê³¼!");
 				}
 				t--;
 			}
@@ -177,69 +177,69 @@ public class GamePanel extends JPanel{
 
 				if(i == 0) {
 					for (int j = 0; j < answer.length; j++  ) {
-						if("»ç¶ûÀÇ¹èÅÍ¸®".equals(answer[j])|| "»ç¶ûÀÇ ¹èÅÍ¸®".equals(answer[j])) {
+						if("ì‚¬ë‘ì˜ë°°í„°ë¦¬".equals(answer[j])|| "ì‚¬ë‘ì˜ ë°°í„°ë¦¬".equals(answer[j])) {
 							point += 10;
-						} if("µû¸£¸ª".equals(answer[j])) {
+						} if("ë”°ë¥´ë¦‰".equals(answer[j])) {
 							point += 10;
-						} if("ºÎ±â¸Ç".equals(answer[j])) {
+						} if("ë¶€ê¸°ë§¨".equals(answer[j])) {
 							point += 10;
-						} if("»ê´Ù´Â°Ç".equals(answer[j])) {
+						} if("ì‚°ë‹¤ëŠ”ê±´".equals(answer[j])) {
 							point += 10;
-						} if("³»»ç¶û".equals(answer[j])) {
+						} if("ë‚´ì‚¬ë‘".equals(answer[j])) {
 							point += 10;
 						}
 
 					}} else if(i == 1) {
 						for (int j = 0; j < answer.length; j++  ) {
-							if("ÅÂÅ¬À»°ÉÁö¸¶".equals(answer[j])|| "ÅÂÅ¬À» °ÉÁö¸¶".equals(answer[j])) {
+							if("íƒœí´ì„ê±¸ì§€ë§ˆ".equals(answer[j])|| "íƒœí´ì„ ê±¸ì§€ë§ˆ".equals(answer[j])) {
 								point += 10;
-							} if("¾Èµ¿¿ª¿¡¼­".equals(answer[j])) {
+							} if("ì•ˆë™ì—­ì—ì„œ".equals(answer[j])) {
 								point += 10;
-							} if("µ¿ÀüÀÎ»ı".equals(answer[j])|| "µ¿Àü ÀÎ»ı".equals(answer[j])) {
+							} if("ë™ì „ì¸ìƒ".equals(answer[j])|| "ë™ì „ ì¸ìƒ".equals(answer[j])) {
 								point += 10;
-							} if("°¡Áö¸¶".equals(answer[j])) {
+							} if("ê°€ì§€ë§ˆ".equals(answer[j])) {
 								point += 10;
-							} if("º¸¸´°í°³".equals(answer[j])) {
+							} if("ë³´ë¦¿ê³ ê°œ".equals(answer[j])) {
 								point += 10;
 							}
 
 						}} else if(i == 2) {
 							for (int j = 0; j < answer.length; j++  ) {
-								if("Ã¹»ç¶û".equals(answer[j])|| "Ã¹ »ç¶û".equals(answer[j])) {
+								if("ì²«ì‚¬ë‘".equals(answer[j])|| "ì²« ì‚¬ë‘".equals(answer[j])) {
 									point += 10;
-								} if("»ç¶ûÂü".equals(answer[j])) {
+								} if("ì‚¬ë‘ì°¸".equals(answer[j])) {
 									point += 10;
-								} if("¾î¸Ó³ª".equals(answer[j])) {
+								} if("ì–´ë¨¸ë‚˜".equals(answer[j])) {
 									point += 10;
-								} if("Â§Â¥¶ó".equals(answer[j])) {
+								} if("ì§ ì§œë¼".equals(answer[j])) {
 									point += 10;
-								} if("ÀÌµûÀÌµû¿ä".equals(answer[j])) {
+								} if("ì´ë”°ì´ë”°ìš”".equals(answer[j])) {
 									point += 10;
 								}
 							}} else if(i == 3) {
 								for (int j = 0; j < answer.length; j++  ) {
-									if("»ç¶ûÀÇÆ®À§½ºÆ®".equals(answer[j])|| "»ç¶ûÀÇ Æ®À§½ºÆ®".equals(answer[j])) {
+									if("ì‚¬ë‘ì˜íŠ¸ìœ„ìŠ¤íŠ¸".equals(answer[j])|| "ì‚¬ë‘ì˜ íŠ¸ìœ„ìŠ¤íŠ¸".equals(answer[j])) {
 										point += 10;
-									} if("»ï¹ÙÀÇ¿©ÀÎ".equals(answer[j])|| "»ï¹ÙÀÇ ¿©ÀÎ".equals(answer[j])) {
+									} if("ì‚¼ë°”ì˜ì—¬ì¸".equals(answer[j])|| "ì‚¼ë°”ì˜ ì—¬ì¸".equals(answer[j])) {
 										point += 10;
-									} if("±×·±¿©ÀÚ¾ø¾î¿ä".equals(answer[j])||"±×·±¿©ÀÚ ¾ø¾î¿ä".equals(answer[j])) {
+									} if("ê·¸ëŸ°ì—¬ìì—†ì–´ìš”".equals(answer[j])||"ê·¸ëŸ°ì—¬ì ì—†ì–´ìš”".equals(answer[j])) {
 										point += 10;
-									} if("°¥¸Å±â»ç¶û".equals(answer[j])||"°¥¸Å±â »ç¶û".equals(answer[j])) {
+									} if("ê°ˆë§¤ê¸°ì‚¬ë‘".equals(answer[j])||"ê°ˆë§¤ê¸° ì‚¬ë‘".equals(answer[j])) {
 										point += 10;
-									} if("´©ÀÌ".equals(answer[j])) {
+									} if("ëˆ„ì´".equals(answer[j])) {
 										point += 10;
 									}
 								}} else if(i == 4) {
 									for (int j = 0; j < answer.length; j++  ) {
-										if("¾Æ¸ğ¸£ÆÄÆ¼".equals(answer[j])|| "¾Æ¸ğ¸£ ÆÄÆ¼".equals(answer[j])) {
+										if("ì•„ëª¨ë¥´íŒŒí‹°".equals(answer[j])|| "ì•„ëª¨ë¥´ íŒŒí‹°".equals(answer[j])) {
 											point += 10;
-										} if("¼öÀºµî".equals(answer[j])) {
+										} if("ìˆ˜ì€ë“±".equals(answer[j])) {
 											point += 10;
-										} if("»õÅ¸·É".equals(answer[j])) {
+										} if("ìƒˆíƒ€ë ¹".equals(answer[j])) {
 											point += 10;
-										} if("ºø¼ÓÀÇ ¿©ÀÎ".equals(answer[j])||"ºø¼ÓÀÇ¿©ÀÎ".equals(answer[j])) {
+										} if("ë¹—ì†ì˜ ì—¬ì¸".equals(answer[j])||"ë¹—ì†ì˜ì—¬ì¸".equals(answer[j])) {
 											point += 10;
-										} if("´ç½ÅÀÌÁÁ¾Æ".equals(answer[j])||"´ç½ÅÀÌ ÁÁ¾Æ".equals(answer[j])) {
+										} if("ë‹¹ì‹ ì´ì¢‹ì•„".equals(answer[j])||"ë‹¹ì‹ ì´ ì¢‹ì•„".equals(answer[j])) {
 											point += 10;
 										}
 									}

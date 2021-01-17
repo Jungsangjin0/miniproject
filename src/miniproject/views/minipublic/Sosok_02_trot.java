@@ -18,15 +18,15 @@ public class Sosok_02_trot extends JPanel {
 	private MainFrame mf;
 	private JPanel panel;
 
-	private ImageIcon back; //¹è°æ
-	private ImageIcon talk; //´ëÈ­»óÀÚ
+	private ImageIcon back; //ë°°ê²½
+	private ImageIcon talk; //ëŒ€í™”ìƒì
 	private ImageIcon characters =new ImageIcon("src/miniproject/images/SJH/Characters_6.png");
 	private ImageIcon sajang = new ImageIcon("src/miniproject/images/sosok/sajang.PNG");
 
 	private Player123 player;
 
-	private Image doorR; //¼Ò¼Ó»ç ¹®(¹Ì´Ï°ÔÀÓ Ãã)
-	private Image doorL; //¼Ò¼Ó»ç ¹®(¹Ì´Ï°ÔÀÓ ³ë·¡)
+	private Image doorR; //ì†Œì†ì‚¬ ë¬¸(ë¯¸ë‹ˆê²Œì„ ì¶¤)
+	private Image doorL; //ì†Œì†ì‚¬ ë¬¸(ë¯¸ë‹ˆê²Œì„ ë…¸ë˜)
 
 
 
@@ -38,8 +38,8 @@ public class Sosok_02_trot extends JPanel {
 		
 		this.setLayout(null);
 
-		back = new ImageIcon("src/miniproject/images/SJH/minibackgroundfinish.PNG"); //¹è°æ-¼Ò¼Ó»ç
-		talk = new ImageIcon("src/miniproject/images/SJH/conv.PNG"); //´ëÈ­Ã¢
+		back = new ImageIcon("src/miniproject/images/SJH/minibackgroundfinish.PNG"); //ë°°ê²½-ì†Œì†ì‚¬
+		talk = new ImageIcon("src/miniproject/images/SJH/conv.PNG"); //ëŒ€í™”ì°½
 
 		Image cimage = characters.getImage().getScaledInstance(100, 100, 0);
 		Image simage  = sajang.getImage().getScaledInstance(100, 100, 0);
@@ -53,9 +53,9 @@ public class Sosok_02_trot extends JPanel {
 
 		super.paintComponent(g);
 		g.drawImage(back.getImage(), 0, 0, this.getWidth(),this.getHeight(),null);
-		g.drawImage(talk.getImage(), 0, 600, 1400, 250,null); //¿ø·¡ À§Ä¡ : 0,600,1400,250
-		g.setFont(new Font("NeoµÕ±Ù¸ğ", Font.BOLD, 30));
-		g.drawString("[»çÀå´Ô!! µ¥ºß½ÃÄÑÁÖ¼Å¼­ °¨»çÇÕ´Ï´Ù!!!]", 100, 730);
+		g.drawImage(talk.getImage(), 0, 600, 1400, 250,null); //ì›ë˜ ìœ„ì¹˜ : 0,600,1400,250
+		g.setFont(new Font("Neoë‘¥ê·¼ëª¨", Font.BOLD, 30));
+		g.drawString("[ì‚¬ì¥ë‹˜!! ë°ë·”ì‹œì¼œì£¼ì…”ì„œ ê°ì‚¬í•©ë‹ˆë‹¤!!!]", 100, 730);
 		g.drawImage(sajang.getImage(), 300, 300, 250, 250, this);
 		g.drawImage(characters.getImage(), 10, 300, 250, 250, this);
 

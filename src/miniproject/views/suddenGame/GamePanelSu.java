@@ -23,7 +23,7 @@ public class GamePanelSu extends JPanel{
 		
 		ImageIcon bground = new ImageIcon("src/miniproject/images/suddenGame/bground_0.jpg");
 		g.drawImage(bground.getImage(), 0, 0, 1400, 900, null);
-		setOpaque(false); //±×¸²À» Ç¥½ÃÇÏ°Ô ¼³Á¤,Åõ¸íÇÏ°Ô Á¶Àı
+		setOpaque(false); //ê·¸ë¦¼ì„ í‘œì‹œí•˜ê²Œ ì„¤ì •,íˆ¬ëª…í•˜ê²Œ ì¡°ì ˆ
 		super.paintComponent(g);
 	}
 	

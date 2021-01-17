@@ -31,12 +31,12 @@ public class NickName extends JPanel {
    private Player123 player;
    
    
-   // ¹è°æÈ­¸é ¼³Á¤ºÎºĞ
+   // ë°°ê²½í™”ë©´ ì„¤ì •ë¶€ë¶„
    public void paintComponent(Graphics g) { 
 	   ImageIcon bground = new ImageIcon("src/miniproject/images/nickNameSelect/nickname_background.jpeg");
 	   
 	   g.drawImage(bground.getImage(), 0, 0, 1400, 900, null);
-	   setOpaque(false); //±×¸²À» Ç¥½ÃÇÏ°Ô ¼³Á¤,Åõ¸íÇÏ°Ô Á¶Àı
+	   setOpaque(false); //ê·¸ë¦¼ì„ í‘œì‹œí•˜ê²Œ ì„¤ì •,íˆ¬ëª…í•˜ê²Œ ì¡°ì ˆ
 	   super.paintComponent(g);
    };
    public NickName(MainFrame mf) {
@@ -45,7 +45,7 @@ public class NickName extends JPanel {
 	   
 	   player = new Player123();
 	   
-      //ÅØ½ºÆ® ÀÔ·ÂÇÏ´Â °÷-------------------------------
+      //í…ìŠ¤íŠ¸ ì…ë ¥í•˜ëŠ” ê³³-------------------------------
       JTextField get_nickname = new JTextField(3) {
          public void paintComponent (Graphics g) {
         	 ImageIcon inputw = new ImageIcon("src/miniproject/images/nickNameSelect/malpung.png");
@@ -57,7 +57,7 @@ public class NickName extends JPanel {
       
       
 
-      Font neo = new Font("NeoµÕ±Ù¸ğ",Font.BOLD,30);
+      Font neo = new Font("Neoë‘¥ê·¼ëª¨",Font.BOLD,30);
       get_nickname.setDocument(new JTextFieldLimit(3));
       get_nickname.setLayout(null);
       get_nickname.setBorder(null);
@@ -67,7 +67,7 @@ public class NickName extends JPanel {
       get_nickname.setOpaque(false);
       this.add(get_nickname);
       
-      //´Ğ³×ÀÓ ¼³Á¤ ºÎºĞ-----------
+      //ë‹‰ë„¤ì„ ì„¤ì • ë¶€ë¶„-----------
       JLabel nn = new JLabel() {
     	  ImageIcon nickn = new ImageIcon("src/miniproject/images/nickNameSelect/nickname.png");
          public void paintComponent (Graphics g) {
@@ -80,7 +80,7 @@ public class NickName extends JPanel {
       nn.setBounds(190,350,400,100);
       this.add(nn);
 
-      //´Ğ³×ÀÓ ¼³Á¤ÇÑ °Å Ãâ·ÂÇÏ´Â ºÎºĞ~~~
+      //ë‹‰ë„¤ì„ ì„¤ì •í•œ ê±° ì¶œë ¥í•˜ëŠ” ë¶€ë¶„~~~
       
 
       nickname = get_nickname.getText(); 
@@ -88,7 +88,7 @@ public class NickName extends JPanel {
       setBtnText.setBounds(450, 100, 700, 100);
       setBtnText.setEditable(false);
       this.add(setBtnText);
-      Font neo2 = new Font("NeoµÕ±Ù¸ğ",Font.BOLD, 25);
+      Font neo2 = new Font("Neoë‘¥ê·¼ëª¨",Font.BOLD, 25);
       setBtnText.setForeground(Color.WHITE);
       setBtnText.setFont(neo2);
       setBtnText.setBorder(null);
@@ -109,9 +109,9 @@ public class NickName extends JPanel {
          public void actionPerformed(ActionEvent e) {
             nickname = get_nickname.getText();
             if (nickname.equals("")) {
-            	 setBtnText.setText("´Ğ³×ÀÓÀº 1±ÛÀÚ ÀÌ»ó, 3±ÛÀÚ ÀÌÇÏ·Î ÀÔ·ÂÇØÁÖ¼¼¿ä");
+            	 setBtnText.setText("ë‹‰ë„¤ì„ì€ 1ê¸€ì ì´ìƒ, 3ê¸€ì ì´í•˜ë¡œ ì…ë ¥í•´ì£¼ì„¸ìš”");
             }else {
-            setBtnText.setText("´ç½ÅÀÇ ´Ğ³×ÀÓÀº "+ nickname + " ÀÔ´Ï´Ù. È¯¿µÇÕ´Ï´Ù.");
+            setBtnText.setText("ë‹¹ì‹ ì˜ ë‹‰ë„¤ì„ì€ "+ nickname + " ì…ë‹ˆë‹¤. í™˜ì˜í•©ë‹ˆë‹¤.");
             setBtnText.removeAll();
             setBtnText.setFocusable(true);
             player.setUserId(nickname);
